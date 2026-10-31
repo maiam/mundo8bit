@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import './style.css';
+import {createTouchControls} from './touch-controls.js';
+const touch = createTouchControls();
 import {CHUNK_SIZE, SEED, hash, heightAt, chunkAt, wantedChunks} from './world.js';
 
 const scene = new THREE.Scene();
@@ -57,7 +59,8 @@ function resize(){const aspect=innerWidth/innerHeight;camera.left=-18*aspect;cam
 function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;elapsed+=dt;
   let x=Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft'));
   let z=Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup'));
-  const length=Math.hypot(x,z);if(length){x/=length;z/=length;const speed=keys.has('shift')?8:4;player.position.x+=(x+z)*.7071*speed*dt;player.position.z+=(z-x)*.7071*speed*dt;player.rotation.y=Math.atan2(x+z,z-x);}
+  x += touch.x; z += touch.z;
+  const length=Math.hypot(x,z);if(length){const limit=Math.max(1,length);x/=limit;z/=limit;const speed=(keys.has('shift')||touch.running)?8:4;player.position.x+=(x+z)*.7071*speed*dt;player.position.z+=(z-x)*.7071*speed*dt;player.rotation.y=Math.atan2(x+z,z-x);}
   player.position.y=Math.max(heightAt(player.position.x,player.position.z),-1.5)+(length?Math.sin(elapsed*13)*.06:0);
   const chunk=chunkAt(player.position.x,player.position.z).join(',');if(chunk!==lastChunk){stream();lastChunk=chunk;}
   water.position.x=player.position.x;water.position.z=player.position.z;
