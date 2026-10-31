@@ -2,6 +2,12 @@
 
 Protótipo de exploração em mundo aberto **2,5D**, com câmera ortográfica e direção de arte **low poly painted — Painted using Blockbench with flat textures**.
 
+## Estado e próximo passo
+
+Hoje é um protótipo de exploração: mundo, fauna, colisões e controles estão implementados; objetivos, interação com animais, áudio, recompensas e progresso salvo ainda não. Para uma criança de aproximadamente 5 anos, a proposta é começar com um encontro guiado com a capivara e uma figurinha, depois ampliar para três amigos. Essa brincadeira ainda precisa ser implementada e observada em uso.
+
+Veja o [estado atual auditado](docs/estado-atual.md), o [design para 5 anos](docs/design-crianca-5-anos.md), o [plano de entregas](docs/roadmap.md) e o [índice da documentação](docs/README.md).
+
 ## Executar
 
 Requer Node.js 22.12+.
@@ -43,4 +49,4 @@ Veja [a fauna](docs/fauna.md), [a coleção de pedras e flores](docs/pedras-flor
 
 Three.js + Vite. Terreno determinístico pela semente 808, chunks de 12 × 12 unidades e janela de 5 × 5 chunks. Alturas globais mantêm bordas contínuas. Chunks distantes liberam suas malhas de terreno; os assets glTF compartilham geometria, textura e material. Terreno e água usam o atlas pintado, mantendo a geração procedural.
 
-O personagem colide com troncos, raízes, pedras e animais; água profunda bloqueia a passagem e flores são atravessáveis. Os animais também evitam obstáculos e o personagem. Veja [as regras de colisão](docs/colisoes.md). Ainda não há combate, inventário, salvamento, áudio ou multiplayer. Geração síncrona; workers e instancing são próximos passos para mundos mais densos. O desempenho em aparelhos reais ainda precisa ser medido.
+O personagem colide com troncos, raízes, pedras e animais; água profunda bloqueia a passagem e flores são atravessáveis. Os animais também evitam obstáculos e o personagem. Veja [as regras de colisão](docs/colisoes.md). Ainda não há combate, inventário, salvamento, áudio ou multiplayer. Geração síncrona; elementos de natureza já usam instancing. Workers e outras otimizações dependem de gargalos medidos. O desempenho em aparelhos reais ainda precisa ser medido.

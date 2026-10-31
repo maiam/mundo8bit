@@ -1,5 +1,7 @@
 # Assets Blockbench / v02
 
+> Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
+
 ## Abrir e editar
 
 Abra um arquivo de `assets/blockbench/` no Blockbench. O PNG está incorporado em cada fonte; o atlas externo original está em `assets/textures/mundo8bit-painted-v02.png`. São Generic Models com faces trianguladas e UVs por face, compartilhando células por material. Texturas planas têm padrões reutilizados, sem bake de luz. O atlas é uma primeira passagem estilizada.

@@ -1,5 +1,7 @@
 # Fauna / modelos v01
 
+> Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
+
 Referência aprovada para implementação: `docs/art/animais-v01-aprovada.png`. Modelos adaptados em low poly painted, com fontes Generic Model no Blockbench 5.2.2, atlas plano PNG de 256 × 256 e exports glTF nativos.
 
 ## Catálogo

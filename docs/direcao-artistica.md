@@ -1,5 +1,7 @@
 # Mundo8bit — direção artística
 
+> Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
+
 ## Direção oficial
 
 **Low poly painted — “Painted using Blockbench with flat textures.”**

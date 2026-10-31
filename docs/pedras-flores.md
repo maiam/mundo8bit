@@ -1,5 +1,7 @@
 # Pedras e flores / implementação v01
 
+> Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
+
 Referência: `docs/art/pedras-flores-v01-aprovada.png`. Fontes: `assets/blockbench/pedra-*-v01.bbmodel` e `assets/blockbench/flor-*-v01.bbmodel`. Manifesto: `public/assets/nature-manifest.json`. Atlas externo: `assets/textures/natureza-painted-v01.png`, também incorporado nos fontes e exports.
 
 ## Produção

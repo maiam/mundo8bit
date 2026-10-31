@@ -14,3 +14,8 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 - Consultar `docs/direcao-artistica.md` antes de criar ou revisar assets.
 
 - Fauna A01–A11: referência `docs/art/animais-v01-aprovada.png`, fontes `animal-*-v01.bbmodel`, atlas `fauna-painted-v01.png`. Preservar nomes e pivôs das partes usados pelas animações de `src/fauna.js`. Refinamentos devem abrir v02.
+
+## Público e planejamento
+
+- Considerar o público de aproximadamente 5 anos: convites compreensíveis sem leitura, controles tolerantes e respostas claras às ações. Validar essas hipóteses em uso.
+- Consultar `docs/estado-atual.md`, `docs/design-crianca-5-anos.md` e `docs/roadmap.md`. O design infantil é uma proposta; não documentar funcionalidades planejadas como implementadas.

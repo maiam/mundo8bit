@@ -1,5 +1,7 @@
 # Mobile horizontal, controles e zoom / v02
 
+> Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
+
 ## Experiência
 
 Em dispositivos com ponteiro de toque, o jogo exige uma janela horizontal para jogar. Em retrato, exibe “Jogue na horizontal”, bloqueia a interface e pausa personagem e fauna. A simulação e os controles retomam ao girar. Rotação, perda de foco e interrupção do toque zeram o joystick/corrida e encerram gestos de pinça, evitando movimento preso.

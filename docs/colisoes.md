@@ -1,5 +1,7 @@
 # Colisões / v01
 
+> Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
+
 O personagem agora colide com troncos, raízes de mangues, pedras e corpos de animais. Os animais também evitam esses obstáculos, o personagem e outros animais. Flores continuam atravessáveis. Os assets e a direção de arte permanecem preservados.
 
 ## Movimento
