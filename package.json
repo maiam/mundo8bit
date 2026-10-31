@@ -1,0 +1,1 @@
+{"name":"mundo8bit","version":"0.1.0","private":true,"type":"module","description":"Mundo aberto 2,5D low poly gerado por chunks","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","preview":"vite preview --host 0.0.0.0","test":"node --test"},"dependencies":{"three":"^0.182.0"},"devDependencies":{"vite":"^7.0.0"}}
