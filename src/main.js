@@ -72,7 +72,7 @@ function resize(){
  camera.zoom=Math.max(layout.minZoom,Math.min(layout.maxZoom,camera.zoom));camera.updateProjectionMatrix();
  const ratio=Math.min(window.devicePixelRatio||1,1.5,Math.sqrt(2000000/(innerWidth*innerHeight)));
  renderer.setPixelRatio(ratio);renderer.setSize(innerWidth,innerHeight,false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
-}window.addEventListener('resize',resize);matchMedia('(any-pointer:coarse)').addEventListener('change',resize);resize();
+}window.addEventListener('resize',resize);matchMedia('(any-pointer:coarse)').addEventListener('change',resize);document.addEventListener('fullscreenchange',resize);document.addEventListener('webkitfullscreenchange',resize);resize();
 function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;if(touch.paused){keys.clear();requestAnimationFrame(frame);return;}elapsed+=dt;
   if(Math.abs(camera.zoom-touch.zoom)>.0001){camera.zoom+=(touch.zoom-camera.zoom)*(1-Math.exp(-12*dt));camera.updateProjectionMatrix();}
   let x=Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft'));

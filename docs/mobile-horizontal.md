@@ -31,3 +31,7 @@ Mantidos antialiasing, texturas pintadas, mipmaps, DPR até 1,5 e orçamento de 
 - Capturas em `docs/art/validation/mundo-mobile-v02-*`.
 
 Validação em Chromium com software rendering e toque emulado. Sensação dos controles, safe areas reais, fullscreen e comportamento de rotação no Safari/iPhone físico ainda precisam ser conferidos.
+
+## Atualização de tela cheia
+
+A entrada e saída agora usam controlador dedicado, convite dispensável no landscape, suporte WebKit e feedback de falha com limite de espera. Consulte `docs/tela-cheia.md` para compatibilidade e limites da validação.

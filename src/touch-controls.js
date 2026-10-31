@@ -1,3 +1,4 @@
+import {createFullscreenController} from './fullscreen.js';
 import {MAX_ZOOM} from './camera-settings.js';
 export function createTouchControls(){
  const state={x:0,z:0,running:false,mobile:false,paused:false,zoom:1,minZoom:.72,maxZoom:MAX_ZOOM};
@@ -50,9 +51,6 @@ export function createTouchControls(){
  }
  window.addEventListener('resize',updateLayout);media.addEventListener('change',updateLayout);
  window.addEventListener('blur',state.reset);document.addEventListener('visibilitychange',()=>{if(document.hidden)state.reset();});
- for(const button of document.querySelectorAll('.fullscreen-button')){
-  button.hidden=!document.documentElement.requestFullscreen;
-  button.addEventListener('click',async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();try{await screen.orientation?.lock?.('landscape');}catch{} }catch{}updateLayout();});
- }
+ state.fullscreen=createFullscreenController({resetInput:state.reset,onChange:updateLayout});
  updateLayout();updateZoomUI();return state;
 }

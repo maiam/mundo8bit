@@ -20,9 +20,10 @@ npm run dev
 - Celular/tablet: jogue na horizontal; em retrato o jogo pausa e pede para girar. Arraste o joystick esquerdo e segure CORRER com o outro dedo.
 - Zoom: pinça sobre o mundo, botões +/−, roda do mouse ou teclas +/−. Toque na porcentagem para restaurar.
 - G: mostrar limites dos chunks.
-- Menu: voltar à origem, ver chunks e solicitar tela cheia quando disponível.
+- Tela cheia: use a faixa no celular ou a opção do menu quando o navegador permitir. O menu também permite sair.
+- Menu: voltar à origem e ver chunks.
 
-Veja [o modo horizontal e os controles](docs/mobile-horizontal.md).
+Veja [o modo horizontal e os controles](docs/mobile-horizontal.md) e [a tela cheia](docs/tela-cheia.md).
 
 ## Arte e fontes
 

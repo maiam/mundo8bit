@@ -1,0 +1,10 @@
+{
+  "nativeEntryConfirmed": false,
+  "nativeFallback": true,
+  "simulatedAPI": true,
+  "menuEntry": true,
+  "menuExit": true,
+  "browserExitClearsControls": true,
+  "rejectionFallback": true,
+  "unsupportedFallback": true
+}
