@@ -1,55 +1,51 @@
 import * as THREE from 'three';
 import {createTree,treeTypeAt} from './trees.js';
 import './style.css';
+import {loadAssets,cloneAsset,worldMaterial,waterMaterial,appendTileUV} from './assets.js';
 import {createTouchControls} from './touch-controls.js';
 const touch = createTouchControls();
 import {CHUNK_SIZE, SEED, hash, heightAt, chunkAt, wantedChunks} from './world.js';
 
-const scene = new THREE.Scene();
+export const scene = new THREE.Scene();
 scene.background = new THREE.Color('#9abbb1');
 scene.fog = new THREE.Fog('#9abbb1', 35, 75);
-const camera = new THREE.OrthographicCamera();
-let renderer;
+export const camera = new THREE.OrthographicCamera();
+export let renderer;
 try { renderer = new THREE.WebGLRenderer({antialias:false}); }
 catch { document.querySelector('#error').hidden=false; document.querySelector('#error').textContent='Este protótipo precisa de WebGL. Abra em um navegador com aceleração gráfica.'; throw new Error('WebGL indisponível'); }
 renderer.setPixelRatio(1);
 document.body.prepend(renderer.domElement);
-scene.add(new THREE.HemisphereLight(0xfff5d7,0x385748,2.5));
-const sun = new THREE.DirectionalLight(0xffdfae,3); sun.position.set(-20,35,15);scene.add(sun);
-const materials = {};
-function material(color) {return materials[color] ??= new THREE.MeshStandardMaterial({color,flatShading:true,roughness:1});}
-const shared = {rock:new THREE.DodecahedronGeometry(.5,0)};
+scene.add(new THREE.HemisphereLight(0xfff5d7,0x385748,1.8));
+const sun = new THREE.DirectionalLight(0xfff1d6,1.5); sun.position.set(-20,35,15);scene.add(sun);
+const loading=document.querySelector('#loading');
+try {await loadAssets();loading.hidden=true;}
+catch(error){loading.hidden=true;document.querySelector('#error').hidden=false;document.querySelector('#error').textContent=error.message;throw error;}
 const chunks = new Map(); let showGrid = false;
-function mesh(geometry,color,x,y,z,parent) {const m=new THREE.Mesh(geometry,material(color));m.position.set(x,y,z);parent.add(m);return m;}
 function makeChunk(cx,cz) {
   const group=new THREE.Group(); group.position.set(cx*CHUNK_SIZE,0,cz*CHUNK_SIZE);
-  const vertices=[],colors=[];
+  const vertices=[],uv=[];
   for(let x=0;x<CHUNK_SIZE;x++) for(let z=0;z<CHUNK_SIZE;z++) {
     const wx=cx*CHUNK_SIZE+x,wz=cz*CHUNK_SIZE+z;
-    const color=new THREE.Color(heightAt(wx,wz)<-1.3?'#bfbd89':hash(wx,wz)>.5?'#6e965d':'#7da467');
-    for(const [dx,dz] of [[0,0],[0,1],[1,0],[1,0],[0,1],[1,1]]) {vertices.push(x+dx,heightAt(wx+dx,wz+dz),z+dz);colors.push(color.r,color.g,color.b);}
+    const tile=heightAt(wx,wz)<-1.3?13:Math.sin(wx*.24)+Math.cos(wz*.18)>.2?11:12;
+    for(const [dx,dz] of [[0,0],[0,1],[1,0],[1,0],[0,1],[1,1]]) {vertices.push(x+dx,heightAt(wx+dx,wz+dz),z+dz);appendTileUV(uv,tile,dx,dz);}
     const n=hash(wx,wz);
     if(n>.975 && heightAt(wx,wz)>-1.45 && Math.hypot(wx,wz)>3) {
       const tree=createTree(treeTypeAt(wx,wz,heightAt(wx,wz)),wx,wz);
       tree.position.set(x,heightAt(wx,wz),z);group.add(tree);
-    } else if(n<.009) mesh(shared.rock,'#8c9b89',x,heightAt(wx,wz)+.2,z,group);
+    } else if(n<.009) {const rock=cloneAsset('pedra-v02');rock.position.set(x,heightAt(wx,wz),z);group.add(rock);}
   }
-  const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geo.computeVertexNormals();
-  const terrain=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true}));group.add(terrain);
+  const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geo.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geo.computeVertexNormals();
+  const terrain=new THREE.Mesh(geo,worldMaterial);group.add(terrain);
   const lineGeometry=new THREE.BufferGeometry().setFromPoints(Array.from({length:49},(_,i)=>{const t=i/12;const x=t<=1?t*12:t<=2?12:t<=3?(3-t)*12:0;const z=t<=1?0:t<=2?(t-1)*12:t<=3?12:(4-t)*12;return new THREE.Vector3(x,heightAt(cx*12+x,cz*12+z)+.05,z);}));
   const border=new THREE.Line(lineGeometry,new THREE.LineBasicMaterial({color:0xffe6a0}));border.visible=showGrid;group.add(border);
   scene.add(group);return {group,terrain,border};
 }
 function stream() {
   const wanted=new Set();for(const [x,z] of wantedChunks(player.position.x,player.position.z)){const key=`${x},${z}`;wanted.add(key);if(!chunks.has(key))chunks.set(key,makeChunk(x,z));}
-  for(const [key,c] of chunks)if(!wanted.has(key)){scene.remove(c.group);c.terrain.geometry.dispose();c.terrain.material.dispose();c.border.geometry.dispose();c.border.material.dispose();chunks.delete(key);}
+  for(const [key,c] of chunks)if(!wanted.has(key)){scene.remove(c.group);c.terrain.geometry.dispose();c.border.geometry.dispose();c.border.material.dispose();chunks.delete(key);}
 }
-const water=mesh(new THREE.PlaneGeometry(180,180),'#68a7ac',0,-1.55,0,scene);water.rotation.x=-Math.PI/2;
-const player=new THREE.Group();scene.add(player);
-mesh(new THREE.BoxGeometry(.5,.65,.35),'#c66d43',0,.8,0,player);
-mesh(new THREE.BoxGeometry(.43,.43,.43),'#f3d49b',0,1.34,0,player);
-mesh(new THREE.BoxGeometry(.58,.16,.55),'#e9b85f',0,1.57,0,player);
-mesh(new THREE.BoxGeometry(.38,.35,.28),'#354b58',0,.3,0,player);
+const water=new THREE.Mesh(new THREE.PlaneGeometry(180,180),waterMaterial);water.position.y=-1.55;water.rotation.x=-Math.PI/2;scene.add(water);
+export const player=new THREE.Group();scene.add(player);player.add(cloneAsset('explorador-v02'));
 const keys=new Set();let lastChunk='';let time=performance.now();let elapsed=0;
 function toggleGrid(){showGrid=!showGrid;for(const c of chunks.values())c.border.visible=showGrid;document.querySelector('#grid').textContent=showGrid?'G · Ocultar chunks':'G · Ver chunks';}
 window.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys.add(e.key.toLowerCase());if(e.key.toLowerCase()==='g'&&!e.repeat)toggleGrid();});

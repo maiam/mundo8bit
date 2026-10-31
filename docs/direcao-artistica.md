@@ -1,35 +1,36 @@
-# Mundo8bit / mundo / base / v01
-
-Estado: direção de arte definida pelo usuário; implementação em evolução.
+# Mundo8bit — direção artística
 
 ## Direção oficial
 
 **Low poly painted — “Painted using Blockbench with flat textures.”**
 
-Produzir os novos assets no **Blockbench**, com geometria de poucos polígonos, silhuetas claras e texturas planas pintadas à mão. Usar cor, variações de valor e detalhes pintados para dar identidade às superfícies, mantendo a paleta retrô do Mundo8bit. Entregar fontes editáveis `.bbmodel` e suas texturas PNG; validar UV e leitura na câmera 2,5D antes de integrar ao jogo.
+Geometria de poucos polígonos, silhuetas claras, cores planas e detalhes pintados em atlas 2D. A paleta retrô combina musgo, sálvia, verde escuro, madeira quente, areia e água dessaturada. Câmera ortográfica 2,5D, apresentação pixelizada e filtragem nearest-neighbor. Texturas não contêm iluminação fotográfica, normal maps ou reflexos pintados; a luz suave vem do jogo.
 
-A prancha de árvores aprovada permanece como referência de silhuetas. Os modelos procedurais atuais são a base provisória: ainda usam cores por vértice e não foram convertidos em assets Blockbench com texturas pintadas.
+## Referência aprovada / árvores / v01
 
-## Direção inicial
+A [prancha conceitual v01](art/arvores-v01-aprovada.png) foi aprovada pelo usuário e permanece preservada. Define 11 silhuetas: pinheiro, carvalho, cipreste, salgueiro, palmeira, araucária, baobá, acácia, bétula, mangue e seca.
 
-Câmera ortográfica elevada em diagonal (2,5D); volumes tridimensionais simples, árvores cônicas facetadas e personagem de silhueta compacta. Renderização em meia resolução com ampliação nearest-neighbor. A inspiração 8-bit aparece na leitura pixelizada e na paleta reduzida, sem pretensão de emular limitações de um console específico.
+Travado: identidade das 11 silhuetas, paleta low poly e produção de fontes editáveis no Blockbench. Em teste: refinamento das copas, proporções, densidade e leitura no jogo. Alterações rejeitadas: nenhuma registrada.
 
-Paleta: verde musgo e sálvia para vegetação, azul dessaturado para água e névoa, areia clara nas baixadas, terracota e amarelo no explorador. Luz quente com preenchimento frio. A interface é discreta para preservar a leitura do mundo.
+## Implementação / assets / v02 — em revisão visual
 
-## Critérios de revisão
+- 17 fontes Generic Model `.bbmodel` produzidos no Blockbench 5.2.2: 11 árvores, explorador, pedra e quatro amostras de superfície (grama, grama clara, areia e água).
+- Atlas plano pintado de 256 × 256 pixels, 16 células de material, com detalhes de casca, folhagem, bétula, tecido, couro e superfícies. PNG externo e cópia incorporada nos fontes.
+- Geometria de silhuetas v01 adaptada/importada no editor; UVs e pintura realizadas por scripts usando `Mesh`, `MeshFace`, `Texture.edit`/Painter e exportação nativa `Codecs.project`/`Codecs.gltf` do Blockbench. Trata-se de autoria assistida por código no editor, sem alegação de pintura manual humana.
+- glTFs texturizados usados no runtime em substituição às árvores, personagem e pedra criados em Three.js. Instâncias compartilham geometrias e um material com atlas.
+- Terreno permanece procedural por chunks, agora com UVs para o atlas. Água repete uma célula pintada recortada do mesmo atlas. As quatro amostras Blockbench documentam essas superfícies; não substituem o sistema de geração do terreno.
+- A implementação v02 é uma adaptação simplificada da referência. A aprovação da prancha v01 não equivale à aprovação final destes modelos.
 
-- Personagem reconhecível em escala de jogo.
-- Vegetação com leitura simples e separação de planos.
-- Bordas de terreno contínuas entre chunks.
-- Mundo estável ao voltar a uma coordenada.
-- Quantidade de chunks limitada durante exploração.
+### Comparação com v01
 
-Em teste: paleta, escala, câmera e pixelização. A direção oficial acima foi definida pelo usuário. Assets atuais são procedurais e editáveis em código; não existem arquivos Blender ou texturas externas.
+A versão v01 usava cores por vértice nas árvores/terreno e materiais sólidos no personagem, pedras e água. A v02 usa UVs e texturas PNG nesses elementos. Os geradores de silhuetas antigos ficam em `scripts/tree-shapes-v01.js`, fora do runtime.
 
-## Árvores / A01–A11 / v01 — referência aprovada
+## Evidências e critérios de aceite
 
-O usuário aprovou a [prancha de 11 silhuetas](art/arvores-v01-aprovada.png). Preservar esta imagem como referência-base: pinheiro, carvalho, cipreste, salgueiro, palmeira, araucária, baobá, acácia, bétula, mangue e seca.
+- [Prancha renderizada de frente](art/arvores-v02-frente.png) e [de costas](art/arvores-v02-costas.png): modelos reais com câmera, luz e escala comparáveis.
+- [Carvalho reaberto no Blockbench](art/validation/blockbench-carvalho-v02.png).
+- [Jogo desktop](art/validation/mundo-painted-v02-desktop.png) e [mobile](art/validation/mundo-painted-v02-mobile.png).
+- Fontes e exports conferidos para textura incorporada, UVs dentro do atlas e ausência de cores por vértice nos glTFs.
+- No navegador: malhas visíveis texturizadas, 25 chunks ativos após deslocamentos, recursos estáveis ao repetir o percurso e joystick/corrida com dois toques.
 
-Implementação procedural v01 em `src/trees.js`: uma geometria compartilhada por espécie, cores por vértice e variação determinística de rotação e escala. Mangues e palmeiras predominam nas baixadas; as demais silhuetas aparecem no terreno seco. Modelos adaptados à escala do jogo, sem arquivos Blender/GLB. A implementação está em revisão visual; a aprovação da referência não implica aprovação automática dos modelos.
-
-Travado: identidade das 11 silhuetas e paleta low poly. Em teste: densidade, proporções no jogo e fidelidade das copas. Alterações rejeitadas: nenhuma registrada.
+Revisar a fidelidade artística e o desempenho em celulares reais antes de considerar a arte final. Prévia WebGL validada em Chromium com renderização por software; animação e colisões continuam fora desta etapa.
