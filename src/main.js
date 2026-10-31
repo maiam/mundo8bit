@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {createTree,treeTypeAt} from './trees.js';
 import './style.css';
 import {createTouchControls} from './touch-controls.js';
 const touch = createTouchControls();
@@ -17,7 +18,7 @@ scene.add(new THREE.HemisphereLight(0xfff5d7,0x385748,2.5));
 const sun = new THREE.DirectionalLight(0xffdfae,3); sun.position.set(-20,35,15);scene.add(sun);
 const materials = {};
 function material(color) {return materials[color] ??= new THREE.MeshStandardMaterial({color,flatShading:true,roughness:1});}
-const shared = {trunk:new THREE.CylinderGeometry(.13,.22,1.3,5),leaves:new THREE.ConeGeometry(1.05,2.4,5),rock:new THREE.DodecahedronGeometry(.5,0)};
+const shared = {rock:new THREE.DodecahedronGeometry(.5,0)};
 const chunks = new Map(); let showGrid = false;
 function mesh(geometry,color,x,y,z,parent) {const m=new THREE.Mesh(geometry,material(color));m.position.set(x,y,z);parent.add(m);return m;}
 function makeChunk(cx,cz) {
@@ -28,9 +29,9 @@ function makeChunk(cx,cz) {
     const color=new THREE.Color(heightAt(wx,wz)<-1.3?'#bfbd89':hash(wx,wz)>.5?'#6e965d':'#7da467');
     for(const [dx,dz] of [[0,0],[0,1],[1,0],[1,0],[0,1],[1,1]]) {vertices.push(x+dx,heightAt(wx+dx,wz+dz),z+dz);colors.push(color.r,color.g,color.b);}
     const n=hash(wx,wz);
-    if(n>.975 && heightAt(wx,wz)>-.8 && Math.hypot(wx,wz)>3) {
-      mesh(shared.trunk,'#765a41',x,heightAt(wx,wz)+.6,z,group);
-      mesh(shared.leaves,n>.987?'#305c4a':'#427850',x,heightAt(wx,wz)+2,z,group);
+    if(n>.975 && heightAt(wx,wz)>-1.45 && Math.hypot(wx,wz)>3) {
+      const tree=createTree(treeTypeAt(wx,wz,heightAt(wx,wz)),wx,wz);
+      tree.position.set(x,heightAt(wx,wz),z);group.add(tree);
     } else if(n<.009) mesh(shared.rock,'#8c9b89',x,heightAt(wx,wz)+.2,z,group);
   }
   const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geo.computeVertexNormals();

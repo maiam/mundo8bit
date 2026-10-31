@@ -28,3 +28,7 @@ Three.js + Vite, sem assets externos. Terreno determinístico pela semente 808, 
 Esta é uma base de exploração: ainda não há colisão com objetos, combate, inventário, salvamento, áudio ou multiplayer. O personagem atravessa água e objetos. A geração é síncrona; workers e instancing são próximos passos para mundos mais densos.
 
 Veja [a direção artística](docs/direcao-artistica.md) e [o plano de evolução](docs/roadmap.md).
+
+## Árvores
+
+Onze espécies procedurais seguem a prancha aprovada em `docs/art/`: pinheiro, carvalho, cipreste, salgueiro, palmeira, araucária, baobá, acácia, bétula, mangue e seca. Geometrias e material são compartilhados entre chunks; cada árvore usa uma malha única. Distribuição, escala e rotação são reprodutíveis por coordenada. Mangues e palmeiras são favorecidos nas baixadas.
