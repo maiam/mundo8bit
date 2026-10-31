@@ -1,6 +1,14 @@
 # Mundo8bit / mundo / base / v01
 
-Estado: rascunho para avaliação.
+Estado: direção de arte definida pelo usuário; implementação em evolução.
+
+## Direção oficial
+
+**Low poly painted — “Painted using Blockbench with flat textures.”**
+
+Produzir os novos assets no **Blockbench**, com geometria de poucos polígonos, silhuetas claras e texturas planas pintadas à mão. Usar cor, variações de valor e detalhes pintados para dar identidade às superfícies, mantendo a paleta retrô do Mundo8bit. Entregar fontes editáveis `.bbmodel` e suas texturas PNG; validar UV e leitura na câmera 2,5D antes de integrar ao jogo.
+
+A prancha de árvores aprovada permanece como referência de silhuetas. Os modelos procedurais atuais são a base provisória: ainda usam cores por vértice e não foram convertidos em assets Blockbench com texturas pintadas.
 
 ## Direção inicial
 
@@ -16,7 +24,7 @@ Paleta: verde musgo e sálvia para vegetação, azul dessaturado para água e n�
 - Mundo estável ao voltar a uma coordenada.
 - Quantidade de chunks limitada durante exploração.
 
-Em teste: paleta, escala, câmera e pixelização. Nenhuma direção foi ainda aprovada pelo usuário. Assets atuais são procedurais e editáveis em código; não existem arquivos Blender ou texturas externas.
+Em teste: paleta, escala, câmera e pixelização. A direção oficial acima foi definida pelo usuário. Assets atuais são procedurais e editáveis em código; não existem arquivos Blender ou texturas externas.
 
 ## Árvores / A01–A11 / v01 — referência aprovada
 

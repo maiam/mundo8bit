@@ -29,6 +29,10 @@ Esta é uma base de exploração: ainda não há colisão com objetos, combate, 
 
 Veja [a direção artística](docs/direcao-artistica.md) e [o plano de evolução](docs/roadmap.md).
 
+## Direção de arte
+
+**Low poly painted — Painted using Blockbench with flat textures.** Novos assets terão fontes `.bbmodel` e texturas planas pintadas. A base procedural atual ainda usa cores por vértice. Veja [a direção artística](docs/direcao-artistica.md).
+
 ## Árvores
 
 Onze espécies procedurais seguem a prancha aprovada em `docs/art/`: pinheiro, carvalho, cipreste, salgueiro, palmeira, araucária, baobá, acácia, bétula, mangue e seca. Geometrias e material são compartilhados entre chunks; cada árvore usa uma malha única. Distribuição, escala e rotação são reprodutíveis por coordenada. Mangues e palmeiras são favorecidos nas baixadas.
