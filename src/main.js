@@ -11,14 +11,14 @@ scene.background = new THREE.Color('#9abbb1');
 scene.fog = new THREE.Fog('#9abbb1', 35, 75);
 export const camera = new THREE.OrthographicCamera();
 export let renderer;
-try { renderer = new THREE.WebGLRenderer({antialias:false}); }
+try { renderer = new THREE.WebGLRenderer({antialias:true}); }
 catch { document.querySelector('#error').hidden=false; document.querySelector('#error').textContent='Este protótipo precisa de WebGL. Abra em um navegador com aceleração gráfica.'; throw new Error('WebGL indisponível'); }
 renderer.setPixelRatio(1);
 document.body.prepend(renderer.domElement);
 scene.add(new THREE.HemisphereLight(0xfff5d7,0x385748,1.8));
 const sun = new THREE.DirectionalLight(0xfff1d6,1.5); sun.position.set(-20,35,15);scene.add(sun);
 const loading=document.querySelector('#loading');
-try {await loadAssets();loading.hidden=true;}
+try {await loadAssets(renderer);loading.hidden=true;}
 catch(error){loading.hidden=true;document.querySelector('#error').hidden=false;document.querySelector('#error').textContent=error.message;throw error;}
 const chunks = new Map(); let showGrid = false;
 function makeChunk(cx,cz) {
@@ -52,7 +52,9 @@ window.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','Arr
 window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>keys.clear());
 document.querySelector('#grid').onclick=toggleGrid;
 document.querySelector('#home').onclick=()=>{player.position.set(0,0,0);lastChunk='';};
-function resize(){const aspect=innerWidth/innerHeight;camera.left=-18*aspect;camera.right=18*aspect;camera.top=18;camera.bottom=-18;camera.near=.1;camera.far=180;camera.updateProjectionMatrix();renderer.setSize(Math.ceil(innerWidth/2),Math.ceil(innerHeight/2),false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';}window.addEventListener('resize',resize);resize();
+function resize(){const aspect=innerWidth/innerHeight;camera.left=-18*aspect;camera.right=18*aspect;camera.top=18;camera.bottom=-18;camera.near=.1;camera.far=180;camera.updateProjectionMatrix();// Keep native CSS resolution, with bounded supersampling on dense screens.
+const ratio=Math.min(window.devicePixelRatio||1,1.5,Math.sqrt(2000000/(innerWidth*innerHeight)));
+renderer.setPixelRatio(ratio);renderer.setSize(innerWidth,innerHeight,false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';}window.addEventListener('resize',resize);resize();
 function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;elapsed+=dt;
   let x=Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft'));
   let z=Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup'));

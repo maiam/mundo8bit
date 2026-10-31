@@ -4,7 +4,7 @@
 
 **Low poly painted — “Painted using Blockbench with flat textures.”**
 
-Geometria de poucos polígonos, silhuetas claras, cores planas e detalhes pintados em atlas 2D. A paleta retrô combina musgo, sálvia, verde escuro, madeira quente, areia e água dessaturada. Câmera ortográfica 2,5D, apresentação pixelizada e filtragem nearest-neighbor. Texturas não contêm iluminação fotográfica, normal maps ou reflexos pintados; a luz suave vem do jogo.
+Geometria de poucos polígonos, silhuetas claras, cores planas e detalhes pintados em atlas 2D. A paleta retrô combina musgo, sálvia, verde escuro, madeira quente, areia e água dessaturada. Câmera ortográfica 2,5D, renderização na resolução CSS da tela, antialiasing e filtragem linear com mipmaps para estabilizar a pintura em movimento. Densidade de pixels limitada a 1,5 e orçamento de 2 milhões de pixels para conter o custo em telas densas. Texturas não contêm iluminação fotográfica, normal maps ou reflexos pintados; a luz suave vem do jogo.
 
 ## Referência aprovada / árvores / v01
 
@@ -34,3 +34,9 @@ A versão v01 usava cores por vértice nas árvores/terreno e materiais sólidos
 - No navegador: malhas visíveis texturizadas, 25 chunks ativos após deslocamentos, recursos estáveis ao repetir o percurso e joystick/corrida com dois toques.
 
 Revisar a fidelidade artística e o desempenho em celulares reais antes de considerar a arte final. Prévia WebGL validada em Chromium com renderização por software; animação e colisões continuam fora desta etapa.
+
+## Apresentação / renderização / v03
+
+A ampliação pixelizada em meia resolução foi substituída por renderização na resolução CSS, com antialiasing, filtragem linear, mipmaps e anisotropia até 4×. O DPR é limitado a 1,5 e o buffer a 2 milhões de pixels. Esses parâmetros são os mesmos parado e em movimento. As fontes Blockbench, a geometria low poly e o atlas v02 foram preservados.
+
+Verificação em Chromium: desktop 1440 × 900 e viewport mobile 390 × 844 com DPR do dispositivo 3 (buffer limitado a 585 × 1266). Joystick com dois toques, liberação dos controles, streaming e estabilidade de recursos passaram. Capturas: [desktop](art/validation/mundo-painted-v03-desktop.png), [mobile parado](art/validation/mundo-painted-v03-mobile.png) e [mobile em movimento](art/validation/mundo-painted-v03-mobile-moving.png). A filtragem reduz serrilhado e variação de amostragem; não elimina todas as diferenças percebidas em movimento. Desempenho e aparência no Safari/iPhone físico ainda precisam ser conferidos.

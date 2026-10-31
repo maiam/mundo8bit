@@ -30,7 +30,7 @@ O depurador deve permanecer apenas no loopback e ser encerrado ao terminar. A ap
 
 `src/assets.js` carrega o atlas e os exports glTF de 13 objetos; as quatro superfícies são amostras editáveis, enquanto o terreno recebe UVs diretamente na geração por chunks. A água recorta e repete apenas a célula correspondente. O runtime não usa os geradores históricos de formas e não depende de materiais com cores por vértice.
 
-Clones dos objetos reutilizam geometrias e material. O descarregamento de chunks libera apenas terreno e bordas, preservando recursos compartilhados. O atlas tem margem por célula para evitar amostras dos materiais vizinhos. Escala de autoria: 16 unidades Blockbench = 1 unidade do mundo; exportação nativa usa escala 16.
+Clones dos objetos reutilizam geometrias e material. O descarregamento de chunks libera apenas terreno e bordas, preservando recursos compartilhados. O atlas tem margem por célula para reduzir amostras dos materiais vizinhos. A filtragem é linear com mipmaps e anisotropia até 4× (limitada pelo dispositivo). A câmera ortográfica atual mantém escala de projeção estável; ao adicionar zoom muito distante, revisar possíveis vazamentos entre células nas menores mipmaps. Escala de autoria: 16 unidades Blockbench = 1 unidade do mundo; exportação nativa usa escala 16.
 
 ## Verificação
 
