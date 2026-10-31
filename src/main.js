@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {cameraLayout} from './camera-settings.js';
 import {collisionWorld,PLAYER_RADIUS,treeColliders,rockCollider} from './collisions.js';
 import {spawnFauna,removeFauna,updateFauna} from './fauna.js';
 import {natureAt} from './nature.js';
@@ -6,7 +7,7 @@ import {createTree,treeTypeAt} from './trees.js';
 import './style.css';
 import {loadAssets,cloneAsset,worldMaterial,waterMaterial,appendTileUV,createAssetInstances,assetFootprint} from './assets.js';
 import {createTouchControls} from './touch-controls.js';
-const touch = createTouchControls();
+export const touch = createTouchControls();
 import {CHUNK_SIZE, SEED, hash, heightAt, chunkAt, wantedChunks} from './world.js';
 
 export const scene = new THREE.Scene();
@@ -17,7 +18,7 @@ export let renderer;
 try { renderer = new THREE.WebGLRenderer({antialias:true}); }
 catch { document.querySelector('#error').hidden=false; document.querySelector('#error').textContent='Este protótipo precisa de WebGL. Abra em um navegador com aceleração gráfica.'; throw new Error('WebGL indisponível'); }
 renderer.setPixelRatio(1);
-document.body.prepend(renderer.domElement);
+document.body.prepend(renderer.domElement);touch.attachCanvas(renderer.domElement);renderer.domElement.setAttribute('aria-label','Mundo8bit: área do jogo');
 scene.add(new THREE.HemisphereLight(0xfff5d7,0x385748,1.8));
 const sun = new THREE.DirectionalLight(0xfff1d6,1.5); sun.position.set(-20,35,15);scene.add(sun);
 const loading=document.querySelector('#loading');
@@ -52,21 +53,28 @@ function stream() {
 const water=new THREE.Mesh(new THREE.PlaneGeometry(180,180),waterMaterial);water.position.y=-1.55;water.rotation.x=-Math.PI/2;scene.add(water);
 export const player=new THREE.Group();scene.add(player);player.add(cloneAsset('explorador-v02'));collisionWorld.setDynamic('player',{type:'circle',x:0,z:0,radius:PLAYER_RADIUS,kind:'player'});
 export function movePlayer(dx,dz){
+ if(touch.paused)return {x:player.position.x,z:player.position.z,distance:0,blocked:true};
  const position=collisionWorld.move(player.position,dx,dz,PLAYER_RADIUS,{ignoreId:'player'});
  player.position.x=position.x;player.position.z=position.z;
  collisionWorld.setDynamic('player',{type:'circle',x:position.x,z:position.z,radius:PLAYER_RADIUS,kind:'player'});
  return position;
 }
 const keys=new Set();let lastChunk='';let time=performance.now();let elapsed=0;
-function toggleGrid(){showGrid=!showGrid;for(const c of chunks.values())c.border.visible=showGrid;document.querySelector('#grid').textContent=showGrid?'G · Ocultar chunks':'G · Ver chunks';}
-window.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys.add(e.key.toLowerCase());if(e.key.toLowerCase()==='g'&&!e.repeat)toggleGrid();});
+function toggleGrid(){showGrid=!showGrid;document.body.classList.toggle('show-stats',showGrid);for(const c of chunks.values())c.border.visible=showGrid;document.querySelector('#grid').textContent=showGrid?'G · Ocultar chunks':'G · Ver chunks';}
+window.addEventListener('keydown',e=>{if(e.target instanceof Element&&e.target.closest('button')&&[' ','Enter'].includes(e.key))return;if(touch.paused){keys.clear();return;}if(['+','=','-','_'].includes(e.key)){if(!e.repeat)touch.setZoom(e.key==='-'||e.key==='_'?touch.zoom/1.15:touch.zoom*1.15);return;}if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys.add(e.key.toLowerCase());if(e.key.toLowerCase()==='g'&&!e.repeat)toggleGrid();});
 window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>keys.clear());
 document.querySelector('#grid').onclick=toggleGrid;
 document.querySelector('#home').onclick=()=>{player.position.set(0,0,0);collisionWorld.setDynamic('player',{type:'circle',x:0,z:0,radius:PLAYER_RADIUS,kind:'player'});lastChunk='';};
-function resize(){const aspect=innerWidth/innerHeight;camera.left=-18*aspect;camera.right=18*aspect;camera.top=18;camera.bottom=-18;camera.near=.1;camera.far=180;camera.updateProjectionMatrix();// Keep native CSS resolution, with bounded supersampling on dense screens.
-const ratio=Math.min(window.devicePixelRatio||1,1.5,Math.sqrt(2000000/(innerWidth*innerHeight)));
-renderer.setPixelRatio(ratio);renderer.setSize(innerWidth,innerHeight,false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';}window.addEventListener('resize',resize);resize();
-function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;elapsed+=dt;
+function resize(){
+ const layout=cameraLayout(innerWidth,innerHeight,touch.mobile);
+ touch.setZoomLimits(layout.minZoom,layout.maxZoom);
+ camera.left=-layout.halfHeight*layout.aspect;camera.right=layout.halfHeight*layout.aspect;camera.top=layout.halfHeight;camera.bottom=-layout.halfHeight;camera.near=.1;camera.far=180;
+ camera.zoom=Math.max(layout.minZoom,Math.min(layout.maxZoom,camera.zoom));camera.updateProjectionMatrix();
+ const ratio=Math.min(window.devicePixelRatio||1,1.5,Math.sqrt(2000000/(innerWidth*innerHeight)));
+ renderer.setPixelRatio(ratio);renderer.setSize(innerWidth,innerHeight,false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
+}window.addEventListener('resize',resize);matchMedia('(any-pointer:coarse)').addEventListener('change',resize);resize();
+function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;if(touch.paused){keys.clear();requestAnimationFrame(frame);return;}elapsed+=dt;
+  if(Math.abs(camera.zoom-touch.zoom)>.0001){camera.zoom+=(touch.zoom-camera.zoom)*(1-Math.exp(-12*dt));camera.updateProjectionMatrix();}
   let x=Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft'));
   let z=Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup'));
   x += touch.x; z += touch.z;

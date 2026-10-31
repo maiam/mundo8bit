@@ -17,9 +17,12 @@ npm run dev
 
 - WASD ou setas: movimento relativo à câmera.
 - Shift: correr.
-- Celular/tablet: arraste o joystick esquerdo; segure CORRER com o outro dedo.
+- Celular/tablet: jogue na horizontal; em retrato o jogo pausa e pede para girar. Arraste o joystick esquerdo e segure CORRER com o outro dedo.
+- Zoom: pinça sobre o mundo, botões +/−, roda do mouse ou teclas +/−. Toque na porcentagem para restaurar.
 - G: mostrar limites dos chunks.
-- Voltar à origem: reiniciar a posição.
+- Menu: voltar à origem, ver chunks e solicitar tela cheia quando disponível.
+
+Veja [o modo horizontal e os controles](docs/mobile-horizontal.md).
 
 ## Arte e fontes
 
