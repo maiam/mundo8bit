@@ -18,7 +18,7 @@ O script protege os arquivos existentes. Para uma regeneração deliberada, `--r
 
 `src/assets.js` combina as partes dos novos glTFs em uma geometria por asset e reutiliza um material/atlas para a coleção. `InstancedMesh` agrupa plantas e pedras repetidas por tipo dentro de cada chunk. Não há duplicação de geometria por flor e os buffers de instâncias são descartados ao remover chunks. A filtragem suave e os limites de renderização existentes foram mantidos.
 
-A decoração continua visual: não há coleta, colisões ou interação novas nesta etapa.
+Na atualização de colisões v01, pedras bloqueiam a passagem por caixas orientadas; flores permanecem atravessáveis. Coleta e outras interações continuam fora desta etapa. Ver `docs/colisoes.md`.
 
 ## Verificação
 

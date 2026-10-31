@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-`npm run build` gera `dist/`. `npm test` valida geração, streaming e integridade dos assets/UVs. O build normal usa os exports versionados e não requer Blockbench instalado.
+`npm run build` gera `dist/`. `npm test` valida geração, streaming, colisões e integridade dos assets/UVs. O build normal usa os exports versionados e não requer Blockbench instalado.
 
 ## Controles
 
@@ -39,4 +39,4 @@ Veja [a fauna](docs/fauna.md), [a coleção de pedras e flores](docs/pedras-flor
 
 Three.js + Vite. Terreno determinístico pela semente 808, chunks de 12 × 12 unidades e janela de 5 × 5 chunks. Alturas globais mantêm bordas contínuas. Chunks distantes liberam suas malhas de terreno; os assets glTF compartilham geometria, textura e material. Terreno e água usam o atlas pintado, mantendo a geração procedural.
 
-Esta é uma base de exploração: ainda não há colisão com objetos, combate, inventário, salvamento, áudio ou multiplayer. O personagem atravessa água e objetos. Geração síncrona; workers e instancing são próximos passos para mundos mais densos. O desempenho em aparelhos reais ainda precisa ser medido.
+O personagem colide com troncos, raízes, pedras e animais; água profunda bloqueia a passagem e flores são atravessáveis. Os animais também evitam obstáculos e o personagem. Veja [as regras de colisão](docs/colisoes.md). Ainda não há combate, inventário, salvamento, áudio ou multiplayer. Geração síncrona; workers e instancing são próximos passos para mundos mais densos. O desempenho em aparelhos reais ainda precisa ser medido.

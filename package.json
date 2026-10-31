@@ -15,7 +15,8 @@
     "assets:nature": "node scripts/build-nature-assets.mjs",
     "qa:nature": "node scripts/render-nature-board.mjs",
     "assets:fauna": "node scripts/build-fauna-assets.mjs",
-    "qa:fauna": "node scripts/render-fauna-board.mjs"
+    "qa:fauna": "node scripts/render-fauna-board.mjs",
+    "qa:collisions": "node scripts/verify-collisions.mjs"
   },
   "dependencies": {
     "three": "^0.182.0"

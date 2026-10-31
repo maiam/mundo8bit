@@ -76,3 +76,10 @@ export function createAssetInstances(id,placements,originX,originZ){
   placements.forEach((p,i)=>{transform.position.set(p.x-originX,p.y,p.z-originZ);transform.rotation.y=p.angle;transform.scale.setScalar(p.scale);transform.updateMatrix();mesh.setMatrixAt(i,transform.matrix);});
   mesh.computeBoundingSphere();mesh.userData.assetId=id;return mesh;
 }
+
+const footprintCache=new Map();
+export function assetFootprint(id){
+ if(footprintCache.has(id))return footprintCache.get(id);
+ const box=new THREE.Box3().setFromObject(templates.get(id));
+ const footprint={minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z};footprintCache.set(id,footprint);return footprint;
+}

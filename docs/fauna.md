@@ -26,7 +26,7 @@ O script protege arquivos existentes. `--replace-generated` permite regeneraçã
 
 Até um animal por chunk, escolhido por semente/coordenada. Procura ponto de terra firme e passeia até 2,2 unidades do ponto inicial, com pausas e velocidades próprias (preguiça mais lenta). O caminho é validado contra a altura da água. A aparência e a posição inicial são reproduzíveis; ao descarregar um chunk, o animal sai da cena, e ao retornar reinicia sua rotina. As geometrias e o material são compartilhados entre indivíduos.
 
-Esta etapa implementa fauna ambiente em terra: sem combate, captura, natação, voo, colisão com árvores/pedras ou ajuste individual dos pés à inclinação do chão. Aves caminham e movem as asas discretamente; a preguiça usa a pose baixa da referência. Esses limites devem orientar revisões futuras.
+Esta etapa implementa fauna ambiente em terra: sem combate, captura, natação, voo ou ajuste individual dos pés à inclinação do chão. Aves caminham e movem as asas discretamente; a preguiça usa a pose baixa da referência. Esses limites devem orientar revisões futuras.
 
 ## Evidências
 
@@ -38,3 +38,7 @@ Esta etapa implementa fauna ambiente em terra: sem combate, captura, natação, 
 - Pranchas de modelos reais: `docs/art/animais-modelos-v01-frente.png` e `animais-modelos-v01-costas.png`; capturas do jogo em `docs/art/validation/mundo-fauna-v01-*`.
 
 As adaptações são uma primeira implementação para revisão artística; a aprovação da prancha não significa aprovação automática dos modelos finais.
+
+## Atualização de colisões v01
+
+Corpos de animais agora colidem com árvores, pedras, personagem e outros animais por volumes simplificados. Spawns são ajustados para locais livres e destinos bloqueados são reavaliados. Ver `docs/colisoes.md`.
