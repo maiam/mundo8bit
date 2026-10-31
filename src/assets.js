@@ -6,6 +6,7 @@ const templates=new Map();
 export let atlas, worldMaterial, waterMaterial;
 export let assetManifest;
 export let natureManifest;
+export let faunaManifest;
 export async function loadAssets(renderer) {
   const anisotropy=Math.min(4,renderer?.capabilities.getMaxAnisotropy()??1);
   const response=await fetch('/assets/manifest.json');
@@ -24,15 +25,22 @@ export async function loadAssets(renderer) {
   natureAtlas.magFilter=THREE.LinearFilter;natureAtlas.minFilter=THREE.LinearMipmapLinearFilter;
   natureAtlas.generateMipmaps=true;natureAtlas.anisotropy=anisotropy;
   const natureMaterial=new THREE.MeshStandardMaterial({map:natureAtlas,flatShading:true,roughness:1,side:THREE.DoubleSide});
+  const faunaResponse=await fetch('/assets/fauna-manifest.json');
+  if(!faunaResponse.ok)throw Error('Catálogo de animais indisponível');
+  faunaManifest=await faunaResponse.json();
+  const faunaAtlas=await new THREE.TextureLoader().loadAsync(`/assets/${faunaManifest.atlas}`);
+  faunaAtlas.colorSpace=THREE.SRGBColorSpace;faunaAtlas.flipY=false;
+  faunaAtlas.magFilter=THREE.LinearFilter;faunaAtlas.minFilter=THREE.LinearMipmapLinearFilter;faunaAtlas.generateMipmaps=true;faunaAtlas.anisotropy=anisotropy;
+  const faunaMaterial=new THREE.MeshStandardMaterial({map:faunaAtlas,flatShading:true,roughness:1,side:THREE.DoubleSide});
   const loader=new GLTFLoader();
   try {
-    const assets=[...assetManifest.assets.filter(a=>a.kind!=='surface'&&a.id!=='pedra-v02'),...natureManifest.assets.map(a=>({...a,nature:true}))];
+    const assets=[...assetManifest.assets.filter(a=>a.kind!=='surface'&&a.id!=='pedra-v02'),...natureManifest.assets.map(a=>({...a,nature:true})),...faunaManifest.assets.map(a=>({...a,fauna:true}))];
     await Promise.all(assets.map(async asset=>{
       const {scene}=await loader.loadAsync(asset.url);
       const oldMaterials=new Set(),oldTextures=new Set();
       scene.traverse(node=>{if(node.isMesh){
         for(const material of Array.isArray(node.material)?node.material:[node.material]){oldMaterials.add(material);if(material.map)oldTextures.add(material.map);}
-        node.material=asset.nature?natureMaterial:worldMaterial;
+        node.material=asset.fauna?faunaMaterial:asset.nature?natureMaterial:worldMaterial;
       }});
       oldTextures.forEach(t=>t.dispose());oldMaterials.forEach(m=>m.dispose());
       if(asset.nature){

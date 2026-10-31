@@ -53,3 +53,9 @@ A [prancha de 11 pedras e 23 flores](art/pedras-flores-v01-aprovada.png) foi ace
 - Runtime: partes de cada novo asset são unidas no carregamento; instâncias agrupadas por tipo e chunk. Buffers de instâncias são liberados ao descarregar o chunk, preservando geometrias e materiais compartilhados.
 
 Pranchas dos modelos reais: [pedras de frente](art/pedras-modelos-v01-frente.png), [pedras de costas](art/pedras-modelos-v01-costas.png), [flores de frente](art/flores-modelos-v01-frente.png) e [flores de costas](art/flores-modelos-v01-costas.png). Todas mantêm câmera, iluminação e escala comparáveis dentro da categoria.
+
+## Fauna / referência v01 / modelos v01
+
+A [prancha de animais](art/animais-v01-aprovada.png) orienta os 11 novos modelos. Fontes Blockbench com UVs, atlas pintado próprio e pivôs editáveis em cabeça, membros, asas e cauda. As marcas incluem rosetas, carapaça e penas pintadas. As formas foram simplificadas para leitura na câmera do jogo; implementação em revisão.
+
+[Modelos de frente](art/animais-modelos-v01-frente.png), [modelos de costas](art/animais-modelos-v01-costas.png), [fonte no Blockbench](art/validation/blockbench-onca-v01.png) e [jogo mobile](art/validation/mundo-fauna-v01-mobile.png). Ver [produção e comportamento](fauna.md). Travado: 11 identidades, fontes editáveis e direção low poly painted. Em teste: refinamento de anatomia/silhuetas, passos e desempenho em aparelhos físicos.

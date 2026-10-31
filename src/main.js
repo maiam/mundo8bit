@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {spawnFauna,removeFauna,updateFauna} from './fauna.js';
 import {natureAt} from './nature.js';
 import {createTree,treeTypeAt} from './trees.js';
 import './style.css';
@@ -41,11 +42,11 @@ function makeChunk(cx,cz) {
   const terrain=new THREE.Mesh(geo,worldMaterial);group.add(terrain);
   const lineGeometry=new THREE.BufferGeometry().setFromPoints(Array.from({length:49},(_,i)=>{const t=i/12;const x=t<=1?t*12:t<=2?12:t<=3?(3-t)*12:0;const z=t<=1?0:t<=2?(t-1)*12:t<=3?12:(4-t)*12;return new THREE.Vector3(x,heightAt(cx*12+x,cz*12+z)+.05,z);}));
   const border=new THREE.Line(lineGeometry,new THREE.LineBasicMaterial({color:0xffe6a0}));border.visible=showGrid;group.add(border);
-  scene.add(group);return {group,terrain,border,decorations};
+  scene.add(group);spawnFauna(cx,cz,scene);return {group,terrain,border,decorations,cx,cz};
 }
 function stream() {
   const wanted=new Set();for(const [x,z] of wantedChunks(player.position.x,player.position.z)){const key=`${x},${z}`;wanted.add(key);if(!chunks.has(key))chunks.set(key,makeChunk(x,z));}
-  for(const [key,c] of chunks)if(!wanted.has(key)){scene.remove(c.group);c.decorations.forEach(m=>m.dispose());c.terrain.geometry.dispose();c.border.geometry.dispose();c.border.material.dispose();chunks.delete(key);}
+  for(const [key,c] of chunks)if(!wanted.has(key)){scene.remove(c.group);removeFauna(c.cx,c.cz,scene);c.decorations.forEach(m=>m.dispose());c.terrain.geometry.dispose();c.border.geometry.dispose();c.border.material.dispose();chunks.delete(key);}
 }
 const water=new THREE.Mesh(new THREE.PlaneGeometry(180,180),waterMaterial);water.position.y=-1.55;water.rotation.x=-Math.PI/2;scene.add(water);
 export const player=new THREE.Group();scene.add(player);player.add(cloneAsset('explorador-v02'));
@@ -68,5 +69,6 @@ function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;elapsed+=dt;
   water.position.x=player.position.x;water.position.z=player.position.z;
   camera.position.copy(player.position).add(new THREE.Vector3(23,26,23));camera.lookAt(player.position);
   document.querySelector('#stats').textContent=`SEMENTE ${SEED} / CHUNK ${chunk} / ${chunks.size} ATIVOS / X ${player.position.x.toFixed(0)} Z ${player.position.z.toFixed(0)}`;
+  updateFauna(dt,elapsed);
   renderer.render(scene,camera);requestAnimationFrame(frame);
 }requestAnimationFrame(frame);

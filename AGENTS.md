@@ -12,3 +12,5 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 - A pintura v02 foi executada por script no Painter nativo do Blockbench; não alegar autoria manual humana.
 - Pedras P01–P11 e flores F01–F23 estão nos fontes `*-v01.bbmodel`, com atlas independente `natureza-painted-v01.png`; preservar a referência `docs/art/pedras-flores-v01-aprovada.png`.
 - Consultar `docs/direcao-artistica.md` antes de criar ou revisar assets.
+
+- Fauna A01–A11: referência `docs/art/animais-v01-aprovada.png`, fontes `animal-*-v01.bbmodel`, atlas `fauna-painted-v01.png`. Preservar nomes e pivôs das partes usados pelas animações de `src/fauna.js`. Refinamentos devem abrir v02.

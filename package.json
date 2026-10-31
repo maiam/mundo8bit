@@ -13,7 +13,9 @@
     "qa:browser": "node scripts/verify-game.mjs",
     "qa:pranchas": "node scripts/render-asset-board.mjs",
     "assets:nature": "node scripts/build-nature-assets.mjs",
-    "qa:nature": "node scripts/render-nature-board.mjs"
+    "qa:nature": "node scripts/render-nature-board.mjs",
+    "assets:fauna": "node scripts/build-fauna-assets.mjs",
+    "qa:fauna": "node scripts/render-fauna-board.mjs"
   },
   "dependencies": {
     "three": "^0.182.0"

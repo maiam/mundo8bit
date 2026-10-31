@@ -1,0 +1,681 @@
+{
+  "version": 1,
+  "tool": "Blockbench",
+  "toolVersion": "5.2.2",
+  "atlas": "fauna-painted-v01.png",
+  "palette": [
+    "onca",
+    "anta",
+    "veado-quati",
+    "capivara",
+    "creme",
+    "nariz-cascos",
+    "tamandua",
+    "preto",
+    "carapaca",
+    "macaco",
+    "preguica",
+    "bico",
+    "iris",
+    "marrom-escuro",
+    "coruja",
+    "olho-azul"
+  ],
+  "assets": [
+    {
+      "id": "animal-onca-pintada-v01",
+      "name": "Onça-pintada",
+      "kind": "animal",
+      "catalogId": "A01",
+      "species": 0,
+      "speed": 0.65,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.85,
+            0.42
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.156,
+            0.81,
+            0.22749999999999998
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.156,
+            0.81,
+            -0.325
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.156,
+            0.81,
+            0.22749999999999998
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.156,
+            0.81,
+            -0.325
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.75,
+            -0.64
+          ]
+        }
+      ],
+      "triangles": 760,
+      "source": "assets/blockbench/animal-onca-pintada-v01.bbmodel",
+      "url": "/assets/models/animal-onca-pintada-v01.gltf"
+    },
+    {
+      "id": "animal-anta-v01",
+      "name": "Anta",
+      "kind": "animal",
+      "catalogId": "A02",
+      "species": 1,
+      "speed": 0.4,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.9,
+            0.5
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.195,
+            0.76,
+            0.26
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.195,
+            0.76,
+            -0.325
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.195,
+            0.76,
+            0.26
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.195,
+            0.76,
+            -0.325
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.75,
+            -0.7
+          ]
+        }
+      ],
+      "triangles": 620,
+      "source": "assets/blockbench/animal-anta-v01.bbmodel",
+      "url": "/assets/models/animal-anta-v01.gltf"
+    },
+    {
+      "id": "animal-veado-v01",
+      "name": "Veado",
+      "kind": "animal",
+      "catalogId": "A03",
+      "species": 2,
+      "speed": 0.8,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            1.43,
+            0.49
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.13,
+            1.02,
+            0.2015
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.13,
+            1.02,
+            -0.26
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.13,
+            1.02,
+            0.2015
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.13,
+            1.02,
+            -0.26
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            1.12,
+            -0.51
+          ]
+        }
+      ],
+      "triangles": 676,
+      "source": "assets/blockbench/animal-veado-v01.bbmodel",
+      "url": "/assets/models/animal-veado-v01.gltf"
+    },
+    {
+      "id": "animal-capivara-v01",
+      "name": "Capivara",
+      "kind": "animal",
+      "catalogId": "A04",
+      "species": 3,
+      "speed": 0.35,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.6,
+            0.29
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.17550000000000002,
+            0.54,
+            0.14950000000000002
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.17550000000000002,
+            0.54,
+            -0.3315
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.17550000000000002,
+            0.54,
+            0.14950000000000002
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.17550000000000002,
+            0.54,
+            -0.3315
+          ]
+        }
+      ],
+      "triangles": 564,
+      "source": "assets/blockbench/animal-capivara-v01.bbmodel",
+      "url": "/assets/models/animal-capivara-v01.gltf"
+    },
+    {
+      "id": "animal-quati-v01",
+      "name": "Quati",
+      "kind": "animal",
+      "catalogId": "A05",
+      "species": 4,
+      "speed": 0.65,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.52,
+            0.23
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.11050000000000001,
+            0.56,
+            0.169
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.11050000000000001,
+            0.56,
+            -0.22100000000000003
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.11050000000000001,
+            0.56,
+            0.169
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.11050000000000001,
+            0.56,
+            -0.22100000000000003
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.54,
+            -0.42
+          ]
+        }
+      ],
+      "triangles": 600,
+      "source": "assets/blockbench/animal-quati-v01.bbmodel",
+      "url": "/assets/models/animal-quati-v01.gltf"
+    },
+    {
+      "id": "animal-tamandua-mirim-v01",
+      "name": "Tamanduá-mirim",
+      "kind": "animal",
+      "catalogId": "A06",
+      "species": 5,
+      "speed": 0.3,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.6,
+            0.4
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.14300000000000002,
+            0.59,
+            0.156
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.14300000000000002,
+            0.59,
+            -0.273
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.14300000000000002,
+            0.59,
+            0.156
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.14300000000000002,
+            0.59,
+            -0.273
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.59,
+            -0.6
+          ]
+        }
+      ],
+      "triangles": 780,
+      "source": "assets/blockbench/animal-tamandua-mirim-v01.bbmodel",
+      "url": "/assets/models/animal-tamandua-mirim-v01.gltf"
+    },
+    {
+      "id": "animal-tatu-v01",
+      "name": "Tatu",
+      "kind": "animal",
+      "catalogId": "A07",
+      "species": 6,
+      "speed": 0.3,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.3,
+            0.32
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.14950000000000002,
+            0.41000000000000003,
+            0.156
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.14950000000000002,
+            0.41000000000000003,
+            -0.2405
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.14950000000000002,
+            0.41000000000000003,
+            0.156
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.14950000000000002,
+            0.41000000000000003,
+            -0.2405
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.26,
+            -0.55
+          ]
+        }
+      ],
+      "triangles": 596,
+      "source": "assets/blockbench/animal-tatu-v01.bbmodel",
+      "url": "/assets/models/animal-tatu-v01.gltf"
+    },
+    {
+      "id": "animal-macaco-prego-v01",
+      "name": "Macaco-prego",
+      "kind": "animal",
+      "catalogId": "A08",
+      "species": 7,
+      "speed": 0.6,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.85,
+            0.3
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.11699999999999999,
+            0.75,
+            0.156
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.11699999999999999,
+            0.75,
+            -0.195
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.11699999999999999,
+            0.75,
+            0.156
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.11699999999999999,
+            0.75,
+            -0.195
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.8,
+            -0.4
+          ]
+        }
+      ],
+      "triangles": 640,
+      "source": "assets/blockbench/animal-macaco-prego-v01.bbmodel",
+      "url": "/assets/models/animal-macaco-prego-v01.gltf"
+    },
+    {
+      "id": "animal-preguica-v01",
+      "name": "Preguiça",
+      "kind": "animal",
+      "catalogId": "A09",
+      "species": 8,
+      "speed": 0.1,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.56,
+            0.25
+          ]
+        },
+        {
+          "name": "perna-frente-esquerda",
+          "pivot": [
+            -0.169,
+            0.61,
+            0.1625
+          ]
+        },
+        {
+          "name": "perna-tras-esquerda",
+          "pivot": [
+            -0.169,
+            0.61,
+            -0.23399999999999999
+          ]
+        },
+        {
+          "name": "perna-frente-direita",
+          "pivot": [
+            0.169,
+            0.61,
+            0.1625
+          ]
+        },
+        {
+          "name": "perna-tras-direita",
+          "pivot": [
+            0.169,
+            0.61,
+            -0.23399999999999999
+          ]
+        }
+      ],
+      "triangles": 640,
+      "source": "assets/blockbench/animal-preguica-v01.bbmodel",
+      "url": "/assets/models/animal-preguica-v01.gltf"
+    },
+    {
+      "id": "animal-tucano-v01",
+      "name": "Tucano",
+      "kind": "animal",
+      "catalogId": "A10",
+      "species": 9,
+      "speed": 0.3,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.66,
+            0.12
+          ]
+        },
+        {
+          "name": "perna-esquerda",
+          "pivot": [
+            -0.11,
+            0.22,
+            0
+          ]
+        },
+        {
+          "name": "asa-esquerda",
+          "pivot": [
+            -0.17,
+            0.57,
+            0.03
+          ]
+        },
+        {
+          "name": "perna-direita",
+          "pivot": [
+            0.11,
+            0.22,
+            0
+          ]
+        },
+        {
+          "name": "asa-direita",
+          "pivot": [
+            0.17,
+            0.57,
+            0.03
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.31,
+            -0.18
+          ]
+        }
+      ],
+      "triangles": 420,
+      "source": "assets/blockbench/animal-tucano-v01.bbmodel",
+      "url": "/assets/models/animal-tucano-v01.gltf"
+    },
+    {
+      "id": "animal-coruja-v01",
+      "name": "Coruja",
+      "kind": "animal",
+      "catalogId": "A11",
+      "species": 10,
+      "speed": 0.22,
+      "rig": [
+        {
+          "name": "cabeca",
+          "pivot": [
+            0,
+            0.74,
+            0
+          ]
+        },
+        {
+          "name": "perna-esquerda",
+          "pivot": [
+            -0.14,
+            0.19,
+            0
+          ]
+        },
+        {
+          "name": "asa-esquerda",
+          "pivot": [
+            -0.2,
+            0.64,
+            0.02
+          ]
+        },
+        {
+          "name": "perna-direita",
+          "pivot": [
+            0.14,
+            0.19,
+            0
+          ]
+        },
+        {
+          "name": "asa-direita",
+          "pivot": [
+            0.2,
+            0.64,
+            0.02
+          ]
+        },
+        {
+          "name": "cauda",
+          "pivot": [
+            0,
+            0.25,
+            -0.2
+          ]
+        }
+      ],
+      "triangles": 560,
+      "source": "assets/blockbench/animal-coruja-v01.bbmodel",
+      "url": "/assets/models/animal-coruja-v01.gltf"
+    }
+  ]
+}
