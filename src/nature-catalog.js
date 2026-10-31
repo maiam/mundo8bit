@@ -1,0 +1,4 @@
+export const ROCK_IDS=['seixo','bloco','laje','agulha','fendida','estratos','arco','musgosa','cristal','furada','dorso'];
+export const ROCK_NAMES=['Seixo','Bloco','Laje','Agulha','Fendida','Estratos','Arco','Musgosa','Cristal','Furada','Dorso'];
+export const FLOWER_IDS=['margarida','tulipa','girassol','lavanda','campanula','papoula','iris','narciso','violeta','hibisco','dente-de-leao','lirio','orquidea','copo-de-leite','lotus','flor-de-cacto','allium','dalia','hortensia','cosmos','lupino','estrelitzia','brinco-de-princesa'];
+export const FLOWER_NAMES=['Margarida','Tulipa','Girassol','Lavanda','Campânula','Papoula','Íris','Narciso','Violeta','Hibisco','Dente-de-leão','Lírio','Orquídea','Copo-de-leite','Lótus','Flor de cacto','Allium','Dália','Hortênsia','Cosmos','Lupino','Estrelítzia','Brinco-de-princesa'];

@@ -11,7 +11,9 @@
     "test": "node --test",
     "assets:blockbench": "node scripts/build-blockbench-assets.mjs",
     "qa:browser": "node scripts/verify-game.mjs",
-    "qa:pranchas": "node scripts/render-asset-board.mjs"
+    "qa:pranchas": "node scripts/render-asset-board.mjs",
+    "assets:nature": "node scripts/build-nature-assets.mjs",
+    "qa:nature": "node scripts/render-nature-board.mjs"
   },
   "dependencies": {
     "three": "^0.182.0"

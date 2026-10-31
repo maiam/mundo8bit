@@ -1,0 +1,332 @@
+{
+  "version": 1,
+  "tool": "Blockbench",
+  "toolVersion": "5.2.2",
+  "atlas": "natureza-painted-v01.png",
+  "palette": [
+    "pedra-fria",
+    "pedra-quente",
+    "musgo",
+    "quartzo",
+    "haste",
+    "folha",
+    "marfim",
+    "amarelo",
+    "coral",
+    "rosa",
+    "violeta",
+    "azul",
+    "miolo",
+    "laranja",
+    "fucsia",
+    "cacto"
+  ],
+  "assets": [
+    {
+      "id": "pedra-seixo-v01",
+      "name": "Seixo",
+      "kind": "rock",
+      "catalogId": "P01",
+      "triangles": 20,
+      "source": "assets/blockbench/pedra-seixo-v01.bbmodel",
+      "url": "/assets/models/pedra-seixo-v01.gltf"
+    },
+    {
+      "id": "pedra-bloco-v01",
+      "name": "Bloco",
+      "kind": "rock",
+      "catalogId": "P02",
+      "triangles": 36,
+      "source": "assets/blockbench/pedra-bloco-v01.bbmodel",
+      "url": "/assets/models/pedra-bloco-v01.gltf"
+    },
+    {
+      "id": "pedra-laje-v01",
+      "name": "Laje",
+      "kind": "rock",
+      "catalogId": "P03",
+      "triangles": 20,
+      "source": "assets/blockbench/pedra-laje-v01.bbmodel",
+      "url": "/assets/models/pedra-laje-v01.gltf"
+    },
+    {
+      "id": "pedra-agulha-v01",
+      "name": "Agulha",
+      "kind": "rock",
+      "catalogId": "P04",
+      "triangles": 10,
+      "source": "assets/blockbench/pedra-agulha-v01.bbmodel",
+      "url": "/assets/models/pedra-agulha-v01.gltf"
+    },
+    {
+      "id": "pedra-fendida-v01",
+      "name": "Fendida",
+      "kind": "rock",
+      "catalogId": "P05",
+      "triangles": 60,
+      "source": "assets/blockbench/pedra-fendida-v01.bbmodel",
+      "url": "/assets/models/pedra-fendida-v01.gltf"
+    },
+    {
+      "id": "pedra-estratos-v01",
+      "name": "Estratos",
+      "kind": "rock",
+      "catalogId": "P06",
+      "triangles": 48,
+      "source": "assets/blockbench/pedra-estratos-v01.bbmodel",
+      "url": "/assets/models/pedra-estratos-v01.gltf"
+    },
+    {
+      "id": "pedra-arco-v01",
+      "name": "Arco",
+      "kind": "rock",
+      "catalogId": "P07",
+      "triangles": 96,
+      "source": "assets/blockbench/pedra-arco-v01.bbmodel",
+      "url": "/assets/models/pedra-arco-v01.gltf"
+    },
+    {
+      "id": "pedra-musgosa-v01",
+      "name": "Musgosa",
+      "kind": "rock",
+      "catalogId": "P08",
+      "triangles": 60,
+      "source": "assets/blockbench/pedra-musgosa-v01.bbmodel",
+      "url": "/assets/models/pedra-musgosa-v01.gltf"
+    },
+    {
+      "id": "pedra-cristal-v01",
+      "name": "Cristal",
+      "kind": "rock",
+      "catalogId": "P09",
+      "triangles": 8,
+      "source": "assets/blockbench/pedra-cristal-v01.bbmodel",
+      "url": "/assets/models/pedra-cristal-v01.gltf"
+    },
+    {
+      "id": "pedra-furada-v01",
+      "name": "Furada",
+      "kind": "rock",
+      "catalogId": "P10",
+      "triangles": 90,
+      "source": "assets/blockbench/pedra-furada-v01.bbmodel",
+      "url": "/assets/models/pedra-furada-v01.gltf"
+    },
+    {
+      "id": "pedra-dorso-v01",
+      "name": "Dorso",
+      "kind": "rock",
+      "catalogId": "P11",
+      "triangles": 40,
+      "source": "assets/blockbench/pedra-dorso-v01.bbmodel",
+      "url": "/assets/models/pedra-dorso-v01.gltf"
+    },
+    {
+      "id": "flor-margarida-v01",
+      "name": "Margarida",
+      "kind": "flower",
+      "catalogId": "F01",
+      "triangles": 84,
+      "source": "assets/blockbench/flor-margarida-v01.bbmodel",
+      "url": "/assets/models/flor-margarida-v01.gltf"
+    },
+    {
+      "id": "flor-tulipa-v01",
+      "name": "Tulipa",
+      "kind": "flower",
+      "catalogId": "F02",
+      "triangles": 68,
+      "source": "assets/blockbench/flor-tulipa-v01.bbmodel",
+      "url": "/assets/models/flor-tulipa-v01.gltf"
+    },
+    {
+      "id": "flor-girassol-v01",
+      "name": "Girassol",
+      "kind": "flower",
+      "catalogId": "F03",
+      "triangles": 120,
+      "source": "assets/blockbench/flor-girassol-v01.bbmodel",
+      "url": "/assets/models/flor-girassol-v01.gltf"
+    },
+    {
+      "id": "flor-lavanda-v01",
+      "name": "Lavanda",
+      "kind": "flower",
+      "catalogId": "F04",
+      "triangles": 488,
+      "source": "assets/blockbench/flor-lavanda-v01.bbmodel",
+      "url": "/assets/models/flor-lavanda-v01.gltf"
+    },
+    {
+      "id": "flor-campanula-v01",
+      "name": "Campânula",
+      "kind": "flower",
+      "catalogId": "F05",
+      "triangles": 108,
+      "source": "assets/blockbench/flor-campanula-v01.bbmodel",
+      "url": "/assets/models/flor-campanula-v01.gltf"
+    },
+    {
+      "id": "flor-papoula-v01",
+      "name": "Papoula",
+      "kind": "flower",
+      "catalogId": "F06",
+      "triangles": 80,
+      "source": "assets/blockbench/flor-papoula-v01.bbmodel",
+      "url": "/assets/models/flor-papoula-v01.gltf"
+    },
+    {
+      "id": "flor-iris-v01",
+      "name": "Íris",
+      "kind": "flower",
+      "catalogId": "F07",
+      "triangles": 48,
+      "source": "assets/blockbench/flor-iris-v01.bbmodel",
+      "url": "/assets/models/flor-iris-v01.gltf"
+    },
+    {
+      "id": "flor-narciso-v01",
+      "name": "Narciso",
+      "kind": "flower",
+      "catalogId": "F08",
+      "triangles": 92,
+      "source": "assets/blockbench/flor-narciso-v01.bbmodel",
+      "url": "/assets/models/flor-narciso-v01.gltf"
+    },
+    {
+      "id": "flor-violeta-v01",
+      "name": "Violeta",
+      "kind": "flower",
+      "catalogId": "F09",
+      "triangles": 188,
+      "source": "assets/blockbench/flor-violeta-v01.bbmodel",
+      "url": "/assets/models/flor-violeta-v01.gltf"
+    },
+    {
+      "id": "flor-hibisco-v01",
+      "name": "Hibisco",
+      "kind": "flower",
+      "catalogId": "F10",
+      "triangles": 100,
+      "source": "assets/blockbench/flor-hibisco-v01.bbmodel",
+      "url": "/assets/models/flor-hibisco-v01.gltf"
+    },
+    {
+      "id": "flor-dente-de-leao-v01",
+      "name": "Dente-de-leão",
+      "kind": "flower",
+      "catalogId": "F11",
+      "triangles": 188,
+      "source": "assets/blockbench/flor-dente-de-leao-v01.bbmodel",
+      "url": "/assets/models/flor-dente-de-leao-v01.gltf"
+    },
+    {
+      "id": "flor-lirio-v01",
+      "name": "Lírio",
+      "kind": "flower",
+      "catalogId": "F12",
+      "triangles": 116,
+      "source": "assets/blockbench/flor-lirio-v01.bbmodel",
+      "url": "/assets/models/flor-lirio-v01.gltf"
+    },
+    {
+      "id": "flor-orquidea-v01",
+      "name": "Orquídea",
+      "kind": "flower",
+      "catalogId": "F13",
+      "triangles": 88,
+      "source": "assets/blockbench/flor-orquidea-v01.bbmodel",
+      "url": "/assets/models/flor-orquidea-v01.gltf"
+    },
+    {
+      "id": "flor-copo-de-leite-v01",
+      "name": "Copo-de-leite",
+      "kind": "flower",
+      "catalogId": "F14",
+      "triangles": 60,
+      "source": "assets/blockbench/flor-copo-de-leite-v01.bbmodel",
+      "url": "/assets/models/flor-copo-de-leite-v01.gltf"
+    },
+    {
+      "id": "flor-lotus-v01",
+      "name": "Lótus",
+      "kind": "flower",
+      "catalogId": "F15",
+      "triangles": 136,
+      "source": "assets/blockbench/flor-lotus-v01.bbmodel",
+      "url": "/assets/models/flor-lotus-v01.gltf"
+    },
+    {
+      "id": "flor-flor-de-cacto-v01",
+      "name": "Flor de cacto",
+      "kind": "flower",
+      "catalogId": "F16",
+      "triangles": 92,
+      "source": "assets/blockbench/flor-flor-de-cacto-v01.bbmodel",
+      "url": "/assets/models/flor-flor-de-cacto-v01.gltf"
+    },
+    {
+      "id": "flor-allium-v01",
+      "name": "Allium",
+      "kind": "flower",
+      "catalogId": "F17",
+      "triangles": 324,
+      "source": "assets/blockbench/flor-allium-v01.bbmodel",
+      "url": "/assets/models/flor-allium-v01.gltf"
+    },
+    {
+      "id": "flor-dalia-v01",
+      "name": "Dália",
+      "kind": "flower",
+      "catalogId": "F18",
+      "triangles": 168,
+      "source": "assets/blockbench/flor-dalia-v01.bbmodel",
+      "url": "/assets/models/flor-dalia-v01.gltf"
+    },
+    {
+      "id": "flor-hortensia-v01",
+      "name": "Hortênsia",
+      "kind": "flower",
+      "catalogId": "F19",
+      "triangles": 416,
+      "source": "assets/blockbench/flor-hortensia-v01.bbmodel",
+      "url": "/assets/models/flor-hortensia-v01.gltf"
+    },
+    {
+      "id": "flor-cosmos-v01",
+      "name": "Cosmos",
+      "kind": "flower",
+      "catalogId": "F20",
+      "triangles": 144,
+      "source": "assets/blockbench/flor-cosmos-v01.bbmodel",
+      "url": "/assets/models/flor-cosmos-v01.gltf"
+    },
+    {
+      "id": "flor-lupino-v01",
+      "name": "Lupino",
+      "kind": "flower",
+      "catalogId": "F21",
+      "triangles": 504,
+      "source": "assets/blockbench/flor-lupino-v01.bbmodel",
+      "url": "/assets/models/flor-lupino-v01.gltf"
+    },
+    {
+      "id": "flor-estrelitzia-v01",
+      "name": "Estrelítzia",
+      "kind": "flower",
+      "catalogId": "F22",
+      "triangles": 44,
+      "source": "assets/blockbench/flor-estrelitzia-v01.bbmodel",
+      "url": "/assets/models/flor-estrelitzia-v01.gltf"
+    },
+    {
+      "id": "flor-brinco-de-princesa-v01",
+      "name": "Brinco-de-princesa",
+      "kind": "flower",
+      "catalogId": "F23",
+      "triangles": 198,
+      "source": "assets/blockbench/flor-brinco-de-princesa-v01.bbmodel",
+      "url": "/assets/models/flor-brinco-de-princesa-v01.gltf"
+    }
+  ]
+}

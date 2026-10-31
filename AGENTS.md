@@ -10,4 +10,5 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 - Os assets de produção v02 estão em `assets/blockbench/` com texturas em `assets/textures/` e exports em `public/assets/`. Preserve os fontes ao editar, criando uma versão nova.
 - Geometria procedural v01 em `scripts/tree-shapes-v01.js` é referência histórica de silhuetas; não volta ao runtime.
 - A pintura v02 foi executada por script no Painter nativo do Blockbench; não alegar autoria manual humana.
+- Pedras P01–P11 e flores F01–F23 estão nos fontes `*-v01.bbmodel`, com atlas independente `natureza-painted-v01.png`; preservar a referência `docs/art/pedras-flores-v01-aprovada.png`.
 - Consultar `docs/direcao-artistica.md` antes de criar ou revisar assets.

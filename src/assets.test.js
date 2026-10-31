@@ -4,9 +4,11 @@ import {readFileSync} from 'node:fs';
 import {appendTileUV} from './assets.js';
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
 const manifest=read('public/assets/manifest.json');
+const nature=read('public/assets/nature-manifest.json');
 test('fontes Blockbench e exports possuem UVs válidas e texturas incorporadas',()=>{
   assert.equal(manifest.assets.length,17);assert.equal(manifest.tool,'Blockbench');
-  for(const asset of manifest.assets){
+  assert.equal(nature.assets.filter(a=>a.kind==='rock').length,11);assert.equal(nature.assets.filter(a=>a.kind==='flower').length,23);assert.equal(nature.tool,'Blockbench');
+  for(const asset of [...manifest.assets,...nature.assets]){
     const bb=read(asset.source),gltf=read('public'+asset.url);
     assert.equal(bb.meta.model_format,'free');assert.equal(bb.resolution.width,256);
     assert.ok(bb.textures[0].source.startsWith('data:image/png;base64,'));

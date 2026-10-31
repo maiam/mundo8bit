@@ -40,3 +40,16 @@ Revisar a fidelidade artística e o desempenho em celulares reais antes de consi
 A ampliação pixelizada em meia resolução foi substituída por renderização na resolução CSS, com antialiasing, filtragem linear, mipmaps e anisotropia até 4×. O DPR é limitado a 1,5 e o buffer a 2 milhões de pixels. Esses parâmetros são os mesmos parado e em movimento. As fontes Blockbench, a geometria low poly e o atlas v02 foram preservados.
 
 Verificação em Chromium: desktop 1440 × 900 e viewport mobile 390 × 844 com DPR do dispositivo 3 (buffer limitado a 585 × 1266). Joystick com dois toques, liberação dos controles, streaming e estabilidade de recursos passaram. Capturas: [desktop](art/validation/mundo-painted-v03-desktop.png), [mobile parado](art/validation/mundo-painted-v03-mobile.png) e [mobile em movimento](art/validation/mundo-painted-v03-mobile-moving.png). A filtragem reduz serrilhado e variação de amostragem; não elimina todas as diferenças percebidas em movimento. Desempenho e aparência no Safari/iPhone físico ainda precisam ser conferidos.
+
+## Pedras e flores / referência v01 / modelos v01
+
+A [prancha de 11 pedras e 23 flores](art/pedras-flores-v01-aprovada.png) foi aceita como referência para implementação. Preserve a referência e os assets anteriores. As novas adaptações são uma primeira passagem para o jogo, em revisão visual.
+
+- Pedras P01–P11: seixo, bloco, laje, agulha, fendida, estratos, arco, musgosa, cristal, furada e dorso.
+- Flores F01–F23: catálogo completo em `src/nature-catalog.js`, com arquitetura de pétalas, folhas e inflorescências adaptada de cada desenho. Nomes representam tipos estilizados da prancha; não são identificações científicas ou um bioma botânico real.
+- 34 fontes Generic Model no Blockbench 5.2.2, UVs e atlas `natureza-painted-v01.png` (256 × 256). Texturas de pedra, musgo, quartzo, caule, folhas e pétalas em 16 células. Pintura automatizada no Painter nativo, sem alegação de trabalho manual humano.
+- Grupos semânticos de rocha/musgo e hastes/folhas/pétalas/miolo nos fontes. Fontes editáveis e texturas incorporadas, exportação glTF nativa. Fontes anteriores permanecem intactos; a pedra genérica v02 foi retirada do carregamento ativo.
+- Mundo: manchas pequenas de 2–4 flores, pedras de escala e rotação variadas, lótus apenas acima de água com terreno submerso. Decoração determinística por coordenada. As demais flores ficam fora da água.
+- Runtime: partes de cada novo asset são unidas no carregamento; instâncias agrupadas por tipo e chunk. Buffers de instâncias são liberados ao descarregar o chunk, preservando geometrias e materiais compartilhados.
+
+Pranchas dos modelos reais: [pedras de frente](art/pedras-modelos-v01-frente.png), [pedras de costas](art/pedras-modelos-v01-costas.png), [flores de frente](art/flores-modelos-v01-frente.png) e [flores de costas](art/flores-modelos-v01-costas.png). Todas mantêm câmera, iluminação e escala comparáveis dentro da categoria.
