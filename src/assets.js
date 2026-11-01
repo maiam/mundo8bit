@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {createAnimalSprite} from './animal-sprites.js';
 import {createPaintedMaterial} from './painted-materials.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -57,6 +58,12 @@ export async function loadAssets(renderer) {
   try {
     const assets=[...assetManifest.assets.filter(a=>a.kind!=='surface'&&a.kind!=='player'&&a.id!=='pedra-v02'),...playerManifest.assets.map(a=>({...a,player:true})),...natureManifest.assets.map(a=>({...a,nature:true})),...faunaManifest.assets.map(a=>({...a,fauna:true}))];
     await Promise.all(assets.map(async asset=>{
+      if(asset.appearance?.type==='sprite'){
+        const texture=await new THREE.TextureLoader().loadAsync(asset.appearance.url);
+        texture.colorSpace=THREE.SRGBColorSpace;texture.magFilter=THREE.LinearFilter;
+        texture.minFilter=THREE.LinearMipmapLinearFilter;texture.generateMipmaps=true;texture.anisotropy=anisotropy;
+        templates.set(asset.id,createAnimalSprite(texture,asset.appearance));return;
+      }
       const {scene}=await loader.loadAsync(asset.url);
       const oldMaterials=new Set(),oldTextures=new Set();
       scene.traverse(node=>{if(node.isMesh){

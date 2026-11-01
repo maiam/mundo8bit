@@ -8,6 +8,8 @@
 
 ## Arte e produção
 
+- [Onça 2D fantasia](onca-2d.md): imagem aprovada, integração, streaming e limites da animação.
+
 - [Grama clara v04](grama-clara-v04.md): revisão de fidelidade de T01, comparação de referência/textura/jogo, em revisão.
 
 - [Texturas v03](texturas-v03.md): prancha aprovada, atlas, fontes e aplicação no mundo.

@@ -37,6 +37,8 @@ A personagem jogável agora é **Iara**, escolhida na opção D: [modelo, fonte 
 
 ## Arte e fontes
 
+A **onça-pintada** agora usa o [sprite 2D fantasia aprovado](docs/onca-2d.md), com movimento e colisões existentes. Os outros dez animais continuam em 3D. A coleção original Blockbench está preservada como fonte histórica.
+
 A [grama clara v04](docs/grama-clara-v04.md) revisa a fidelidade à prancha, com pintura gerada por imagem e importada no Blockbench. Apenas T01 foi alterada nesta etapa; os demais materiais seguem na v03. [Comparação visual](docs/art/grama-clara-v04-comparacao.png).
 
 A coleção de [texturas v03](docs/texturas-v03.md), aprovada na prancha, atualiza árvores, pedras, terreno e água. Preserva as fontes anteriores e acrescenta 12 amostras de material.

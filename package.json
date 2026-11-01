@@ -11,6 +11,7 @@
     "test": "node --test",
     "assets:blockbench": "node scripts/build-blockbench-assets.mjs",
     "assets:grass": "node scripts/build-grass-v04.mjs",
+    "qa:jaguar": "node scripts/verify-jaguar.mjs",
     "qa:grass": "node scripts/verify-grass-v04.mjs",
     "assets:textures": "node scripts/build-world-textures-v03.mjs",
     "qa:textures": "node scripts/verify-world-textures.mjs",

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "tool": "Blockbench",
   "toolVersion": "5.2.2",
   "atlas": "fauna-painted-v01.png",
@@ -81,7 +81,24 @@
       ],
       "triangles": 760,
       "source": "assets/blockbench/animal-onca-pintada-v01.bbmodel",
-      "url": "/assets/models/animal-onca-pintada-v01.gltf"
+      "url": "/assets/models/animal-onca-pintada-v01.gltf",
+      "appearance": {
+        "type": "sprite",
+        "version": 1,
+        "url": "/assets/sprites/onca-fantasia-v01.png",
+        "source": "assets/sprites/onca-fantasia-v01.png",
+        "reference": "docs/art/onca-fantasia-conceito-v01-aprovado.png",
+        "style": "Ilustração digital 2D fantasia RPG/anime",
+        "origin": "Imagem gerada e aprovada no protótipo isolado; não é modelo Blockbench",
+        "sha256": "77a7fe71ca2556e1fe2f85e04b51908af904d498bf7078c6bacb16663fd59d8f",
+        "width": 2.5268817204301075,
+        "height": 1.6845878136200716,
+        "center": [
+          0.5,
+          0.025
+        ],
+        "lift": 0.06451612903225806
+      }
     },
     {
       "id": "animal-anta-v01",

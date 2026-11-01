@@ -1,0 +1,155 @@
+{
+  "initial": {
+    "canvases": 1,
+    "collisionChunks": 25,
+    "animals": 16,
+    "assetErrors": [],
+    "meshes": 295,
+    "textured": 295,
+    "instances": 244,
+    "flowers": 200,
+    "rocks": 44,
+    "stats": "SEMENTE 808 / CHUNK 0,0 / 25 ATIVOS / X 0 Z 0",
+    "error": "",
+    "geometries": 84,
+    "textures": 7,
+    "render": {
+      "width": 1440,
+      "height": 900,
+      "ratio": 1,
+      "css": "auto",
+      "antialias": true
+    }
+  },
+  "traversal": [
+    {
+      "target": {
+        "x": 120,
+        "z": -120
+      },
+      "position": {
+        "x": 120,
+        "z": -120
+      },
+      "collisionChunks": 25,
+      "dynamic": 19,
+      "animals": 18,
+      "stats": "SEMENTE 808 / CHUNK 10,-10 / 25 ATIVOS / X 120 Z -120",
+      "geometries": 87,
+      "textures": 7
+    },
+    {
+      "target": {
+        "x": -120,
+        "z": 120
+      },
+      "position": {
+        "x": -120,
+        "z": 120
+      },
+      "collisionChunks": 25,
+      "dynamic": 20,
+      "animals": 19,
+      "stats": "SEMENTE 808 / CHUNK -10,10 / 25 ATIVOS / X -120 Z 120",
+      "geometries": 116,
+      "textures": 7
+    },
+    {
+      "target": {
+        "x": 0,
+        "z": 0
+      },
+      "position": {
+        "x": 0,
+        "z": 0
+      },
+      "collisionChunks": 25,
+      "dynamic": 17,
+      "animals": 16,
+      "stats": "SEMENTE 808 / CHUNK 0,0 / 25 ATIVOS / X 0 Z 0",
+      "geometries": 116,
+      "textures": 7
+    },
+    {
+      "target": {
+        "x": 120,
+        "z": -120
+      },
+      "position": {
+        "x": 120,
+        "z": -120
+      },
+      "collisionChunks": 25,
+      "dynamic": 19,
+      "animals": 18,
+      "stats": "SEMENTE 808 / CHUNK 10,-10 / 25 ATIVOS / X 120 Z -120",
+      "geometries": 118,
+      "textures": 7
+    },
+    {
+      "target": {
+        "x": -120,
+        "z": 120
+      },
+      "position": {
+        "x": -120,
+        "z": 120
+      },
+      "collisionChunks": 25,
+      "dynamic": 20,
+      "animals": 19,
+      "stats": "SEMENTE 808 / CHUNK -10,10 / 25 ATIVOS / X -120 Z 120",
+      "geometries": 116,
+      "textures": 7
+    },
+    {
+      "target": {
+        "x": 0,
+        "z": 0
+      },
+      "position": {
+        "x": 0,
+        "z": 0
+      },
+      "collisionChunks": 25,
+      "dynamic": 17,
+      "animals": 16,
+      "stats": "SEMENTE 808 / CHUNK 0,0 / 25 ATIVOS / X 0 Z 0",
+      "geometries": 116,
+      "textures": 7
+    }
+  ],
+  "wildlife": {
+    "count": 16,
+    "moved": 16,
+    "animated": 15
+  },
+  "portrait": {
+    "paused": true,
+    "gate": true,
+    "inert": true,
+    "before": [
+      0,
+      0
+    ],
+    "after": [
+      0,
+      0
+    ]
+  },
+  "mobile": {
+    "quality": {
+      "width": 1266,
+      "height": 585,
+      "ratio": 1.5,
+      "mipmaps": true,
+      "waterMipmaps": true,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    "visible": "block",
+    "twoFingerRun": true,
+    "movement": true,
+    "released": true
+  }
+}

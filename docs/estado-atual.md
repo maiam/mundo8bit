@@ -10,6 +10,8 @@ Revisão em 2026-10-31. Código auditado: `775a182` (última entrega funcional a
 
 > Revisão T01: [grama clara v04](grama-clara-v04.md), em revisão de fidelidade, substitui apenas a grama clara no terreno. Demais materiais seguem v03.
 
+> Integração aprovada: [onça-pintada 2D fantasia](onca-2d.md) no lugar da aparência 3D, com geração e colisões existentes. Demais animais mantidos; 25 testes atuais.
+
 Jogo publicado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site
 
 ## Diagnóstico

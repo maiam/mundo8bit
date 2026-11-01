@@ -1,5 +1,7 @@
 # Mundo8bit — direção artística
 
+> Atualização aprovada em 2026-11-01: A01/onça-pintada passa a usar [ilustração 2D fantasia no jogo](onca-2d.md). Os modelos 3D abaixo ficam preservados; as outras dez espécies mantêm seu estilo.
+
 > Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
 
 ## Direção oficial

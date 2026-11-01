@@ -11,7 +11,7 @@ try{
    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
    const assets=qa.gameAssets;
    const assetErrors=[...assets.natureManifest.assets,...assets.faunaManifest.assets].filter(a=>{
-    let triangles=0;const model=assets.cloneAsset(a.id);model.traverse(n=>{if(n.isMesh)triangles+=(n.geometry.index?.count??n.geometry.attributes.position.count)/3;});
+    const model=assets.cloneAsset(a.id);if(a.appearance?.type==='sprite')return !model.getObjectByName('animal-sprite')?.material.map;let triangles=0;model.traverse(n=>{if(n.isMesh)triangles+=(n.geometry.index?.count??n.geometry.attributes.position.count)/3;});
     return triangles!==a.triangles||a.rig?.some(j=>!model.getObjectByName(j.name));
    }).map(a=>a.id);
    const fauna=await import('/src/fauna.js');const animals=fauna.activeAnimals.size;const physics=await import('/src/collisions.js');const collisionChunks=physics.collisionWorld.chunks.size;

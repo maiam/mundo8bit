@@ -1,0 +1,73 @@
+{
+  "initial": {
+    "species": 0,
+    "sprite": true,
+    "textureShared": true,
+    "rotation": 0,
+    "other3D": true,
+    "count": 17,
+    "error": "",
+    "badPrograms": 0
+  },
+  "motion": {
+    "before": {
+      "x": 4.958098217387634,
+      "z": -6.453448954928482
+    },
+    "after": {
+      "x": 5.1060853067733625,
+      "z": -6.61251680653938
+    },
+    "rotation": 0,
+    "collision": true,
+    "distance": 0.708477665856206,
+    "material": "3a1ea74c-fe20-4449-8766-8f1b80c54453",
+    "texture": "cb05b3d7-8377-4c60-b679-b36294ad393c"
+  },
+  "streaming": [
+    {
+      "x": 120,
+      "z": -120,
+      "jaguars": 2,
+      "allSprites": true,
+      "shared": true,
+      "memory": {
+        "geometries": 114,
+        "textures": 7
+      }
+    },
+    {
+      "x": 0,
+      "z": 0,
+      "jaguars": 1,
+      "allSprites": true,
+      "shared": true,
+      "memory": {
+        "geometries": 115,
+        "textures": 7
+      }
+    },
+    {
+      "x": 120,
+      "z": -120,
+      "jaguars": 2,
+      "allSprites": true,
+      "shared": true,
+      "memory": {
+        "geometries": 114,
+        "textures": 7
+      }
+    },
+    {
+      "x": 0,
+      "z": 0,
+      "jaguars": 1,
+      "allSprites": true,
+      "shared": true,
+      "memory": {
+        "geometries": 115,
+        "textures": 7
+      }
+    }
+  ]
+}
