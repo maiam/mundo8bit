@@ -23,3 +23,7 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 ## Personagem escolhido
 
 - Iara (opção D) é a personagem jogável. Preservar `docs/art/iara-conceito-v01-aprovado.png`, fonte `iara-v01.bbmodel` e atlas próprio. Consultar `docs/iara.md`; futuras revisões abrem v02.
+
+## Câmera atual
+
+- Vista superior inclinada inspirada no gameplay de Brawl Stars: ortográfica, pitch de 55°, sem yaw diagonal; controles alinhados à tela. Consultar `docs/camera-topdown.md` e centralizar parâmetros em `src/camera-settings.js`. Não restaurar a conversão diagonal de movimento sem revisar a câmera.

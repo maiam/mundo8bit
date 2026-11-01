@@ -1,6 +1,6 @@
 # mundo8bit
 
-Protótipo de exploração em mundo aberto **2,5D**, com câmera ortográfica e direção de arte **low poly painted — Painted using Blockbench with flat textures**.
+Protótipo de exploração em mundo aberto **2,5D**, com câmera ortográfica top-down inclinada, inspirada no enquadramento de Brawl Stars, e direção de arte **low poly painted — Painted using Blockbench with flat textures**.
 
 ## Estado e próximo passo
 
@@ -18,6 +18,8 @@ npm run dev
 ```
 
 `npm run build` gera `dist/`. `npm test` valida geração, streaming, colisões e integridade dos assets/UVs. O build normal usa os exports versionados e não requer Blockbench instalado.
+
+Veja a [mudança de câmera e comparação visual](docs/camera-topdown.md).
 
 ## Controles
 

@@ -17,6 +17,8 @@
 
 ## Comportamento e dispositivos
 
+- [Câmera top-down](camera-topdown.md): referência Brawl Stars, parâmetros, comparação e limites.
+
 - [Colisões](colisoes.md): volumes, água, deslizamento e limites.
 - [Mobile horizontal](mobile-horizontal.md): orientação, controles e zoom.
 - [Tela cheia](tela-cheia.md): suporte, fallback e limites da validação nativa.

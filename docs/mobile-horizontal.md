@@ -20,6 +20,9 @@ Joystick e corrida têm zonas próprias, reservadas aos polegares; a pinça usa 
 
 ## Câmera
 
+> Atualização de 2026-11-01: a câmera passou para top-down alinhado à tela, com referência 5,8 mobile / 7,2 desktop. Veja [parâmetros atuais e comparação](camera-topdown.md). O parágrafo seguinte registra a versão anterior.
+
+
 `src/camera-settings.js` define enquadramento ortográfico mais próximo: referência de meia altura 7 no mobile e 10 no desktop, ajustada à proporção e ao limite de mundo carregado. O máximo é 220% do zoom base. O mínimo é calculado por proporção para limitar a exposição das bordas da janela de 5 × 5 chunks (por exemplo, aproximadamente 85% em 844 × 390). O valor padrão é 100% e o zoom transiciona suavemente.
 
 Mantidos antialiasing, texturas pintadas, mipmaps, DPR até 1,5 e orçamento de 2 milhões de pixels. Modelos, geração, colisões e fontes Blockbench não mudaram.

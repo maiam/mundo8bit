@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {cameraLayout} from './camera-settings.js';
+import {cameraLayout,cameraPose,screenMovement} from './camera-settings.js';
 import {collisionWorld,PLAYER_RADIUS,treeColliders,rockCollider} from './collisions.js';
 import {spawnFauna,removeFauna,updateFauna} from './fauna.js';
 import {natureAt} from './nature.js';
@@ -60,7 +60,7 @@ export function movePlayer(dx,dz){
  collisionWorld.setDynamic('player',{type:'circle',x:position.x,z:position.z,radius:PLAYER_RADIUS,kind:'player'});
  return position;
 }
-const keys=new Set();let lastChunk='';let time=performance.now();let elapsed=0;
+const keys=new Set();let lastChunk='';let time=performance.now();let elapsed=0;let cameraGround=null;let lastCameraX=null;let lastCameraZ=null;
 function toggleGrid(){showGrid=!showGrid;document.body.classList.toggle('show-stats',showGrid);for(const c of chunks.values())c.border.visible=showGrid;document.querySelector('#grid').textContent=showGrid?'G · Ocultar chunks':'G · Ver chunks';}
 window.addEventListener('keydown',e=>{if(e.target instanceof Element&&e.target.closest('button')&&[' ','Enter'].includes(e.key))return;if(touch.paused){keys.clear();return;}if(['+','=','-','_'].includes(e.key)){if(!e.repeat)touch.setZoom(e.key==='-'||e.key==='_'?touch.zoom/1.15:touch.zoom*1.15);return;}if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys.add(e.key.toLowerCase());if(e.key.toLowerCase()==='g'&&!e.repeat)toggleGrid();});
 window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>keys.clear());
@@ -80,13 +80,19 @@ function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;if(touch.pau
   let z=Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup'));
   x += touch.x; z += touch.z;
   const beforeChunk=chunkAt(player.position.x,player.position.z).join(',');if(beforeChunk!==lastChunk){stream();lastChunk=beforeChunk;}
-  let walked=0;const length=Math.hypot(x,z);if(length){const limit=Math.max(1,length);x/=limit;z/=limit;const speed=(keys.has('shift')||touch.running)?8:4;const position=movePlayer((x+z)*Math.SQRT1_2*speed*dt,(z-x)*Math.SQRT1_2*speed*dt);walked=position.distance;player.rotation.y=Math.atan2(x+z,z-x);}
+  let walked=0;const length=Math.hypot(x,z);if(length){const limit=Math.max(1,length);x/=limit;z/=limit;const speed=(keys.has('shift')||touch.running)?8:4;const direction=screenMovement(x,z);const position=movePlayer(direction.x*speed*dt,direction.z*speed*dt);walked=position.distance;player.rotation.y=Math.atan2(direction.x,direction.z);}
   walkPhase+=walked*7;const stride=walked>.001?Math.min(1,walked/Math.max(dt,.001)/4):0;
   iaraLimbs.forEach((limb,i)=>{if(limb)limb.rotation.x=Math.sin(walkPhase+(i%2?Math.PI:0)+(i<2?Math.PI:0))*.42*stride;});
   player.position.y=heightAt(player.position.x,player.position.z)+(walked>.001?Math.sin(elapsed*13)*.06:0);
   const chunk=chunkAt(player.position.x,player.position.z).join(',');if(chunk!==lastChunk){stream();lastChunk=chunk;}
   water.position.x=player.position.x;water.position.z=player.position.z;
-  camera.position.copy(player.position).add(new THREE.Vector3(23,26,23));camera.lookAt(player.position);
+  // Follow the ground, not the walking bob. X/Z follow immediately to preserve control response.
+  const ground=heightAt(player.position.x,player.position.z);
+  const teleported=lastCameraX===null||Math.hypot(player.position.x-lastCameraX,player.position.z-lastCameraZ)>8;
+  cameraGround=teleported?ground:Math.max(ground-.5,Math.min(ground+.5,cameraGround+(ground-cameraGround)*(1-Math.exp(-8*dt))));
+  const pose=cameraPose(player.position.x,cameraGround,player.position.z);
+  camera.position.set(pose.position.x,pose.position.y,pose.position.z);camera.lookAt(pose.target.x,pose.target.y,pose.target.z);
+  lastCameraX=player.position.x;lastCameraZ=player.position.z;
   document.querySelector('#stats').textContent=`SEMENTE ${SEED} / CHUNK ${chunk} / ${chunks.size} ATIVOS / X ${player.position.x.toFixed(0)} Z ${player.position.z.toFixed(0)}`;
   collisionWorld.setDynamic('player',{type:'circle',x:player.position.x,z:player.position.z,radius:PLAYER_RADIUS,kind:'player'});
   updateFauna(dt,elapsed);

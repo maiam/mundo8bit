@@ -10,6 +10,7 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test",
     "assets:blockbench": "node scripts/build-blockbench-assets.mjs",
+    "qa:camera": "node scripts/verify-camera.mjs",
     "qa:browser": "node scripts/verify-game.mjs",
     "qa:pranchas": "node scripts/render-asset-board.mjs",
     "assets:nature": "node scripts/build-nature-assets.mjs",
