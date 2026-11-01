@@ -1,14 +1,16 @@
 import * as THREE from 'three';
 // Sample padded atlas islands in global coordinates. The world pattern spans 8 units,
 // rather than restarting every terrain cell or chunk. No extra draw calls per ground type.
-export function createPaintedMaterial(atlas,{water=false}={}){
+export function createPaintedMaterial(atlas,{water=false,grassClear=null}={}){
  const material=new THREE.MeshStandardMaterial({map:atlas,roughness:1,flatShading:true,side:THREE.DoubleSide});
  material.onBeforeCompile=shader=>{
+  if(grassClear)shader.uniforms.grassClear={value:grassClear};
   shader.vertexShader='varying vec3 vPaintWorld;\n'+shader.vertexShader;
   shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvPaintWorld=(modelMatrix*vec4(position,1.0)).xyz;');
-  shader.fragmentShader='varying vec3 vPaintWorld;\n'+shader.fragmentShader;
+  shader.fragmentShader='varying vec3 vPaintWorld;\n'+(grassClear?'uniform sampler2D grassClear;\n':'')+shader.fragmentShader;
   shader.fragmentShader=shader.fragmentShader.replace('#include <map_pars_fragment>',`#include <map_pars_fragment>
   vec4 paintedTile(float tile,vec2 p){
+   ${grassClear?'if(tile<.5)return texture(grassClear,vPaintWorld.xz/8.0);':''}
    vec2 cell=vec2(mod(tile,4.0),floor(tile/4.0));
    // LOD pinned to the world scale; explicit gradients avoid fract seams in mip selection.
    vec2 uv=(cell*256.0+16.0+fract(p)*224.0)/1024.0;
@@ -33,6 +35,6 @@ export function createPaintedMaterial(atlas,{water=false}={}){
    diffuseColor*=mix(ground,paintedTile(4.0,p),shore);
   `);
  };
- material.customProgramCacheKey=()=>water?'painted-water-v03':'painted-ground-v03';
+ material.customProgramCacheKey=()=>water?'painted-water-v03':grassClear?'painted-ground-grass-v04':'painted-ground-v03';
  return material;
 }

@@ -9,6 +9,7 @@ export let assetManifest;
 export let natureManifest;
 export let faunaManifest;
 export let playerManifest;
+export let grassManifest,grassClearTexture;
 export async function loadAssets(renderer) {
   const anisotropy=Math.min(4,renderer?.capabilities.getMaxAnisotropy()??1);
   const response=await fetch('/assets/manifest.json');
@@ -19,7 +20,16 @@ export async function loadAssets(renderer) {
   atlas.magFilter=THREE.LinearFilter;atlas.minFilter=THREE.LinearMipmapLinearFilter;
   atlas.generateMipmaps=true;atlas.anisotropy=anisotropy;
   worldMaterial=new THREE.MeshStandardMaterial({map:atlas,flatShading:true,roughness:1,side:THREE.DoubleSide});
-  terrainMaterial=createPaintedMaterial(atlas);
+  const grassResponse=await fetch('/assets/grass-manifest.json');
+  if(!grassResponse.ok)throw Error('Textura de grama indisponível');
+  grassManifest=await grassResponse.json();
+  grassClearTexture=await new THREE.TextureLoader().loadAsync(`/assets/${grassManifest.texture}`);
+  grassClearTexture.colorSpace=THREE.SRGBColorSpace;grassClearTexture.flipY=false;
+  grassClearTexture.magFilter=THREE.LinearFilter;grassClearTexture.minFilter=THREE.LinearMipmapLinearFilter;
+  grassClearTexture.generateMipmaps=true;grassClearTexture.anisotropy=anisotropy;
+  // Mirror-repeat joins the same edge texels, preserving the painting without blurring borders.
+  grassClearTexture.wrapS=grassClearTexture.wrapT=THREE.MirroredRepeatWrapping;
+  terrainMaterial=createPaintedMaterial(atlas,{grassClear:grassClearTexture});
   const natureResponse=await fetch('/assets/nature-manifest.json');
   if(!natureResponse.ok)throw Error('Catálogo de pedras e flores indisponível');
   natureManifest=await natureResponse.json();

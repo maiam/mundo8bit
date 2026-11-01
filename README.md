@@ -37,11 +37,13 @@ A personagem jogável agora é **Iara**, escolhida na opção D: [modelo, fonte 
 
 ## Arte e fontes
 
+A [grama clara v04](docs/grama-clara-v04.md) revisa a fidelidade à prancha, com pintura gerada por imagem e importada no Blockbench. Apenas T01 foi alterada nesta etapa; os demais materiais seguem na v03. [Comparação visual](docs/art/grama-clara-v04-comparacao.png).
+
 A coleção de [texturas v03](docs/texturas-v03.md), aprovada na prancha, atualiza árvores, pedras, terreno e água. Preserva as fontes anteriores e acrescenta 12 amostras de material.
 
 A base histórica v02 inclui 11 árvores, explorador anterior e quatro amostras de superfícies. A coleção de natureza v01 acrescenta **11 pedras e 23 flores**. A fauna v01 acrescenta **11 animais com movimento e animação simples**, produzidos/exportados no **Blockbench 5.2.2**, com UVs e texturas planas pintadas.
 
-- `assets/blockbench/`: 97 fontes `.bbmodel` (incluindo a pedra antiga e o explorador anterior preservados), com textura incorporada para abrir e editar.
+- `assets/blockbench/`: 98 fontes `.bbmodel` (incluindo a pedra antiga e o explorador anterior preservados), com textura incorporada para abrir e editar.
 - `assets/textures/`: atlas PNG de 256 × 256 e 1024 × 1024, com 16 células de material.
 - `public/assets/models/`: exports glTF texturizados; a aplicação carrega árvores, explorador, 11 pedras, 23 flores e 11 animais.
 - `public/assets/manifest.json` e `nature-manifest.json` e `fauna-manifest.json`: catálogos, versão da ferramenta e contagem de triângulos.

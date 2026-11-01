@@ -8,6 +8,8 @@
 
 ## Arte e produção
 
+- [Grama clara v04](grama-clara-v04.md): revisão de fidelidade de T01, comparação de referência/textura/jogo, em revisão.
+
 - [Texturas v03](texturas-v03.md): prancha aprovada, atlas, fontes e aplicação no mundo.
 
 - [Iara](iara.md): personagem jogável, referência escolhida e modelo Blockbench.

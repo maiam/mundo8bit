@@ -1,0 +1,12 @@
+{
+  "size": [
+    1024,
+    1024
+  ],
+  "badPrograms": 0,
+  "canvases": 1,
+  "terrainChunks": 25,
+  "mirrored": true,
+  "mipmaps": true,
+  "error": ""
+}

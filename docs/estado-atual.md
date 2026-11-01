@@ -8,6 +8,8 @@ Revisão em 2026-10-31. Código auditado: `775a182` (última entrega funcional a
 
 > Atualização de texturas em 2026-11-01: [coleção v03](texturas-v03.md) aplicada ao terreno, água, árvores e pedras; 97 fontes históricas/atuais e 57 templates de objetos no runtime. O inventário original abaixo descreve a auditoria de outubro.
 
+> Revisão T01: [grama clara v04](grama-clara-v04.md), em revisão de fidelidade, substitui apenas a grama clara no terreno. Demais materiais seguem v03.
+
 Jogo publicado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site
 
 ## Diagnóstico

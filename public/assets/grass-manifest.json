@@ -1,0 +1,20 @@
+{
+  "version": 4,
+  "tool": "Blockbench",
+  "toolVersion": "5.2.2",
+  "method": "Imagem gerada a partir da referência, importada e redimensionada no editor; sem repintura procedural",
+  "texture": "grama-clara-painted-v04.png",
+  "textureSize": 1024,
+  "reference": "docs/art/texturas-v01-aprovada.png",
+  "status": "em revisão artística",
+  "assets": [
+    {
+      "id": "superficie-grama-clara-v04",
+      "name": "Grama clara v04",
+      "kind": "surface",
+      "triangles": 2,
+      "source": "assets/blockbench/superficie-grama-clara-v04.bbmodel",
+      "url": "/assets/models/superficie-grama-clara-v04.gltf"
+    }
+  ]
+}

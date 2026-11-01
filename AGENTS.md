@@ -31,3 +31,7 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 ## Texturas aprovadas
 
 - Referência `docs/art/texturas-v01-aprovada.png`; produção v03 em `docs/texturas-v03.md`. Árvores v03 e pedras v02 usam atlas `mundo8bit-painted-v03.png` 1024²; preservar fontes anteriores. Terreno/água usam coordenadas globais e margens de atlas. Não reintroduzir repetição por célula de terreno.
+
+## Revisão de fidelidade T01
+
+- Grama clara v04: consultar `docs/grama-clara-v04.md`. Arte gerada por imagem, importada/redimensionada/exportada no Blockbench; não alegar pintura manual nem geração artística no editor. Apenas T01 muda; v04 está em revisão, referência original permanece aprovada. Não generalizar o acabamento aos outros materiais antes de avaliar esta comparação.
