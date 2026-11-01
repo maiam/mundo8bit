@@ -1,0 +1,16 @@
+{
+  "maxSeam": 0,
+  "badPrograms": [],
+  "atlas": [
+    1024,
+    1024
+  ],
+  "trees": 11,
+  "rocks": 11,
+  "counts": {
+    "shallow": 300,
+    "deep": 59
+  },
+  "error": "",
+  "canvases": 1
+}

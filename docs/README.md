@@ -8,6 +8,8 @@
 
 ## Arte e produção
 
+- [Texturas v03](texturas-v03.md): prancha aprovada, atlas, fontes e aplicação no mundo.
+
 - [Iara](iara.md): personagem jogável, referência escolhida e modelo Blockbench.
 
 - [Direção artística](direcao-artistica.md): low poly painted e histórico das versões.

@@ -5,10 +5,12 @@ import {spawnFauna,removeFauna,updateFauna} from './fauna.js';
 import {natureAt} from './nature.js';
 import {createTree,treeTypeAt} from './trees.js';
 import './style.css';
-import {loadAssets,cloneAsset,worldMaterial,waterMaterial,appendTileUV,createAssetInstances,assetFootprint} from './assets.js';
+import {loadAssets,cloneAsset,worldMaterial,waterMaterial,terrainMaterial,appendTileUV,createAssetInstances,assetFootprint} from './assets.js';
 import {createTouchControls} from './touch-controls.js';
 export const touch = createTouchControls();
 import {CHUNK_SIZE, SEED, hash, heightAt, chunkAt, wantedChunks} from './world.js';
+
+export * as gameAssets from './assets.js';
 
 export const scene = new THREE.Scene();
 scene.background = new THREE.Color('#9abbb1');
@@ -41,7 +43,7 @@ function makeChunk(cx,cz) {
   }
   for(const [id,items] of placements){const decoration=createAssetInstances(id,items,cx*CHUNK_SIZE,cz*CHUNK_SIZE);decorations.push(decoration);group.add(decoration);}
   const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geo.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geo.computeVertexNormals();
-  const terrain=new THREE.Mesh(geo,worldMaterial);group.add(terrain);
+  const terrain=new THREE.Mesh(geo,terrainMaterial);group.add(terrain);
   const lineGeometry=new THREE.BufferGeometry().setFromPoints(Array.from({length:49},(_,i)=>{const t=i/12;const x=t<=1?t*12:t<=2?12:t<=3?(3-t)*12:0;const z=t<=1?0:t<=2?(t-1)*12:t<=3?12:(4-t)*12;return new THREE.Vector3(x,heightAt(cx*12+x,cz*12+z)+.05,z);}));
   const border=new THREE.Line(lineGeometry,new THREE.LineBasicMaterial({color:0xffe6a0}));border.visible=showGrid;group.add(border);
   collisionWorld.addChunk(cx,cz,colliders);scene.add(group);spawnFauna(cx,cz,scene);return {group,terrain,border,decorations,cx,cz};

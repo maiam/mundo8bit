@@ -9,7 +9,7 @@ try{
  const initial=await c.evaluate(`(async()=>{
    window.qa=await import(document.querySelector('script[src*=\"/src/main.js\"]').src);qa.player.position.set(0,0,0);
    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-   const assets=await import('/src/assets.js');
+   const assets=qa.gameAssets;
    const assetErrors=[...assets.natureManifest.assets,...assets.faunaManifest.assets].filter(a=>{
     let triangles=0;const model=assets.cloneAsset(a.id);model.traverse(n=>{if(n.isMesh)triangles+=(n.geometry.index?.count??n.geometry.attributes.position.count)/3;});
     return triangles!==a.triangles||a.rig?.some(j=>!model.getObjectByName(j.name));
@@ -43,7 +43,7 @@ try{
  await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:3,mobile:true});
  await c.evaluate(`new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
  assert.equal(await c.evaluate('qa.touch.paused'),false);
- const quality=await c.evaluate(`(async()=>{const {atlas,waterMaterial}=await import('/src/assets.js');return {width:qa.renderer.domElement.width,height:qa.renderer.domElement.height,ratio:qa.renderer.getPixelRatio(),mipmaps:atlas.generateMipmaps,waterMipmaps:waterMaterial.map.generateMipmaps,minFilter:atlas.minFilter,magFilter:atlas.magFilter};})()`);
+ const quality=await c.evaluate(`(async()=>{const {atlas,waterMaterial}=qa.gameAssets;return {width:qa.renderer.domElement.width,height:qa.renderer.domElement.height,ratio:qa.renderer.getPixelRatio(),mipmaps:atlas.generateMipmaps,waterMipmaps:waterMaterial.map.generateMipmaps,minFilter:atlas.minFilter,magFilter:atlas.magFilter};})()`);
  assert.equal(quality.width,1266);assert.equal(quality.height,585);assert.equal(quality.ratio,1.5);assert.ok(quality.mipmaps&&quality.waterMipmaps);assert.equal(quality.minFilter,1008);assert.equal(quality.magFilter,1006);
  const controls=await c.evaluate(`(()=>{const pad=document.querySelector('#joystick').getBoundingClientRect(),run=document.querySelector('#run').getBoundingClientRect();return {pad:{x:pad.x+pad.width/2,y:pad.y+pad.height/2},run:{x:run.x+run.width/2,y:run.y+run.height/2},visible:getComputedStyle(document.querySelector('#touch-controls')).display,start:[qa.player.position.x,qa.player.position.z]};})()`);
  assert.notEqual(controls.visible,'none');

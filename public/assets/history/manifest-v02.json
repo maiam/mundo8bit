@@ -1,0 +1,166 @@
+{
+  "version": 2,
+  "tool": "Blockbench",
+  "toolVersion": "5.2.2",
+  "atlas": "mundo8bit-painted-v02.png",
+  "palette": [
+    "casca",
+    "folha",
+    "folha-clara",
+    "folha-escura",
+    "betula",
+    "marcas-betula",
+    "camisa",
+    "pele",
+    "chapeu",
+    "calca",
+    "pedra",
+    "grama",
+    "grama-clara",
+    "areia",
+    "agua",
+    "couro"
+  ],
+  "assets": [
+    {
+      "id": "arvore-pinheiro-v02",
+      "name": "Pinheiro",
+      "kind": "tree",
+      "triangles": 76,
+      "source": "assets/blockbench/arvore-pinheiro-v02.bbmodel",
+      "url": "/assets/models/arvore-pinheiro-v02.gltf"
+    },
+    {
+      "id": "arvore-carvalho-v02",
+      "name": "Carvalho",
+      "kind": "tree",
+      "triangles": 240,
+      "source": "assets/blockbench/arvore-carvalho-v02.bbmodel",
+      "url": "/assets/models/arvore-carvalho-v02.gltf"
+    },
+    {
+      "id": "arvore-cipreste-v02",
+      "name": "Cipreste",
+      "kind": "tree",
+      "triangles": 54,
+      "source": "assets/blockbench/arvore-cipreste-v02.bbmodel",
+      "url": "/assets/models/arvore-cipreste-v02.gltf"
+    },
+    {
+      "id": "arvore-salgueiro-v02",
+      "name": "Salgueiro",
+      "kind": "tree",
+      "triangles": 440,
+      "source": "assets/blockbench/arvore-salgueiro-v02.bbmodel",
+      "url": "/assets/models/arvore-salgueiro-v02.gltf"
+    },
+    {
+      "id": "arvore-palmeira-v02",
+      "name": "Palmeira",
+      "kind": "tree",
+      "triangles": 348,
+      "source": "assets/blockbench/arvore-palmeira-v02.bbmodel",
+      "url": "/assets/models/arvore-palmeira-v02.gltf"
+    },
+    {
+      "id": "arvore-araucaria-v02",
+      "name": "Araucária",
+      "kind": "tree",
+      "triangles": 640,
+      "source": "assets/blockbench/arvore-araucaria-v02.bbmodel",
+      "url": "/assets/models/arvore-araucaria-v02.gltf"
+    },
+    {
+      "id": "arvore-baoba-v02",
+      "name": "Baobá",
+      "kind": "tree",
+      "triangles": 228,
+      "source": "assets/blockbench/arvore-baoba-v02.bbmodel",
+      "url": "/assets/models/arvore-baoba-v02.gltf"
+    },
+    {
+      "id": "arvore-acacia-v02",
+      "name": "Acácia",
+      "kind": "tree",
+      "triangles": 220,
+      "source": "assets/blockbench/arvore-acacia-v02.bbmodel",
+      "url": "/assets/models/arvore-acacia-v02.gltf"
+    },
+    {
+      "id": "arvore-betula-v02",
+      "name": "Bétula",
+      "kind": "tree",
+      "triangles": 340,
+      "source": "assets/blockbench/arvore-betula-v02.bbmodel",
+      "url": "/assets/models/arvore-betula-v02.gltf"
+    },
+    {
+      "id": "arvore-mangue-v02",
+      "name": "Mangue",
+      "kind": "tree",
+      "triangles": 440,
+      "source": "assets/blockbench/arvore-mangue-v02.bbmodel",
+      "url": "/assets/models/arvore-mangue-v02.gltf"
+    },
+    {
+      "id": "arvore-seca-v02",
+      "name": "Seca",
+      "kind": "tree",
+      "triangles": 360,
+      "source": "assets/blockbench/arvore-seca-v02.bbmodel",
+      "url": "/assets/models/arvore-seca-v02.gltf"
+    },
+    {
+      "id": "explorador-v02",
+      "name": "Explorador",
+      "kind": "player",
+      "triangles": 72,
+      "source": "assets/blockbench/explorador-v02.bbmodel",
+      "url": "/assets/models/explorador-v02.gltf"
+    },
+    {
+      "id": "pedra-v02",
+      "name": "Pedra",
+      "kind": "rock",
+      "triangles": 36,
+      "source": "assets/blockbench/pedra-v02.bbmodel",
+      "url": "/assets/models/pedra-v02.gltf"
+    },
+    {
+      "id": "superficie-grama-v02",
+      "name": "Superfície grama",
+      "kind": "surface",
+      "tile": 11,
+      "triangles": 2,
+      "source": "assets/blockbench/superficie-grama-v02.bbmodel",
+      "url": "/assets/models/superficie-grama-v02.gltf"
+    },
+    {
+      "id": "superficie-grama-clara-v02",
+      "name": "Superfície grama-clara",
+      "kind": "surface",
+      "tile": 12,
+      "triangles": 2,
+      "source": "assets/blockbench/superficie-grama-clara-v02.bbmodel",
+      "url": "/assets/models/superficie-grama-clara-v02.gltf"
+    },
+    {
+      "id": "superficie-areia-v02",
+      "name": "Superfície areia",
+      "kind": "surface",
+      "tile": 13,
+      "triangles": 2,
+      "source": "assets/blockbench/superficie-areia-v02.bbmodel",
+      "url": "/assets/models/superficie-areia-v02.gltf"
+    },
+    {
+      "id": "superficie-agua-v02",
+      "name": "Superfície agua",
+      "kind": "surface",
+      "tile": 14,
+      "triangles": 2,
+      "source": "assets/blockbench/superficie-agua-v02.bbmodel",
+      "url": "/assets/models/superficie-agua-v02.gltf"
+    }
+  ]
+}

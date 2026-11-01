@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "tool": "Blockbench",
   "toolVersion": "5.2.2",
   "atlas": "natureza-painted-v01.png",
@@ -23,103 +23,114 @@
   ],
   "assets": [
     {
-      "id": "pedra-seixo-v01",
+      "id": "pedra-seixo-v02",
       "name": "Seixo",
       "kind": "rock",
       "catalogId": "P01",
       "triangles": 20,
-      "source": "assets/blockbench/pedra-seixo-v01.bbmodel",
-      "url": "/assets/models/pedra-seixo-v01.gltf"
+      "source": "assets/blockbench/pedra-seixo-v02.bbmodel",
+      "url": "/assets/models/pedra-seixo-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-bloco-v01",
+      "id": "pedra-bloco-v02",
       "name": "Bloco",
       "kind": "rock",
       "catalogId": "P02",
       "triangles": 36,
-      "source": "assets/blockbench/pedra-bloco-v01.bbmodel",
-      "url": "/assets/models/pedra-bloco-v01.gltf"
+      "source": "assets/blockbench/pedra-bloco-v02.bbmodel",
+      "url": "/assets/models/pedra-bloco-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-laje-v01",
+      "id": "pedra-laje-v02",
       "name": "Laje",
       "kind": "rock",
       "catalogId": "P03",
       "triangles": 20,
-      "source": "assets/blockbench/pedra-laje-v01.bbmodel",
-      "url": "/assets/models/pedra-laje-v01.gltf"
+      "source": "assets/blockbench/pedra-laje-v02.bbmodel",
+      "url": "/assets/models/pedra-laje-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-agulha-v01",
+      "id": "pedra-agulha-v02",
       "name": "Agulha",
       "kind": "rock",
       "catalogId": "P04",
       "triangles": 10,
-      "source": "assets/blockbench/pedra-agulha-v01.bbmodel",
-      "url": "/assets/models/pedra-agulha-v01.gltf"
+      "source": "assets/blockbench/pedra-agulha-v02.bbmodel",
+      "url": "/assets/models/pedra-agulha-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-fendida-v01",
+      "id": "pedra-fendida-v02",
       "name": "Fendida",
       "kind": "rock",
       "catalogId": "P05",
       "triangles": 60,
-      "source": "assets/blockbench/pedra-fendida-v01.bbmodel",
-      "url": "/assets/models/pedra-fendida-v01.gltf"
+      "source": "assets/blockbench/pedra-fendida-v02.bbmodel",
+      "url": "/assets/models/pedra-fendida-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-estratos-v01",
+      "id": "pedra-estratos-v02",
       "name": "Estratos",
       "kind": "rock",
       "catalogId": "P06",
       "triangles": 48,
-      "source": "assets/blockbench/pedra-estratos-v01.bbmodel",
-      "url": "/assets/models/pedra-estratos-v01.gltf"
+      "source": "assets/blockbench/pedra-estratos-v02.bbmodel",
+      "url": "/assets/models/pedra-estratos-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-arco-v01",
+      "id": "pedra-arco-v02",
       "name": "Arco",
       "kind": "rock",
       "catalogId": "P07",
       "triangles": 96,
-      "source": "assets/blockbench/pedra-arco-v01.bbmodel",
-      "url": "/assets/models/pedra-arco-v01.gltf"
+      "source": "assets/blockbench/pedra-arco-v02.bbmodel",
+      "url": "/assets/models/pedra-arco-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-musgosa-v01",
+      "id": "pedra-musgosa-v02",
       "name": "Musgosa",
       "kind": "rock",
       "catalogId": "P08",
       "triangles": 60,
-      "source": "assets/blockbench/pedra-musgosa-v01.bbmodel",
-      "url": "/assets/models/pedra-musgosa-v01.gltf"
+      "source": "assets/blockbench/pedra-musgosa-v02.bbmodel",
+      "url": "/assets/models/pedra-musgosa-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-cristal-v01",
+      "id": "pedra-cristal-v02",
       "name": "Cristal",
       "kind": "rock",
       "catalogId": "P09",
       "triangles": 8,
-      "source": "assets/blockbench/pedra-cristal-v01.bbmodel",
-      "url": "/assets/models/pedra-cristal-v01.gltf"
+      "source": "assets/blockbench/pedra-cristal-v02.bbmodel",
+      "url": "/assets/models/pedra-cristal-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-furada-v01",
+      "id": "pedra-furada-v02",
       "name": "Furada",
       "kind": "rock",
       "catalogId": "P10",
       "triangles": 90,
-      "source": "assets/blockbench/pedra-furada-v01.bbmodel",
-      "url": "/assets/models/pedra-furada-v01.gltf"
+      "source": "assets/blockbench/pedra-furada-v02.bbmodel",
+      "url": "/assets/models/pedra-furada-v02.gltf",
+      "worldPaint": true
     },
     {
-      "id": "pedra-dorso-v01",
+      "id": "pedra-dorso-v02",
       "name": "Dorso",
       "kind": "rock",
       "catalogId": "P11",
       "triangles": 40,
-      "source": "assets/blockbench/pedra-dorso-v01.bbmodel",
-      "url": "/assets/models/pedra-dorso-v01.gltf"
+      "source": "assets/blockbench/pedra-dorso-v02.bbmodel",
+      "url": "/assets/models/pedra-dorso-v02.gltf",
+      "worldPaint": true
     },
     {
       "id": "flor-margarida-v01",

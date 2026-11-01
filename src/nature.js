@@ -6,7 +6,7 @@ export function natureAt(x,z){
  if(Math.hypot(x,z)<3||h< -2.6||n>.975)return [];
  if(n<.018&&h> -1.45){
   const type=Math.floor(hash(x+105,z-71)*ROCK_IDS.length);
-  return [{id:`pedra-${ROCK_IDS[type]}-v01`,kind:'rock',x,z,y:h,scale:.65+hash(x+2,z+7)*.6,angle:hash(x-2,z+9)*Math.PI*2}];
+  return [{id:`pedra-${ROCK_IDS[type]}-v02`,kind:'rock',x,z,y:h,scale:.65+hash(x+2,z+7)*.6,angle:hash(x-2,z+9)*Math.PI*2}];
  }
  if(x%2||z%2||hash(x-44,z+77)>.1)return [];
  let type=Math.floor(hash(x+31,z-151)*FLOWER_IDS.length);

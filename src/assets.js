@@ -1,9 +1,10 @@
 import * as THREE from 'three';
+import {createPaintedMaterial} from './painted-materials.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 
 const templates=new Map();
-export let atlas, worldMaterial, waterMaterial;
+export let atlas, worldMaterial, waterMaterial, terrainMaterial;
 export let assetManifest;
 export let natureManifest;
 export let faunaManifest;
@@ -18,6 +19,7 @@ export async function loadAssets(renderer) {
   atlas.magFilter=THREE.LinearFilter;atlas.minFilter=THREE.LinearMipmapLinearFilter;
   atlas.generateMipmaps=true;atlas.anisotropy=anisotropy;
   worldMaterial=new THREE.MeshStandardMaterial({map:atlas,flatShading:true,roughness:1,side:THREE.DoubleSide});
+  terrainMaterial=createPaintedMaterial(atlas);
   const natureResponse=await fetch('/assets/nature-manifest.json');
   if(!natureResponse.ok)throw Error('Catálogo de pedras e flores indisponível');
   natureManifest=await natureResponse.json();
@@ -49,24 +51,17 @@ export async function loadAssets(renderer) {
       const oldMaterials=new Set(),oldTextures=new Set();
       scene.traverse(node=>{if(node.isMesh){
         for(const material of Array.isArray(node.material)?node.material:[node.material]){oldMaterials.add(material);if(material.map)oldTextures.add(material.map);}
-        node.material=asset.player?playerMaterial:asset.fauna?faunaMaterial:asset.nature?natureMaterial:worldMaterial;
+        node.material=asset.worldPaint?worldMaterial:asset.player?playerMaterial:asset.fauna?faunaMaterial:asset.nature?natureMaterial:worldMaterial;
       }});
       oldTextures.forEach(t=>t.dispose());oldMaterials.forEach(m=>m.dispose());
       if(asset.nature){
         scene.updateMatrixWorld(true);const parts=[],originals=new Set();
         scene.traverse(node=>{if(node.isMesh){const g=node.geometry.clone().applyMatrix4(node.matrixWorld);const flat=g.index?g.toNonIndexed():g;if(flat!==g)g.dispose();parts.push(flat);originals.add(node.geometry);}});
         const geometry=mergeGeometries(parts);parts.forEach(g=>g.dispose());originals.forEach(g=>g.dispose());
-        templates.set(asset.id,new THREE.Mesh(geometry,natureMaterial));
+        templates.set(asset.id,new THREE.Mesh(geometry,asset.worldPaint?worldMaterial:natureMaterial));
       }else templates.set(asset.id,scene);
     }));
-    // Water repeats its painted tile; cropping prevents atlas-neighbor bleeding.
-    const tile=document.createElement('canvas');tile.width=tile.height=64;
-    tile.getContext('2d').drawImage(atlas.image,128,192,64,64,0,0,64,64);
-    const waterMap=new THREE.CanvasTexture(tile);waterMap.colorSpace=THREE.SRGBColorSpace;
-    waterMap.magFilter=THREE.LinearFilter;waterMap.minFilter=THREE.LinearMipmapLinearFilter;
-    waterMap.generateMipmaps=true;waterMap.anisotropy=anisotropy;
-    waterMap.wrapS=waterMap.wrapT=THREE.RepeatWrapping;waterMap.repeat.set(90,90);
-    waterMaterial=new THREE.MeshStandardMaterial({map:waterMap,roughness:1,flatShading:true});
+    waterMaterial=createPaintedMaterial(atlas,{water:true});
   } catch(error) {throw new Error('Não foi possível carregar os modelos pintados. Recarregue a página.',{cause:error});}
 }
 export function cloneAsset(id) {

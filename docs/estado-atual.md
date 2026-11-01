@@ -6,6 +6,8 @@ Revisão em 2026-10-31. Código auditado: `775a182` (última entrega funcional a
 
 > Atualização de câmera em 2026-11-01: [top-down inspirado em Brawl Stars](camera-topdown.md), controles alinhados à tela e 23 testes atuais.
 
+> Atualização de texturas em 2026-11-01: [coleção v03](texturas-v03.md) aplicada ao terreno, água, árvores e pedras; 97 fontes históricas/atuais e 57 templates de objetos no runtime. O inventário original abaixo descreve a auditoria de outubro.
+
 Jogo publicado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site
 
 ## Diagnóstico

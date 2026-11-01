@@ -9,7 +9,7 @@ export function treeTypeAt(x,z,height) {
 }
 export function createTree(type,x,z) {
   if(!Number.isInteger(type)||type<0||type>=TREE_NAMES.length)throw new RangeError('Espécie inválida');
-  const tree=cloneAsset(`arvore-${TREE_IDS[type]}-v02`);
+  const tree=cloneAsset(`arvore-${TREE_IDS[type]}-v03`);
   tree.scale.setScalar(.8+hash(x-51,z+18)*.35);
   tree.rotation.y=hash(x+19,z)*Math.PI*2;
   tree.userData.species=TREE_NAMES[type];return tree;

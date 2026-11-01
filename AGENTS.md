@@ -27,3 +27,7 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 ## Câmera atual
 
 - Vista superior inclinada inspirada no gameplay de Brawl Stars: ortográfica, pitch de 55°, sem yaw diagonal; controles alinhados à tela. Consultar `docs/camera-topdown.md` e centralizar parâmetros em `src/camera-settings.js`. Não restaurar a conversão diagonal de movimento sem revisar a câmera.
+
+## Texturas aprovadas
+
+- Referência `docs/art/texturas-v01-aprovada.png`; produção v03 em `docs/texturas-v03.md`. Árvores v03 e pedras v02 usam atlas `mundo8bit-painted-v03.png` 1024²; preservar fontes anteriores. Terreno/água usam coordenadas globais e margens de atlas. Não reintroduzir repetição por célula de terreno.
