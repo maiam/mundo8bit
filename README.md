@@ -31,11 +31,13 @@ npm run dev
 
 Veja [o modo horizontal e os controles](docs/mobile-horizontal.md) e [a tela cheia](docs/tela-cheia.md).
 
+A personagem jogável agora é **Iara**, escolhida na opção D: [modelo, fonte e integração](docs/iara.md).
+
 ## Arte e fontes
 
-A base v02 inclui 11 árvores, explorador e quatro amostras de superfícies. A coleção de natureza v01 acrescenta **11 pedras e 23 flores**. A fauna v01 acrescenta **11 animais com movimento e animação simples**, produzidos/exportados no **Blockbench 5.2.2**, com UVs e texturas planas pintadas.
+A base v02 inclui 11 árvores, explorador anterior e quatro amostras de superfícies. A coleção de natureza v01 acrescenta **11 pedras e 23 flores**. A fauna v01 acrescenta **11 animais com movimento e animação simples**, produzidos/exportados no **Blockbench 5.2.2**, com UVs e texturas planas pintadas.
 
-- `assets/blockbench/`: 62 fontes `.bbmodel` (incluindo a pedra antiga preservada), com textura incorporada para abrir e editar.
+- `assets/blockbench/`: 63 fontes `.bbmodel` (incluindo a pedra antiga e o explorador anterior preservados), com textura incorporada para abrir e editar.
 - `assets/textures/`: atlas PNG de 256 × 256, com 16 células de material.
 - `public/assets/models/`: exports glTF texturizados; a aplicação carrega árvores, explorador, 11 pedras, 23 flores e 11 animais.
 - `public/assets/manifest.json` e `nature-manifest.json` e `fauna-manifest.json`: catálogos, versão da ferramenta e contagem de triângulos.

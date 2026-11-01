@@ -2,6 +2,8 @@
 
 Revisão em 2026-10-31. Código auditado: `775a182` (última entrega funcional antes desta revisão de documentação). Público considerado nesta revisão: criança de aproximadamente 5 anos. A proposta de brincadeira ainda precisa ser validada em uso; não houve teste observado com crianças.
 
+> Atualização em 2026-11-01: [Iara](iara.md) substitui o explorador no runtime e acrescenta caminhada de braços/pernas, uma fonte e um atlas. O inventário abaixo registra a auditoria de 2026-10-31; agora há 63 fontes/exports e quatro atlas.
+
 Jogo publicado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site
 
 ## Diagnóstico

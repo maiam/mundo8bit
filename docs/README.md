@@ -8,6 +8,8 @@
 
 ## Arte e produção
 
+- [Iara](iara.md): personagem jogável, referência escolhida e modelo Blockbench.
+
 - [Direção artística](direcao-artistica.md): low poly painted e histórico das versões.
 - [Assets Blockbench](assets-blockbench.md), [pedras e flores](pedras-flores.md) e [fauna](fauna.md): fontes, exportação e verificações de cada coleção.
 - [Ambiente Blockbench](blockbench-ambiente.md): instalação e ferramentas.

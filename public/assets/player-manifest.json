@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "tool": "Blockbench",
+  "toolVersion": "5.2.2",
+  "atlas": "iara-painted-v01.png",
+  "palette": [
+    "pele",
+    "cabelo",
+    "colete",
+    "camisa",
+    "shorts",
+    "botas",
+    "faixa",
+    "mochila",
+    "olhos",
+    "brilho",
+    "boca",
+    "meias",
+    "sobrancelha",
+    "fivela",
+    "bolso",
+    "sola"
+  ],
+  "assets": [
+    {
+      "id": "iara-v01",
+      "name": "Iara",
+      "kind": "player",
+      "triangles": 1704,
+      "source": "assets/blockbench/iara-v01.bbmodel",
+      "url": "/assets/models/iara-v01.gltf"
+    }
+  ]
+}

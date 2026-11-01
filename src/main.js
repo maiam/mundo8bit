@@ -51,7 +51,8 @@ function stream() {
   for(const [key,c] of chunks)if(!wanted.has(key)){scene.remove(c.group);collisionWorld.removeChunk(c.cx,c.cz);removeFauna(c.cx,c.cz,scene);c.decorations.forEach(m=>m.dispose());c.terrain.geometry.dispose();c.border.geometry.dispose();c.border.material.dispose();chunks.delete(key);}
 }
 const water=new THREE.Mesh(new THREE.PlaneGeometry(180,180),waterMaterial);water.position.y=-1.55;water.rotation.x=-Math.PI/2;scene.add(water);
-export const player=new THREE.Group();scene.add(player);player.add(cloneAsset('explorador-v02'));collisionWorld.setDynamic('player',{type:'circle',x:0,z:0,radius:PLAYER_RADIUS,kind:'player'});
+export const player=new THREE.Group();scene.add(player);player.name='Iara';const playerModel=cloneAsset('iara-v01');player.add(playerModel);
+const iaraLimbs=['braco-esquerdo','braco-direito','perna-esquerda','perna-direita'].map(name=>playerModel.getObjectByName(name));let walkPhase=0;collisionWorld.setDynamic('player',{type:'circle',x:0,z:0,radius:PLAYER_RADIUS,kind:'player'});
 export function movePlayer(dx,dz){
  if(touch.paused)return {x:player.position.x,z:player.position.z,distance:0,blocked:true};
  const position=collisionWorld.move(player.position,dx,dz,PLAYER_RADIUS,{ignoreId:'player'});
@@ -80,6 +81,8 @@ function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;if(touch.pau
   x += touch.x; z += touch.z;
   const beforeChunk=chunkAt(player.position.x,player.position.z).join(',');if(beforeChunk!==lastChunk){stream();lastChunk=beforeChunk;}
   let walked=0;const length=Math.hypot(x,z);if(length){const limit=Math.max(1,length);x/=limit;z/=limit;const speed=(keys.has('shift')||touch.running)?8:4;const position=movePlayer((x+z)*Math.SQRT1_2*speed*dt,(z-x)*Math.SQRT1_2*speed*dt);walked=position.distance;player.rotation.y=Math.atan2(x+z,z-x);}
+  walkPhase+=walked*7;const stride=walked>.001?Math.min(1,walked/Math.max(dt,.001)/4):0;
+  iaraLimbs.forEach((limb,i)=>{if(limb)limb.rotation.x=Math.sin(walkPhase+(i%2?Math.PI:0)+(i<2?Math.PI:0))*.42*stride;});
   player.position.y=heightAt(player.position.x,player.position.z)+(walked>.001?Math.sin(elapsed*13)*.06:0);
   const chunk=chunkAt(player.position.x,player.position.z).join(',');if(chunk!==lastChunk){stream();lastChunk=chunk;}
   water.position.x=player.position.x;water.position.z=player.position.z;

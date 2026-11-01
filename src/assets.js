@@ -7,6 +7,7 @@ export let atlas, worldMaterial, waterMaterial;
 export let assetManifest;
 export let natureManifest;
 export let faunaManifest;
+export let playerManifest;
 export async function loadAssets(renderer) {
   const anisotropy=Math.min(4,renderer?.capabilities.getMaxAnisotropy()??1);
   const response=await fetch('/assets/manifest.json');
@@ -32,15 +33,23 @@ export async function loadAssets(renderer) {
   faunaAtlas.colorSpace=THREE.SRGBColorSpace;faunaAtlas.flipY=false;
   faunaAtlas.magFilter=THREE.LinearFilter;faunaAtlas.minFilter=THREE.LinearMipmapLinearFilter;faunaAtlas.generateMipmaps=true;faunaAtlas.anisotropy=anisotropy;
   const faunaMaterial=new THREE.MeshStandardMaterial({map:faunaAtlas,flatShading:true,roughness:1,side:THREE.DoubleSide});
+  const playerResponse=await fetch('/assets/player-manifest.json');
+  if(!playerResponse.ok)throw Error('Modelo da Iara indisponível');
+  playerManifest=await playerResponse.json();
+  const playerAtlas=await new THREE.TextureLoader().loadAsync(`/assets/${playerManifest.atlas}`);
+  playerAtlas.colorSpace=THREE.SRGBColorSpace;playerAtlas.flipY=false;
+  playerAtlas.magFilter=THREE.LinearFilter;playerAtlas.minFilter=THREE.LinearMipmapLinearFilter;
+  playerAtlas.generateMipmaps=true;playerAtlas.anisotropy=anisotropy;
+  const playerMaterial=new THREE.MeshStandardMaterial({map:playerAtlas,flatShading:true,roughness:1,side:THREE.DoubleSide});
   const loader=new GLTFLoader();
   try {
-    const assets=[...assetManifest.assets.filter(a=>a.kind!=='surface'&&a.id!=='pedra-v02'),...natureManifest.assets.map(a=>({...a,nature:true})),...faunaManifest.assets.map(a=>({...a,fauna:true}))];
+    const assets=[...assetManifest.assets.filter(a=>a.kind!=='surface'&&a.kind!=='player'&&a.id!=='pedra-v02'),...playerManifest.assets.map(a=>({...a,player:true})),...natureManifest.assets.map(a=>({...a,nature:true})),...faunaManifest.assets.map(a=>({...a,fauna:true}))];
     await Promise.all(assets.map(async asset=>{
       const {scene}=await loader.loadAsync(asset.url);
       const oldMaterials=new Set(),oldTextures=new Set();
       scene.traverse(node=>{if(node.isMesh){
         for(const material of Array.isArray(node.material)?node.material:[node.material]){oldMaterials.add(material);if(material.map)oldTextures.add(material.map);}
-        node.material=asset.fauna?faunaMaterial:asset.nature?natureMaterial:worldMaterial;
+        node.material=asset.player?playerMaterial:asset.fauna?faunaMaterial:asset.nature?natureMaterial:worldMaterial;
       }});
       oldTextures.forEach(t=>t.dispose());oldMaterials.forEach(m=>m.dispose());
       if(asset.nature){

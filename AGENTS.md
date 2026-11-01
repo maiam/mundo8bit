@@ -19,3 +19,7 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 
 - Considerar o público de aproximadamente 5 anos: convites compreensíveis sem leitura, controles tolerantes e respostas claras às ações. Validar essas hipóteses em uso.
 - Consultar `docs/estado-atual.md`, `docs/design-crianca-5-anos.md` e `docs/roadmap.md`. O design infantil é uma proposta; não documentar funcionalidades planejadas como implementadas.
+
+## Personagem escolhido
+
+- Iara (opção D) é a personagem jogável. Preservar `docs/art/iara-conceito-v01-aprovado.png`, fonte `iara-v01.bbmodel` e atlas próprio. Consultar `docs/iara.md`; futuras revisões abrem v02.
