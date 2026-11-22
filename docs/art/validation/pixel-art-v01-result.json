@@ -1,0 +1,52 @@
+{
+  "initial": {
+    "enabled": false,
+    "pressed": "false",
+    "label": "P · Ligar pixel art",
+    "width": 1440,
+    "css": "auto"
+  },
+  "menu": {
+    "enabled": true,
+    "menuHidden": true,
+    "pressed": "true",
+    "label": "P · Desligar pixel art",
+    "stored": "1",
+    "layout": {
+      "scale": 5,
+      "width": 290,
+      "height": 182
+    },
+    "canvas": {
+      "width": 1440,
+      "height": 900,
+      "ratio": 1
+    },
+    "css": "pixelated",
+    "cameraRestored": true,
+    "error": ""
+  },
+  "walk": {
+    "x": 7.954232463078287,
+    "camX": 7.954232463078287
+  },
+  "mobile": {
+    "enabled": true,
+    "layout": {
+      "scale": 2,
+      "width": 424,
+      "height": 197
+    },
+    "canvas": {
+      "width": 844,
+      "height": 390
+    },
+    "error": ""
+  },
+  "off": {
+    "enabled": false,
+    "stored": "0",
+    "css": "auto",
+    "width": 1440
+  }
+}

@@ -23,6 +23,7 @@
 
 ## Comportamento e dispositivos
 
+- [Modo pixel art](pixel-art.md): filtro experimental ligar/desligar no menu; não altera a direção artística.
 - [Câmera top-down](camera-topdown.md): referência Brawl Stars, parâmetros, comparação e limites.
 
 - [Colisões](colisoes.md): volumes, água, deslizamento e limites.
