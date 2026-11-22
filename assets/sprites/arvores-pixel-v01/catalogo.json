@@ -1,0 +1,70 @@
+[
+  {
+    "id": "macieira",
+    "name": "Macieira",
+    "source": "assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Macieira.png",
+    "sourceSha256": "dd7a78e0dc83fd6b8fe4bccf23b46deec0d48c77316f1738b6a1a7b116fe4c24",
+    "sourceSize": [
+      2048,
+      2048
+    ],
+    "url": "/assets/sprites/arvore-macieira-pixel-32-v01.png",
+    "sprite": "assets/sprites/arvores-pixel-v01/arvore-macieira-pixel-32-v01.png",
+    "size": [
+      32,
+      32
+    ],
+    "opaquePixels": 520
+  },
+  {
+    "id": "carvalho",
+    "name": "Carvalho",
+    "source": "assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Carvalho.png",
+    "sourceSha256": "185551266023bc5e9c05e9910aa97201c3a4f2499f186a03b4728b6a8128b7b7",
+    "sourceSize": [
+      2816,
+      1536
+    ],
+    "url": "/assets/sprites/arvore-carvalho-pixel-32-v01.png",
+    "sprite": "assets/sprites/arvores-pixel-v01/arvore-carvalho-pixel-32-v01.png",
+    "size": [
+      32,
+      32
+    ],
+    "opaquePixels": 503
+  },
+  {
+    "id": "cerejeira",
+    "name": "Cerejeira",
+    "source": "assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Cerejeira.png",
+    "sourceSha256": "18e92aafc9a7b9db26983b659e793a3934e986ef86054141e586a82470a55119",
+    "sourceSize": [
+      2816,
+      1536
+    ],
+    "url": "/assets/sprites/arvore-cerejeira-pixel-32-v01.png",
+    "sprite": "assets/sprites/arvores-pixel-v01/arvore-cerejeira-pixel-32-v01.png",
+    "size": [
+      32,
+      32
+    ],
+    "opaquePixels": 578
+  },
+  {
+    "id": "betula",
+    "name": "Bétula",
+    "source": "assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Betula.png",
+    "sourceSha256": "550d143eadcf2adc94c874ecafb8aea073b02fe6a9d6f37fa90cca9c9a148a82",
+    "sourceSize": [
+      2816,
+      1536
+    ],
+    "url": "/assets/sprites/arvore-betula-pixel-32-v01.png",
+    "sprite": "assets/sprites/arvores-pixel-v01/arvore-betula-pixel-32-v01.png",
+    "size": [
+      32,
+      32
+    ],
+    "opaquePixels": 336
+  }
+]

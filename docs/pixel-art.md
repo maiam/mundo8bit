@@ -1,52 +1,48 @@
-# Modo pixel art — opção experimental (v01)
+# Pixel art 32×32 — direção visual padrão (v02)
 
-Pedido do usuário em 2026-11-22: criar uma opção de ligar/desligar pixel art no menu. **Não é uma mudança de direção artística.** A direção oficial continua *low poly painted* ([direção artística](direcao-artistica.md)); o modo pixel art é um filtro de apresentação, desligado por padrão, para avaliação.
+> Histórico: a v01 (2026-11-22) foi um filtro experimental desligado por padrão, com ~200 linhas de pixels por tela. A v02 o substitui.
 
-## O que muda e o que não muda
+**Mudança de direção aprovada pelo usuário em 2026-11-22:** “tornar como padrão visual estilo pixel art 32x32px” e trocar as árvores do mundo pelas novas, fornecidas no Google Drive. O modo pixel art passa a vir **ligado por padrão**. O visual low poly painted continua disponível pelo menu e por `?pixel=0`.
 
-| Preservado | Alterado somente com o modo ligado |
-| --- | --- |
-| Fontes `.bbmodel`, atlas PNG, UVs, exports glTF e materiais | Cena renderizada em baixa resolução (~200 linhas) e ampliada em blocos inteiros |
-| Filtragem linear + mipmaps + anisotropia das texturas | Cores quantizadas (20 níveis/canal em sRGB) com pontilhado ordenado leve |
-| Câmera, enquadramento, zoom, colisões, streaming, fauna e onça 2D | Contorno escuro de 1 pixel do lado de fora dos objetos (salto de profundidade) |
-| Interface HTML (botões, joystick, menu) em resolução normal | Canvas com 1 pixel por pixel CSS e `image-rendering: pixelated` |
+## Escala 32×32
 
-As texturas não foram trocadas para filtro *nearest*: a amostragem linear com mipmaps continua estabilizando a pintura em baixa resolução, e o modo desligado fica idêntico ao anterior.
+- **Densidade fixa:** 12 pixels de jogo por unidade do mundo (`PIXELS_PER_UNIT` em `src/pixel-art.js`).
+- **Árvores:** sprites 32×32 que ocupam 32/12 ≈ 2,67 × 2,67 unidades. Cada texel do sprite corresponde a um pixel do jogo, sem escala aleatória e com espelhamento horizontal para dar variedade. Detalhes em [árvores pixel art 32×32](arvores-pixel-32.md).
+- **Escala de tela:** a quantidade de pixels CSS por pixel de jogo é **inteira**, escolhida pela mais próxima do enquadramento da câmera (`cameraLayout`). Desktop 1440×900 fica com escala 5 (meia altura visível de 7,5 u); celular 844×390, com escala 3 (5,42 u). A área visível nunca passa do limite seguro do terreno carregado: se passar, a escala sobe.
+- **Zoom:** a porcentagem continua suave na interface, mas a imagem avança em degraus de escala inteira, preservando 1:1 nos sprites.
 
-## Como funciona
+## Renderização
 
-`src/pixel-art.js` concentra parâmetros e renderização:
+O pipeline da v01 foi mantido:
 
-1. `pixelArtLayout(largura, altura)` escolhe uma escala inteira (≥ 2) para que cada pixel do jogo tenha o mesmo tamanho na tela: 1440 × 900 → escala 5 (290 × 182); 844 × 390 → escala 2 (424 × 197). Há 1 texel de margem em cada lado.
-2. A câmera ortográfica tem o frustum ampliado para cobrir a margem e é **encaixada na grade de texels** ao longo dos seus eixos de tela. Isso evita o “tremor” de pixels em objetos parados enquanto a câmera anda.
-3. A cena vai para um render target sem MSAA, com textura de profundidade.
-4. Um quad de tela cheia amostra o render target por texel, com a fração do encaixe como deslocamento. A rolagem continua suave e os blocos ficam nítidos. O mesmo passo aplica contorno e quantização.
-5. Depois do quadro, posição e frustum da câmera são restaurados: jogo, sprites e QA continuam vendo a pose normal.
+- render target sem MSAA;
+- câmera encaixada na grade de texels (1/12 u), com compensação de fração para a rolagem continuar suave;
+- contorno do lado de fora dos objetos;
+- quantização leve com pontilhado ordenado;
+- canvas com 1 pixel por pixel CSS e `image-rendering: pixelated`.
 
-## Uso
+Os modelos 3D restantes (terreno, pedras, flores, fauna e Iara) continuam sendo os mesmos assets Blockbench, só que desenhados nessa densidade. As árvores são sprites com filtro *nearest*, sem mipmaps, alfa binário e escrita de profundidade.
 
-- Menu → **VISUAL** → “P · Ligar pixel art” / “P · Desligar pixel art” (`aria-pressed` acompanha o estado).
-- Tecla **P** alterna no teclado.
-- `?pixel=1` ou `?pixel=0` na URL força o estado.
-- A escolha fica guardada por navegador (`localStorage`, chave `mundo8bit:pixel-art`). Se o armazenamento estiver bloqueado, o jogo abre normalmente com o modo desligado.
+## Preferência e menu
+
+- Menu → **VISUAL** → “P · Desligar pixel art” / “P · Ligar pixel art”, ou a tecla **P**.
+- `?pixel=0` ou `?pixel=1` na URL força o estado.
+- A escolha fica salva por navegador (`localStorage`, chave `mundo8bit:pixel-art`). Sem valor salvo, ou com o armazenamento bloqueado, o modo fica **ligado**.
 
 ## Verificação
 
-- `npm test`: 28 testes, incluindo escala inteira e cobertura da tela, encaixe da câmera e leitura da preferência com armazenamento indisponível.
-- `npm run qa:pixel` (Vite em `127.0.0.1:5173` + Chromium com `--remote-debugging-port=9334`): liga pelo botão real do menu, confere estado, rótulo, armazenamento, canvas, escala e câmera restaurada. Também testa a caminhada, a preferência preservada ao recarregar no celular horizontal e o desligamento pela tecla P. Resultado em `art/validation/pixel-art-v01-result.json`.
-- `npm run qa:browser` continua passando com o modo desligado.
-- Capturas: [desktop desligado](art/validation/pixel-art-v01-desktop-desligado.png), [desktop ligado](art/validation/pixel-art-v01-desktop-ligado.png) e [celular horizontal ligado](art/validation/pixel-art-v01-mobile-ligado.png).
+- `npm test`: 29 testes. Cobrem a densidade fixa com escala inteira e o limite do terreno em várias proporções e zooms, o encaixe da câmera, o padrão ligado da preferência, o catálogo das árvores (32×32, cópia de runtime idêntica, SHA-256 dos originais) e a distribuição das 4 espécies.
+- `npm run qa:pixel`: menu, rótulo, `aria-pressed`, armazenamento, escala 5 no desktop e 3 no celular, câmera restaurada, caminhada, sprites *nearest* de 2,67 u, preferência preservada ao recarregar e tecla P. Resultado em `art/validation/pixel-art-v02-result.json`.
+- `npm run qa:browser` valida o caminho low poly (desliga o pixel art no início).
+- `npm run qa:collisions` passa.
+- Capturas: [desktop pixel art](art/validation/pixel-art-v02-desktop-ligado.png), [celular pixel art](art/validation/pixel-art-v02-mobile-ligado.png) e [desktop low poly](art/validation/pixel-art-v02-desktop-desligado.png).
 
-QA em Chromium com renderização por software (SwiftShader). Desempenho, conforto visual e Safari/iPhone ainda não foram medidos em aparelho físico.
+QA feito em Chromium com SwiftShader. Desempenho, conforto visual e Safari/iPhone ainda não foram medidos em aparelho físico.
 
 ## Limites conhecidos
 
-- A pintura fina das texturas (lâminas de grama, faces das copas) perde detalhe; o pontilhado aparece em grandes áreas de terreno.
-- Contornos dependem só da profundidade: objetos encostados no chão, como pedras baixas, recebem contorno parcial.
-- Durante o zoom suave, o tamanho do texel muda continuamente e pode haver leve cintilação.
-- A onça 2D passa pelo mesmo filtro e perde parte do traço da ilustração aprovada. A arte original fica intacta com o modo desligado.
-- Opção técnica e de avaliação, sem relação com a brincadeira para 5 anos. Não deve ser exibida como escolha à criança sem observação em uso.
-
-## Próximos passos possíveis
-
-Se o modo for aprovado como direção: avaliar paleta fixa curada (em vez de quantização por canal), contorno também por normais, ajuste da altura-alvo por dispositivo e eventual atlas *nearest* dedicado. Essas decisões exigem aprovação explícita da mudança de direção artística.
+- Só as árvores são pixel art nativa. Terreno, pedras, flores, fauna, Iara e a onça 2D são reduzidos pelo filtro. Para ficar coeso, cada coleção precisa de sprites próprios.
+- Iara mede cerca de 11 pixels de altura na tela. Precisa ser avaliado com a criança, em uso.
+- As árvores-sprite não recebem a luz 3D (a luz vem pintada) e sempre ficam de frente para a câmera.
+- O ponto vertical do sprite não é encaixado na grade. Em movimento, pode surgir de vez em quando uma linha duplicada.
+- Com o pixel art desligado, as árvores continuam sendo os sprites 32×32 ampliados. As árvores 3D v03 não voltam ao mundo.

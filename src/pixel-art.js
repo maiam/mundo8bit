@@ -1,9 +1,8 @@
 import * as THREE from 'three';
 
-// Experimental pixel-art presentation (toggle). It is a render filter only:
-// Blockbench sources, atlases, materials and the approved low poly painted direction stay intact.
-export const PIXEL_TARGET_HEIGHT=200; // ~200 rows of "game pixels" regardless of screen size.
-export const PIXEL_MIN_SCALE=2;
+// Pixel art presentation — default visual since 2026-11-22 (docs/pixel-art.md); can be turned off.
+// Fixed density: one 32×32 tree sprite texel = one game pixel = 1/12 world unit.
+export const PIXELS_PER_UNIT=12;
 export const PIXEL_MARGIN=1; // Extra texel on each side for sub-pixel scroll compensation.
 export const PIXEL_COLOR_LEVELS=20; // Per channel, in sRGB space, with light ordered dithering.
 export const PIXEL_DITHER=.35; // Fraction of one color step; low to keep painted detail readable.
@@ -11,10 +10,14 @@ export const PIXEL_OUTLINE_DEPTH=.6; // World units of depth jump that produce a
 // The contour is drawn on the farther texel (outside the object), so thin petals/limbs keep their color.
 export const PIXEL_STORAGE_KEY='mundo8bit:pixel-art';
 
-// Integer scale keeps every game pixel the same size on screen.
-export function pixelArtLayout(width,height){
- const scale=Math.max(PIXEL_MIN_SCALE,Math.round(Math.max(1,height)/PIXEL_TARGET_HEIGHT));
- return {scale,width:Math.ceil(Math.max(1,width)/scale)+PIXEL_MARGIN*2,height:Math.ceil(Math.max(1,height)/scale)+PIXEL_MARGIN*2};
+// Integer scale (CSS px per game pixel) closest to the requested framing; the visible world is then
+// derived from the fixed density, never exceeding maxHalfHeight (loaded-terrain safety from cameraLayout).
+export function pixelArtLayout(width,height,{halfHeight,zoom=1,maxHalfHeight=Infinity}={}){
+ width=Math.max(1,width);height=Math.max(1,height);halfHeight=halfHeight??height/(2*2*PIXELS_PER_UNIT);
+ const ideal=height*zoom/(2*halfHeight*PIXELS_PER_UNIT);
+ const minimum=Math.max(1,Math.ceil(height/(2*PIXELS_PER_UNIT*maxHalfHeight)-1e-9));
+ const scale=Math.max(minimum,Math.round(ideal));
+ return {scale,width:Math.ceil(width/scale)+PIXEL_MARGIN*2,height:Math.ceil(height/scale)+PIXEL_MARGIN*2,halfHeight:height/(2*scale*PIXELS_PER_UNIT)};
 }
 
 // Snap a coordinate (along a camera axis) to the texel grid; fraction is in texels, [0,1).
@@ -24,11 +27,11 @@ export function snapToTexel(value,texel){
  return {snapped:cell*texel,fraction};
 }
 
-// ?pixel=1|0 wins over the per-viewer stored preference. Default: off.
+// ?pixel=1|0 wins over the per-viewer stored preference. Default: on.
 export function readPixelArtPreference(search='',storage=null){
  const param=new URLSearchParams(search).get('pixel');
  if(param==='1'||param==='0')return param==='1';
- try{return storage?.getItem(PIXEL_STORAGE_KEY)==='1';}catch{return false;}
+ try{return storage?.getItem(PIXEL_STORAGE_KEY)!=='0';}catch{return true;}
 }
 export function storePixelArtPreference(enabled,storage=null){
  try{storage?.setItem(PIXEL_STORAGE_KEY,enabled?'1':'0');}catch{/* storage unavailable: preference lasts for the session only */}
@@ -54,7 +57,7 @@ void main(){
  gl_FragColor=vec4(clamp(color,0.,1.),1.);
 }`;
 
-export function createPixelArt(renderer,{enabled=false}={}){
+export function createPixelArt(renderer,{enabled=true}={}){
  const target=new THREE.WebGLRenderTarget(1,1,{minFilter:THREE.NearestFilter,magFilter:THREE.NearestFilter,generateMipmaps:false,depthBuffer:true});
  target.texture.colorSpace=THREE.SRGBColorSpace;target.depthTexture=new THREE.DepthTexture(1,1);
  const material=new THREE.ShaderMaterial({vertexShader,fragmentShader,depthTest:false,depthWrite:false,uniforms:{
@@ -63,25 +66,27 @@ export function createPixelArt(renderer,{enabled=false}={}){
  const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),material);quad.frustumCulled=false;
  const quadScene=new THREE.Scene();quadScene.add(quad);const quadCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
  const right=new THREE.Vector3(),up=new THREE.Vector3(),saved=new THREE.Vector3();
- const state={enabled,layout:pixelArtLayout(1,1),view:{width:1,height:1}};
- state.resize=(width,height)=>{
-  state.view={width,height};state.layout=pixelArtLayout(width,height);
-  target.setSize(state.layout.width,state.layout.height);
-  material.uniforms.targetSize.value.set(state.layout.width,state.layout.height);material.uniforms.viewSize.value.set(width,height);material.uniforms.scale.value=state.layout.scale;
- };
+ const state={enabled,layout:pixelArtLayout(1,1),view:{width:1,height:1,maxHalfHeight:Infinity}};
+ function applyLayout(layout){
+  if(layout.width!==state.layout.width||layout.height!==state.layout.height)target.setSize(layout.width,layout.height);
+  state.layout=layout;material.uniforms.targetSize.value.set(layout.width,layout.height);material.uniforms.scale.value=layout.scale;
+ }
+ state.resize=(width,height,{maxHalfHeight=Infinity}={})=>{state.view={width,height,maxHalfHeight};material.uniforms.viewSize.value.set(width,height);};
  // Renders with a texel-snapped camera, then restores the camera so gameplay/QA see the normal pose.
+ // Zoom steps through integer scales, so sprites always stay one texel per game pixel.
  state.render=(scene,camera)=>{
-  const {width,height}=state.view,{scale,width:tw,height:th}=state.layout;
-  const frustum=[camera.left,camera.right,camera.top,camera.bottom];
-  camera.left=frustum[0]*tw*scale/width;camera.right=frustum[1]*tw*scale/width;camera.top=frustum[2]*th*scale/height;camera.bottom=frustum[3]*th*scale/height;
+  const {width,height,maxHalfHeight}=state.view;
+  applyLayout(pixelArtLayout(width,height,{halfHeight:camera.top,zoom:camera.zoom,maxHalfHeight}));
+  const {width:tw,height:th}=state.layout,texel=1/PIXELS_PER_UNIT;
+  const frustum=[camera.left,camera.right,camera.top,camera.bottom],zoom=camera.zoom;
+  camera.zoom=1;camera.left=-tw*texel/2;camera.right=tw*texel/2;camera.top=th*texel/2;camera.bottom=-th*texel/2;
   camera.updateProjectionMatrix();camera.updateMatrixWorld();
-  const texel=(camera.top-camera.bottom)/(th*camera.zoom);
   saved.copy(camera.position);right.setFromMatrixColumn(camera.matrixWorld,0);up.setFromMatrixColumn(camera.matrixWorld,1);
   const x=snapToTexel(camera.position.dot(right),texel),y=snapToTexel(camera.position.dot(up),texel);
   camera.position.addScaledVector(right,-x.fraction*texel).addScaledVector(up,-y.fraction*texel);camera.updateMatrixWorld();
   material.uniforms.offset.value.set(x.fraction,y.fraction);material.uniforms.depthRange.value=camera.far-camera.near;
   renderer.setRenderTarget(target);renderer.render(scene,camera);renderer.setRenderTarget(null);renderer.render(quadScene,quadCamera);
-  camera.position.copy(saved);[camera.left,camera.right,camera.top,camera.bottom]=frustum;camera.updateProjectionMatrix();camera.updateMatrixWorld();
+  camera.position.copy(saved);camera.zoom=zoom;[camera.left,camera.right,camera.top,camera.bottom]=frustum;camera.updateProjectionMatrix();camera.updateMatrixWorld();
  };
  state.dispose=()=>{target.depthTexture.dispose();target.dispose();material.dispose();quad.geometry.dispose();};
  return state;

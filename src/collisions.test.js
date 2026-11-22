@@ -20,7 +20,7 @@ test('contato diagonal desliza pela parede e respeita caixas giradas',()=>{
 test('raízes têm colisão em cápsula; copas não bloqueiam toda a sombra da árvore',()=>{
  const world=new CollisionWorld(),root={type:'capsule',ax:0,az:0,bx:1,bz:0,radius:.08};world.addChunk(0,0,[root]);
  const p=world.move({x:.5,z:-1},0,2,PLAYER_RADIUS,dry);assert.ok(p.z<=-.319);assert.equal(penetration(p.x,p.z,PLAYER_RADIUS,root),null);
- const tree=treeColliders(1,0,0,1,0);assert.equal(tree.length,1);assert.equal(penetration(1.2,0,PLAYER_RADIUS,tree[0]),null);assert.equal(treeColliders(9,0,0,1,0).length,7);
+ const tree=treeColliders(1,0,0,1,0);assert.equal(tree.length,1);assert.equal(penetration(1.2,0,PLAYER_RADIUS,tree[0]),null);assert.equal(treeColliders(3,0,0,1,0).length,1);assert.throws(()=>treeColliders(9,0,0,1,0),RangeError);
 });
 test('pedras seguem dimensão, escala, centro deslocado e rotação dos modelos',()=>{
  const shape=rockCollider({x:3,z:-2,scale:2,angle:Math.PI/2},{minX:0,maxX:2,minZ:-.5,maxZ:.5});

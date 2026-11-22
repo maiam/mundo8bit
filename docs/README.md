@@ -23,7 +23,8 @@
 
 ## Comportamento e dispositivos
 
-- [Modo pixel art](pixel-art.md): filtro experimental ligar/desligar no menu; não altera a direção artística.
+- [Pixel art 32×32](pixel-art.md): direção visual padrão, densidade, escala inteira e menu.
+- [Árvores pixel art 32×32](arvores-pixel-32.md): originais do Drive, recorte, redução e runtime.
 - [Câmera top-down](camera-topdown.md): referência Brawl Stars, parâmetros, comparação e limites.
 
 - [Colisões](colisoes.md): volumes, água, deslizamento e limites.

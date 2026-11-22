@@ -39,8 +39,8 @@ function makeChunk(cx,cz) {
     for(const [dx,dz] of [[0,0],[0,1],[1,0],[1,0],[0,1],[1,1]]) {vertices.push(x+dx,heightAt(wx+dx,wz+dz),z+dz);appendTileUV(uv,tile,dx,dz);}
     const n=hash(wx,wz);
     if(n>.975 && heightAt(wx,wz)>-1.45 && Math.hypot(wx,wz)>3) {
-      const tree=createTree(treeTypeAt(wx,wz,heightAt(wx,wz)),wx,wz);
-      tree.position.set(x,heightAt(wx,wz),z);group.add(tree);colliders.push(...treeColliders(treeTypeAt(wx,wz,heightAt(wx,wz)),wx,wz,tree.scale.x,tree.rotation.y));
+      const type=treeTypeAt(wx,wz),tree=createTree(type,wx,wz);
+      tree.position.set(x,heightAt(wx,wz),z);group.add(tree);colliders.push(...treeColliders(type,wx,wz,1,0));
     }
     for(const p of natureAt(wx,wz)){if(!placements.has(p.id))placements.set(p.id,[]);placements.get(p.id).push(p);if(p.kind==='rock')colliders.push(rockCollider(p,assetFootprint(p.id)));}
   }
@@ -81,7 +81,7 @@ function resize(){
  camera.zoom=Math.max(layout.minZoom,Math.min(layout.maxZoom,camera.zoom));camera.updateProjectionMatrix();
  // Pixel art draws one canvas pixel per CSS pixel; the browser upscales crisply (image-rendering: pixelated).
  const ratio=pixelArt.enabled?1:Math.min(window.devicePixelRatio||1,1.5,Math.sqrt(2000000/(innerWidth*innerHeight)));
- renderer.setPixelRatio(ratio);if(pixelArt.enabled)pixelArt.resize(innerWidth,innerHeight);renderer.setSize(innerWidth,innerHeight,false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
+ renderer.setPixelRatio(ratio);if(pixelArt.enabled)pixelArt.resize(innerWidth,innerHeight,{maxHalfHeight:layout.halfHeight/layout.minZoom});renderer.setSize(innerWidth,innerHeight,false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
 }window.addEventListener('resize',resize);matchMedia('(any-pointer:coarse)').addEventListener('change',resize);document.addEventListener('fullscreenchange',resize);document.addEventListener('webkitfullscreenchange',resize);updatePixelArtUI();resize();
 function frame(now){const dt=Math.min((now-time)/1000,.05);time=now;if(touch.paused){keys.clear();requestAnimationFrame(frame);return;}elapsed+=dt;
   if(Math.abs(camera.zoom-touch.zoom)>.0001){camera.zoom+=(touch.zoom-camera.zoom)*(1-Math.exp(-12*dt));camera.updateProjectionMatrix();}

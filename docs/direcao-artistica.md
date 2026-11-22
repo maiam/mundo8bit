@@ -4,9 +4,9 @@
 
 > Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
 
-> Opção experimental em 2026-11-22: [modo pixel art](pixel-art.md), desligado por padrão, aplica um filtro de baixa resolução sem alterar fontes, atlas ou esta direção oficial.
+> **Mudança aprovada em 2026-11-22:** o padrão visual passa a ser [pixel art 32×32](pixel-art.md), com [árvores pixel art](arvores-pixel-32.md) substituindo as árvores 3D no mundo. A direção low poly painted abaixo segue como base dos demais modelos e do modo desligado; seções a seguir são histórico.
 
-## Direção oficial
+## Direção oficial (até 2026-11-22)
 
 **Low poly painted — “Painted using Blockbench with flat textures.”**
 
