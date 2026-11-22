@@ -4,6 +4,8 @@
 
 > Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
 
+> Opção experimental em 2026-11-22: [modo pixel art](pixel-art.md), desligado por padrão, aplica um filtro de baixa resolução sem alterar fontes, atlas ou esta direção oficial.
+
 ## Direção oficial
 
 **Low poly painted — “Painted using Blockbench with flat textures.”**

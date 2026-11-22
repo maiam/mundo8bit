@@ -58,6 +58,10 @@ Experimentar uma atividade por entrega: acompanhar uma animação especial, segu
 
 Depois de validar o passeio: marcos e biomas, otimização de streaming, carregamento por região, refinamento de modelos/animações, instalação/offline quando fizer sentido e avaliação de suporte em mais aparelhos. A ordem depende do gargalo medido, não da disponibilidade de novas ferramentas.
 
+## Fora da sequência — modo pixel art experimental
+
+Implementado a pedido em 2026-11-22 como filtro opcional ([pixel art](pixel-art.md)). Não altera prioridades acima. Decidir se vira direção artística exige aprovação explícita e avaliação em aparelho físico.
+
 ## Próxima entrega concreta recomendada
 
 Implementar apenas a prioridade 0 como primeiro recorte jogável: **clareira → convite da capivara → aproximação → aceno → reação → figurinha**. Isso permite avaliar diversão e compreensão usando a base que já existe. Álbum completo, salvamento e expansão vêm na sequência descrita acima.

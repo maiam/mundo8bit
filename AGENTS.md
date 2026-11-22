@@ -36,6 +36,10 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 
 - Grama clara v04: consultar `docs/grama-clara-v04.md`. Arte gerada por imagem, importada/redimensionada/exportada no Blockbench; não alegar pintura manual nem geração artística no editor. Apenas T01 muda; v04 está em revisão, referência original permanece aprovada. Não generalizar o acabamento aos outros materiais antes de avaliar esta comparação.
 
+## Modo pixel art experimental
+
+- Filtro opcional em `src/pixel-art.js`, desligado por padrão; consultar `docs/pixel-art.md`. Não altera fontes, atlas nem a direção low poly painted. Não trocar filtragem das texturas nem tornar padrão sem aprovação explícita da mudança de direção.
+
 ## Exceção aprovada — onça 2D
 
 - A01/onça-pintada usa ilustração 2D fantasia RPG/anime aprovada, em sprite voltado à câmera; consultar `docs/onca-2d.md`. Preservar PNG aprovado, conceito e fonte 3D histórica. Esta exceção foi autorizada explicitamente pelo usuário e não altera os demais animais/ambiente. Não converter a arte aprovada em aproximação low poly.

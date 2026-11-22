@@ -12,6 +12,8 @@ Revisão em 2026-10-31. Código auditado: `775a182` (última entrega funcional a
 
 > Integração aprovada: [onça-pintada 2D fantasia](onca-2d.md) no lugar da aparência 3D, com geração e colisões existentes. Demais animais mantidos; 25 testes atuais.
 
+> Opção experimental em 2026-11-22: [modo pixel art](pixel-art.md) liga/desliga pelo menu (tecla P), desligado por padrão; filtro de apresentação sem alterar assets nem a direção low poly painted. 28 testes atuais.
+
 Jogo publicado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site
 
 ## Diagnóstico
