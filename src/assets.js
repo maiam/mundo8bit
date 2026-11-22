@@ -11,6 +11,7 @@ export let natureManifest;
 export let faunaManifest;
 export let playerManifest;
 export let grassManifest,grassClearTexture;
+export let treePixelManifest;
 export async function loadAssets(renderer) {
   const anisotropy=Math.min(4,renderer?.capabilities.getMaxAnisotropy()??1);
   const response=await fetch('/assets/manifest.json');
@@ -54,9 +55,20 @@ export async function loadAssets(renderer) {
   playerAtlas.magFilter=THREE.LinearFilter;playerAtlas.minFilter=THREE.LinearMipmapLinearFilter;
   playerAtlas.generateMipmaps=true;playerAtlas.anisotropy=anisotropy;
   const playerMaterial=new THREE.MeshStandardMaterial({map:playerAtlas,flatShading:true,roughness:1,side:THREE.DoubleSide});
+  const treeResponse=await fetch('/assets/trees-pixel-manifest.json');
+  if(!treeResponse.ok)throw Error('Catálogo de árvores pixel art indisponível');
+  treePixelManifest=await treeResponse.json();
+  await Promise.all(treePixelManifest.trees.map(async tree=>{
+    const texture=await new THREE.TextureLoader().loadAsync(tree.url);
+    texture.colorSpace=THREE.SRGBColorSpace;texture.magFilter=THREE.NearestFilter;texture.minFilter=THREE.NearestFilter;texture.generateMipmaps=false;
+    // Mirrored variant shares the image; sprites ignore negative parent scale, so mirror the UVs.
+    const mirrored=texture.clone();mirrored.repeat.set(-1,1);mirrored.offset.set(1,0);
+    templates.set(`arvore-${tree.id}-pixel-32-v01`,createPixelSprite(texture,tree,treePixelManifest.pixelsPerUnit));
+    templates.set(`arvore-${tree.id}-pixel-32-v01-espelho`,createPixelSprite(mirrored,tree,treePixelManifest.pixelsPerUnit));
+  }));
   const loader=new GLTFLoader();
   try {
-    const assets=[...assetManifest.assets.filter(a=>a.kind!=='surface'&&a.kind!=='player'&&a.id!=='pedra-v02'),...playerManifest.assets.map(a=>({...a,player:true})),...natureManifest.assets.map(a=>({...a,nature:true})),...faunaManifest.assets.map(a=>({...a,fauna:true}))];
+    const assets=[...assetManifest.assets.filter(a=>a.kind!=='surface'&&a.kind!=='player'&&a.kind!=='tree'&&a.id!=='pedra-v02'),...playerManifest.assets.map(a=>({...a,player:true})),...natureManifest.assets.map(a=>({...a,nature:true})),...faunaManifest.assets.map(a=>({...a,fauna:true}))];
     await Promise.all(assets.map(async asset=>{
       if(asset.appearance?.type==='sprite'){
         const texture=await new THREE.TextureLoader().loadAsync(asset.appearance.url);
@@ -80,6 +92,13 @@ export async function loadAssets(renderer) {
     }));
     waterMaterial=createPaintedMaterial(atlas,{water:true});
   } catch(error) {throw new Error('Não foi possível carregar os modelos pintados. Recarregue a página.',{cause:error});}
+}
+// Binary-alpha pixel sprite facing the camera, bottom-centred, one texel per game pixel.
+function createPixelSprite(texture,entry,pixelsPerUnit){
+  const material=new THREE.SpriteMaterial({map:texture,alphaTest:.5,transparent:false,depthWrite:true,fog:true});
+  const sprite=new THREE.Sprite(material);sprite.name='pixel-sprite';sprite.center.set(.5,0);
+  sprite.scale.set(entry.size[0]/pixelsPerUnit,entry.size[1]/pixelsPerUnit,1);
+  const group=new THREE.Group();group.name=entry.name;group.userData.billboard=true;group.add(sprite);return group;
 }
 export function cloneAsset(id) {
   const template=templates.get(id);if(!template)throw Error(`Asset não carregado: ${id}`);

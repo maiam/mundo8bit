@@ -2,7 +2,9 @@
 
 ## Direção de arte aprovada
 
-Low poly painted — **Painted using Blockbench with flat textures.**
+**Pixel art 32×32 é o padrão visual desde 2026-11-22** (aprovação explícita do usuário): consultar `docs/pixel-art.md` e `docs/arvores-pixel-32.md`. Densidade fixa de 12 px por unidade (`PIXELS_PER_UNIT` em `src/pixel-art.js`), escala de tela inteira; sprites 32×32 com filtro nearest, sem escala aleatória. Árvores no mundo: macieira, carvalho, cerejeira e bétula (originais do Drive preservados em `assets/sprites/arvores-pixel-v01/originais/`, gerados por imagem — não alegar pintura manual). As árvores 3D v03 saíram do runtime; fontes preservadas.
+
+Base anterior, ainda usada pelos demais modelos e pelo modo desligado: Low poly painted — **Painted using Blockbench with flat textures.**
 
 - Usar Blockbench para os novos assets low poly, com texturas planas pintadas e paleta retrô coesa.
 - Preservar fontes editáveis `.bbmodel`, texturas PNG e UVs; conferir leitura na câmera 2,5D.
@@ -36,9 +38,9 @@ Low poly painted — **Painted using Blockbench with flat textures.**
 
 - Grama clara v04: consultar `docs/grama-clara-v04.md`. Arte gerada por imagem, importada/redimensionada/exportada no Blockbench; não alegar pintura manual nem geração artística no editor. Apenas T01 muda; v04 está em revisão, referência original permanece aprovada. Não generalizar o acabamento aos outros materiais antes de avaliar esta comparação.
 
-## Modo pixel art experimental
+## Pixel art — modo e preferência
 
-- Filtro opcional em `src/pixel-art.js`, desligado por padrão; consultar `docs/pixel-art.md`. Não altera fontes, atlas nem a direção low poly painted. Não trocar filtragem das texturas nem tornar padrão sem aprovação explícita da mudança de direção.
+- `src/pixel-art.js` ligado por padrão; menu/tecla P/`?pixel=0` desligam. Preservar o modo desligado funcional. Novos assets pixel art devem respeitar 12 px/unidade e 1 texel = 1 pixel de jogo.
 
 ## Exceção aprovada — onça 2D
 

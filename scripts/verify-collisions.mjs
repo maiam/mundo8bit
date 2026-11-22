@@ -13,7 +13,9 @@ try{
    for(const shape of shapes.filter(s=>s.kind===kind)){
     const angle=shape.angle??0,c=Math.cos(angle),s=Math.sin(angle),half=shape.type==='box'?shape.hx:shape.radius;
     const x=shape.x-c*(half+r+.2),z=shape.z+s*(half+r+.2);
-    if(world.isFree(x,z,r,{ignoreId:'player'})){chosen={shape,angle,c,s,half,x,z};break;}
+    // Isolated target only: neighbouring obstacles would deflect the approach and invalidate the measurement.
+    const isolated=shapes.every(o=>o===shape||Math.hypot((o.x??o.ax)-shape.x,(o.z??o.az)-shape.z)>2.5);
+    if(isolated&&world.isFree(x,z,r,{ignoreId:'player'})){chosen={shape,angle,c,s,half,x,z};break;}
    }
    if(!chosen)throw Error('Nenhum contato livre para testar '+kind);
    const {shape,c,s,half,x,z}=chosen;place(x,z);

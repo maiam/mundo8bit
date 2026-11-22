@@ -17,6 +17,7 @@
     "qa:textures": "node scripts/verify-world-textures.mjs",
     "qa:camera": "node scripts/verify-camera.mjs",
     "qa:pixel": "node scripts/verify-pixel-art.mjs",
+    "assets:trees-pixel": "python3 scripts/build-pixel-trees-v01.py",
     "qa:browser": "node scripts/verify-game.mjs",
     "qa:pranchas": "node scripts/render-asset-board.mjs",
     "assets:nature": "node scripts/build-nature-assets.mjs",

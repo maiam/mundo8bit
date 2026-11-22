@@ -84,10 +84,10 @@ export class CollisionWorld {
 export const collisionWorld=new CollisionWorld();
 // Conservative trunk/root proxies; crowns stay traversable overhead.
 export function treeColliders(type,x,z,scale,angle){
- const radii=[.22,.35,.16,.28,.22,.22,.85,.24,.16,.24,.28];
- const result=[{type:'circle',x:x+(type===4?Math.cos(angle)*.1*scale:0),z:z-(type===4?Math.sin(angle)*.1*scale:0),radius:radii[type]*scale,kind:'tree'}];
- if(type===9)for(let i=0;i<6;i++){const a=i*Math.PI/3-angle;result.push({type:'capsule',ax:x,az:z,bx:x+Math.cos(a)*1.2*scale,bz:z+Math.sin(a)*1.2*scale,radius:.085*scale,kind:'root'});}
- return result;
+ // Trunk circles for the pixel art 32×32 trees (same order as TREE_IDS in trees.js).
+ const radii=[.34,.32,.36,.2];
+ if(!(type in radii))throw new RangeError('Espécie inválida');
+ return [{type:'circle',x,z,radius:radii[type]*scale,kind:'tree'}];
 }
 export function rockCollider(placement,box){
  const c=Math.cos(placement.angle),s=Math.sin(placement.angle),scale=placement.scale,cx=(box.minX+box.maxX)*.5*scale,cz=(box.minZ+box.maxZ)*.5*scale;

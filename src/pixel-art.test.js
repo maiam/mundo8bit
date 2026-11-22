@@ -1,15 +1,20 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {pixelArtLayout,snapToTexel,readPixelArtPreference,storePixelArtPreference,PIXEL_MARGIN,PIXEL_STORAGE_KEY} from './pixel-art.js';
+import {pixelArtLayout,snapToTexel,readPixelArtPreference,storePixelArtPreference,PIXEL_MARGIN,PIXEL_STORAGE_KEY,PIXELS_PER_UNIT} from './pixel-art.js';
 
-test('pixel art usa escala inteira e cobre a tela com margem',()=>{
- for(const [w,h] of [[1440,900],[844,390],[568,320],[390,844],[2560,720],[1,1]]){
-  const l=pixelArtLayout(w,h);
-  assert.ok(Number.isInteger(l.scale)&&l.scale>=2,`${w}×${h}`);
-  assert.ok((l.width-PIXEL_MARGIN*2)*l.scale>=w&&(l.height-PIXEL_MARGIN*2)*l.scale>=h);
-  assert.ok(l.height<=PIXEL_MARGIN*2+Math.ceil(h/2));
+test('pixel art usa densidade fixa com escala inteira e respeita o terreno carregado',()=>{
+ for(const [w,h,hh,max] of [[1440,900,7.2,8.2],[844,390,5.8,6.6],[568,320,4.4,5],[390,844,4,4.5],[2560,720,5.6,6.3],[1,1,1,2]]){
+  for(const zoom of [.72,1,2.2]){
+   const l=pixelArtLayout(w,h,{halfHeight:hh,zoom,maxHalfHeight:max});
+   assert.ok(Number.isInteger(l.scale)&&l.scale>=1,`${w}×${h}`);
+   assert.ok((l.width-PIXEL_MARGIN*2)*l.scale>=w&&(l.height-PIXEL_MARGIN*2)*l.scale>=h);
+   assert.ok(l.halfHeight<=max+1e-9,`${w}×${h} zoom ${zoom}: ${l.halfHeight}`);
+   assert.ok(Math.abs(l.halfHeight*2*l.scale*PIXELS_PER_UNIT-h)<1e-9);
+  }
  }
- assert.equal(pixelArtLayout(1440,900).scale,5);assert.equal(pixelArtLayout(844,390).scale,2);
+ assert.equal(pixelArtLayout(1440,900,{halfHeight:7.2,maxHalfHeight:8.2}).scale,5);
+ assert.equal(pixelArtLayout(844,390,{halfHeight:5.8,maxHalfHeight:6.6}).scale,3);
+ assert.ok(pixelArtLayout(1440,900,{halfHeight:7.2,zoom:2.2}).scale>pixelArtLayout(1440,900,{halfHeight:7.2}).scale);
 });
 
 test('câmera encaixa na grade de pixels e devolve a fração para compensar',()=>{
@@ -21,11 +26,12 @@ test('câmera encaixa na grade de pixels e devolve a fração para compensar',()
  }
 });
 
-test('preferência: parâmetro de URL vence, armazenamento indisponível não quebra',()=>{
+test('preferência: ligado por padrão, URL vence, armazenamento indisponível não quebra',()=>{
  const memory=new Map(),storage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)};
- assert.equal(readPixelArtPreference('',storage),false);
+ assert.equal(readPixelArtPreference('',storage),true);
+ storePixelArtPreference(false,storage);assert.equal(memory.get(PIXEL_STORAGE_KEY),'0');assert.equal(readPixelArtPreference('',storage),false);
  storePixelArtPreference(true,storage);assert.equal(memory.get(PIXEL_STORAGE_KEY),'1');assert.equal(readPixelArtPreference('',storage),true);
  assert.equal(readPixelArtPreference('?pixel=0',storage),false);assert.equal(readPixelArtPreference('?pixel=1',null),true);
  const broken={getItem(){throw Error('bloqueado');},setItem(){throw Error('bloqueado');}};
- assert.equal(readPixelArtPreference('',broken),false);assert.doesNotThrow(()=>storePixelArtPreference(true,broken));
+ assert.equal(readPixelArtPreference('',broken),true);assert.doesNotThrow(()=>storePixelArtPreference(true,broken));
 });

@@ -28,7 +28,7 @@ Veja a [mudança de câmera e comparação visual](docs/camera-topdown.md).
 - Celular/tablet: jogue na horizontal; em retrato o jogo pausa e pede para girar. Arraste o joystick esquerdo e segure CORRER com o outro dedo.
 - Zoom: pinça sobre o mundo, botões +/−, roda do mouse ou teclas +/−. Toque na porcentagem para restaurar.
 - G: mostrar limites dos chunks.
-- P ou Menu → Visual: ligar/desligar o [modo pixel art](docs/pixel-art.md) experimental (desligado por padrão; `?pixel=1` força ligado).
+- P ou Menu → Visual: ligar/desligar o [pixel art 32×32](docs/pixel-art.md), padrão visual (`?pixel=0` força o low poly).
 - Tela cheia: use a faixa no celular ou a opção do menu quando o navegador permitir. O menu também permite sair.
 - Menu: voltar à origem e ver chunks.
 
@@ -37,6 +37,8 @@ Veja [o modo horizontal e os controles](docs/mobile-horizontal.md) e [a tela che
 A personagem jogável agora é **Iara**, escolhida na opção D: [modelo, fonte e integração](docs/iara.md).
 
 ## Arte e fontes
+
+**Pixel art 32×32 é o padrão visual** desde 2026-11-22: densidade de 12 px por unidade e [árvores 32×32](docs/arvores-pixel-32.md) (macieira, carvalho, cerejeira, bétula) no lugar das árvores 3D. Os demais modelos Blockbench abaixo continuam no mundo, desenhados nessa densidade.
 
 A **onça-pintada** agora usa o [sprite 2D fantasia aprovado](docs/onca-2d.md), com movimento e colisões existentes. Os outros dez animais continuam em 3D. A coleção original Blockbench está preservada como fonte histórica.
 
