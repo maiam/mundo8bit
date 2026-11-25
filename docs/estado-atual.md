@@ -14,6 +14,8 @@ Revisão em 2026-10-31. Código auditado: `775a182` (última entrega funcional a
 
 > Mudança de direção em 2026-11-22: [pixel art 32×32](pixel-art.md) é o padrão (12 px/unidade, escala inteira; menu/tecla P desligam). As árvores do mundo são 4 sprites 32×32 — [macieira, carvalho, cerejeira e bétula](arvores-pixel-32.md) — no lugar das 11 árvores 3D (fontes preservadas). 29 testes atuais.
 
+> **Padrão desde 2026-11-25 (validado):** [mundo voxel](voxel-3d.md) na URL raiz, 100% a 8 px por bloco; [entidades em box model](voxel-entidades.md) (Iara, NPC provisório, capivara, tatu, tucano) com IA por metas; [hotbar, corrida em 3 s e joystick de ação](voxel-controles.md) sem seleção visual. Skins e ícones PNG [aguardam o usuário](voxel-artes-pendentes.md). Clássico em `?mundo=classico` (legado). 46 testes atuais.
+
 > Protótipo em teste em 2026-11-25: [mundo voxel 3D](voxel-3d.md) em `?mundo=voxel3d` — blocos 8×8, isometria 2:1, Iara em cubos (2 blocos), mesma geração do clássico; sem fauna. O mundo clássico segue padrão. 38 testes atuais.
 
 Jogo publicado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site

@@ -75,6 +75,7 @@ function updatePixelArtUI(){const button=document.querySelector('#pixel-art');bu
 export function setPixelArt(enabled){pixelArt.enabled=Boolean(enabled);storePixelArtPreference(pixelArt.enabled,viewerStorage());updatePixelArtUI();resize();}
 document.querySelector('#pixel-art').onclick=()=>setPixelArt(!pixelArt.enabled);
 document.querySelector('#world-switch').onclick=()=>{location.search=worldModeSearch(location.search,'voxel3d');};
+document.querySelector('header .badge').textContent='MUNDO CLÁSSICO · LEGADO';
 document.querySelector('#home').onclick=()=>{player.position.set(0,0,0);collisionWorld.setDynamic('player',{type:'circle',x:0,z:0,radius:PLAYER_RADIUS,kind:'player'});lastChunk='';};
 function resize(){
  const layout=cameraLayout(innerWidth,innerHeight,touch.mobile);

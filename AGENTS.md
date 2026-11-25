@@ -2,7 +2,17 @@
 
 ## Direção de arte aprovada
 
-**Pixel art 32×32 é o padrão visual desde 2026-11-22** (aprovação explícita do usuário): consultar `docs/pixel-art.md` e `docs/arvores-pixel-32.md`. Densidade fixa de 12 px por unidade (`PIXELS_PER_UNIT` em `src/pixel-art.js`), escala de tela inteira; sprites 32×32 com filtro nearest, sem escala aleatória. Árvores no mundo: macieira, carvalho, cerejeira e bétula (originais do Drive preservados em `assets/sprites/arvores-pixel-v01/originais/`, gerados por imagem — não alegar pintura manual). As árvores 3D v03 saíram do runtime; fontes preservadas.
+**Mundo voxel 8 px é o padrão desde 2026-11-25** (validação explícita do usuário): consultar `docs/voxel-3d.md`, `docs/voxel-entidades.md`, `docs/voxel-controles.md` e `docs/voxel-artes-pendentes.md`.
+
+- **Regra: o mundo é 100% em 8 px por bloco.** Blocos com texturas 8×8 por face; entidades com 1 px de skin = 1/8 de bloco. Nada novo em outra densidade.
+- **Personagens, NPCs e mobs são box models como no Minecraft:** hierarquia de paralelepípedos com pivô na articulação, skin PNG única com box UV padrão (layout do Minecraft ÷ 2: humanoide 32×32, cabeça 4³, tronco 4×6×2, membros 2×6×2 = 2 blocos), camada externa inflada 0,25 px, animação procedural (sem keyframes) e IA por metas (`GoalSelector`). Usar `src/voxel/entities/`; não criar outro sistema de personagem.
+- **Artes PNG ficam em espera e são pedidas ao usuário** (lista em `docs/voxel-artes-pendentes.md`); até chegarem, usar provisórias geradas por código no mesmo layout e marcar `skin: null`. Não alegar pintura manual nas provisórias.
+- **Controles:** joystick esquerdo anda; 3 s para cima/frente corre (sem botão CORRER no voxel); joystick de ação à direita gira a personagem 360° no lugar e age sempre no cubo adjacente da frente; **sem seleção visual do cubo**; hotbar de 9 espaços (mão no 1).
+- Mundo clássico (vista superior, pixel art 32×32, low poly) passa a **legado** em `?mundo=classico`; preservar funcionando, sem novas features.
+
+### Legado — mundo clássico
+
+**Pixel art 32×32 foi o padrão visual de 2026-11-22 a 2026-11-25** (aprovação explícita do usuário): consultar `docs/pixel-art.md` e `docs/arvores-pixel-32.md`. Densidade fixa de 12 px por unidade (`PIXELS_PER_UNIT` em `src/pixel-art.js`), escala de tela inteira; sprites 32×32 com filtro nearest, sem escala aleatória. Árvores no mundo: macieira, carvalho, cerejeira e bétula (originais do Drive preservados em `assets/sprites/arvores-pixel-v01/originais/`, gerados por imagem — não alegar pintura manual). As árvores 3D v03 saíram do runtime; fontes preservadas.
 
 Base anterior, ainda usada pelos demais modelos e pelo modo desligado: Low poly painted — **Painted using Blockbench with flat textures.**
 
@@ -26,7 +36,7 @@ Base anterior, ainda usada pelos demais modelos e pelo modo desligado: Low poly 
 
 - Iara (opção D) é a personagem jogável. Preservar `docs/art/iara-conceito-v01-aprovado.png`, fonte `iara-v01.bbmodel` e atlas próprio. Consultar `docs/iara.md`; futuras revisões abrem v02.
 
-## Câmera atual
+## Câmera do mundo clássico (legado)
 
 - Vista superior inclinada inspirada no gameplay de Brawl Stars: ortográfica, pitch de 55°, sem yaw diagonal; controles alinhados à tela. Consultar `docs/camera-topdown.md` e centralizar parâmetros em `src/camera-settings.js`. Não restaurar a conversão diagonal de movimento sem revisar a câmera.
 
@@ -42,9 +52,9 @@ Base anterior, ainda usada pelos demais modelos e pelo modo desligado: Low poly 
 
 - `src/pixel-art.js` ligado por padrão; menu/tecla P/`?pixel=0` desligam. Preservar o modo desligado funcional. Novos assets pixel art devem respeitar 12 px/unidade e 1 texel = 1 pixel de jogo.
 
-## Mundo voxel 3D (protótipo em teste)
+## Mundo voxel 3D (padrão)
 
-- `?mundo=voxel3d` abre o protótipo em `src/voxel/`; consultar `docs/voxel-3d.md`. Não é o padrão: o mundo clássico continua padrão até aprovação explícita. 1 bloco = 1 unidade, texturas 8×8, isometria 2:1 (yaw 45°, pitch 30°, `VOXEL_PIXELS_PER_UNIT = 16/√2`), Iara em cubos com 2 blocos. Reaproveitar geração (`world.js`, `natureAt`, `trees.js`), `CollisionWorld` e `pixel-art.js`; não criar segunda fonte de verdade de terreno. A câmera isométrica vale só para o voxel.
+- URL raiz abre o voxel em `src/voxel/` (`?mundo=classico` abre o legado). 1 bloco = 1 unidade, texturas 8×8, isometria 2:1 (yaw 45°, pitch 30°, `VOXEL_PIXELS_PER_UNIT = 16/√2`), Iara em box model com 2 blocos. Reaproveitar geração (`world.js`, `natureAt`, `trees.js`), `CollisionWorld` e `pixel-art.js`; não criar segunda fonte de verdade de terreno. A câmera isométrica vale para o voxel; a top-down abaixo só para o legado.
 
 ## Exceção aprovada — onça 2D
 

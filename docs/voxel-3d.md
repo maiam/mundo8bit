@@ -1,4 +1,8 @@
-# Mundo voxel 3D — protótipo v01 (`?mundo=voxel3d`)
+# Mundo voxel 3D — padrão desde 2026-11-25
+
+> **Validado pelo usuário em 2026-11-25:** o voxel vira o mundo padrão (URL raiz). Regra: **mundo 100% a 8 px por bloco**. O clássico passa a legado em `?mundo=classico` (`?mundo=voxel3d` continua abrindo o voxel). Entidades em box model: [voxel-entidades](voxel-entidades.md); controles, hotbar e ação: [voxel-controles](voxel-controles.md); PNGs aguardando o usuário: [artes pendentes](voxel-artes-pendentes.md). A seção "Iara voxel" abaixo descreve a v01, substituída pela Iara v02 em box model com skin box UV.
+
+## Histórico — protótipo v01 (`?mundo=voxel3d`)
 
 Pedido do usuário em 2026-11-25, para testar antes de qualquer decisão de virar padrão. Decisões do usuário:
 

@@ -23,7 +23,10 @@
 
 ## Comportamento e dispositivos
 
-- [Mundo voxel 3D](voxel-3d.md): protótipo `?mundo=voxel3d`, isometria 2:1, blocos 8×8, Iara em cubos.
+- [Mundo voxel 3D](voxel-3d.md): **mundo padrão**, 100% 8 px por bloco, isometria 2:1.
+- [Entidades voxel](voxel-entidades.md): box model, skin box UV, animação procedural e IA por metas.
+- [Controles voxel](voxel-controles.md): hotbar, corrida em 3 s e joystick de ação.
+- [Artes pendentes](voxel-artes-pendentes.md): PNGs aguardando o usuário.
 - [Pixel art 32×32](pixel-art.md): direção visual padrão, densidade, escala inteira e menu.
 - [Árvores pixel art 32×32](arvores-pixel-32.md): originais do Drive, recorte, redução e runtime.
 - [Câmera top-down](camera-topdown.md): referência Brawl Stars, parâmetros, comparação e limites.

@@ -1,5 +1,7 @@
 # Proposta de jogo para uma criança de 5 anos
 
+> Atualização 2026-11-25: a base passou a ser o [mundo voxel](voxel-3d.md). Por decisão do usuário, a ação contextual é um **joystick de ação** (gira a personagem e age no cubo da frente, sem seleção visual) e a corrida é por **3 s com o joystick para cima** ([controles](voxel-controles.md)). A seleção automática do amigo mais próximo abaixo deve ser revista à luz dessa regra.
+
 Estado: proposta de design, ainda não implementada nem validada com a criança. A faixa etária orienta hipóteses iniciais; habilidades motoras, leitura, preferências e familiaridade com jogos variam. Manter a direção low poly painted aprovada.
 
 ## Promessa da brincadeira

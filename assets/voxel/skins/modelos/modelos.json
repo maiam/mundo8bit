@@ -1,0 +1,461 @@
+[
+ {
+  "id": "iara-voxel-v02",
+  "name": "Iara",
+  "size": "32×32",
+  "parts": [
+   {
+    "name": "perna-direita",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     0,
+     8
+    ]
+   },
+   {
+    "name": "perna-esquerda",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     8,
+     24
+    ]
+   },
+   {
+    "name": "tronco",
+    "size": [
+     4,
+     6,
+     2
+    ],
+    "uv": [
+     8,
+     8
+    ]
+   },
+   {
+    "name": "braco-direito",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     20,
+     8
+    ]
+   },
+   {
+    "name": "braco-esquerdo",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     16,
+     24
+    ]
+   },
+   {
+    "name": "cabeca",
+    "size": [
+     4,
+     4,
+     4
+    ],
+    "uv": [
+     0,
+     0
+    ]
+   },
+   {
+    "name": "cabeca-externa",
+    "size": [
+     4,
+     4,
+     4
+    ],
+    "uv": [
+     16,
+     0
+    ],
+    "overlay": "cabeca",
+    "inflate": 0.25
+   }
+  ]
+ },
+ {
+  "id": "npc-guia-voxel-v01",
+  "name": "Guia (provisório)",
+  "size": "32×32",
+  "parts": [
+   {
+    "name": "perna-direita",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     0,
+     8
+    ]
+   },
+   {
+    "name": "perna-esquerda",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     8,
+     24
+    ]
+   },
+   {
+    "name": "tronco",
+    "size": [
+     4,
+     6,
+     2
+    ],
+    "uv": [
+     8,
+     8
+    ]
+   },
+   {
+    "name": "braco-direito",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     20,
+     8
+    ]
+   },
+   {
+    "name": "braco-esquerdo",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     16,
+     24
+    ]
+   },
+   {
+    "name": "cabeca",
+    "size": [
+     4,
+     4,
+     4
+    ],
+    "uv": [
+     0,
+     0
+    ]
+   },
+   {
+    "name": "cabeca-externa",
+    "size": [
+     4,
+     4,
+     4
+    ],
+    "uv": [
+     16,
+     0
+    ],
+    "overlay": "cabeca",
+    "inflate": 0.25
+   }
+  ]
+ },
+ {
+  "id": "mob-capivara-voxel-v01",
+  "name": "Capivara",
+  "size": "64×32",
+  "parts": [
+   {
+    "name": "tronco",
+    "size": [
+     5,
+     4,
+     8
+    ],
+    "uv": [
+     16,
+     0
+    ]
+   },
+   {
+    "name": "cabeca",
+    "size": [
+     3,
+     3,
+     4
+    ],
+    "uv": [
+     0,
+     0
+    ]
+   },
+   {
+    "name": "perna-frente-esquerda",
+    "size": [
+     2,
+     2,
+     2
+    ],
+    "uv": [
+     0,
+     16
+    ]
+   },
+   {
+    "name": "perna-frente-direita",
+    "size": [
+     2,
+     2,
+     2
+    ],
+    "uv": [
+     0,
+     16
+    ]
+   },
+   {
+    "name": "perna-tras-esquerda",
+    "size": [
+     2,
+     2,
+     2
+    ],
+    "uv": [
+     0,
+     16
+    ]
+   },
+   {
+    "name": "perna-tras-direita",
+    "size": [
+     2,
+     2,
+     2
+    ],
+    "uv": [
+     0,
+     16
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mob-tatu-voxel-v01",
+  "name": "Tatu",
+  "size": "32×16",
+  "parts": [
+   {
+    "name": "tronco",
+    "size": [
+     4,
+     3,
+     6
+    ],
+    "uv": [
+     12,
+     0
+    ]
+   },
+   {
+    "name": "cabeca",
+    "size": [
+     2,
+     2,
+     3
+    ],
+    "uv": [
+     0,
+     0
+    ]
+   },
+   {
+    "name": "cauda",
+    "size": [
+     1,
+     1,
+     3
+    ],
+    "uv": [
+     8,
+     12
+    ]
+   },
+   {
+    "name": "perna-frente-esquerda",
+    "size": [
+     1,
+     1,
+     1
+    ],
+    "uv": [
+     0,
+     12
+    ]
+   },
+   {
+    "name": "perna-frente-direita",
+    "size": [
+     1,
+     1,
+     1
+    ],
+    "uv": [
+     0,
+     12
+    ]
+   },
+   {
+    "name": "perna-tras-esquerda",
+    "size": [
+     1,
+     1,
+     1
+    ],
+    "uv": [
+     0,
+     12
+    ]
+   },
+   {
+    "name": "perna-tras-direita",
+    "size": [
+     1,
+     1,
+     1
+    ],
+    "uv": [
+     0,
+     12
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mob-tucano-voxel-v01",
+  "name": "Tucano",
+  "size": "32×16",
+  "parts": [
+   {
+    "name": "perna-esquerda",
+    "size": [
+     1,
+     1,
+     1
+    ],
+    "uv": [
+     16,
+     0
+    ]
+   },
+   {
+    "name": "perna-direita",
+    "size": [
+     1,
+     1,
+     1
+    ],
+    "uv": [
+     16,
+     0
+    ]
+   },
+   {
+    "name": "tronco",
+    "size": [
+     2,
+     3,
+     2
+    ],
+    "uv": [
+     0,
+     4
+    ]
+   },
+   {
+    "name": "cabeca",
+    "size": [
+     2,
+     2,
+     2
+    ],
+    "uv": [
+     0,
+     0
+    ]
+   },
+   {
+    "name": "bico",
+    "size": [
+     1,
+     1,
+     3
+    ],
+    "uv": [
+     8,
+     0
+    ]
+   },
+   {
+    "name": "asa-esquerda",
+    "size": [
+     1,
+     2,
+     2
+    ],
+    "uv": [
+     8,
+     4
+    ]
+   },
+   {
+    "name": "asa-direita",
+    "size": [
+     1,
+     2,
+     2
+    ],
+    "uv": [
+     8,
+     4
+    ]
+   },
+   {
+    "name": "cauda",
+    "size": [
+     2,
+     1,
+     2
+    ],
+    "uv": [
+     16,
+     4
+    ]
+   }
+  ]
+ }
+]
