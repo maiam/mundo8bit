@@ -4,7 +4,6 @@ import * as THREE from 'three';
 import {voxelCameraLayout,voxelCameraPose,voxelScreenMovement,VOXEL_PIXELS_PER_UNIT,VOXEL_CHUNK_RADIUS,ISO_PITCH} from './voxel-settings.js';
 import {buildVoxelAtlas,ATLAS_SIZE,TILE,tileUV} from './voxel-atlas.js';
 import {columnAt,voxelGround,buildChunkData,treeAt,treeBlocks,voxelStart,treeHidesPoint,BLOCKED_GROUND,WATER_TOP} from './voxel-terrain.js';
-import {IARA_VOXEL,packModel,modelHeight,buildVoxelModel} from './voxel-models.js';
 import {readWorldMode,worldModeSearch} from '../world-mode.js';
 import {CollisionWorld,PLAYER_RADIUS} from '../collisions.js';
 
@@ -12,9 +11,9 @@ function cameraAt(w,h,mobile,zoom=1,x=0,z=0,ground=0){
  const l=voxelCameraLayout(w,h,mobile),p=voxelCameraPose(x,ground,z),c=new THREE.OrthographicCamera(-l.halfHeight*l.aspect,l.halfHeight*l.aspect,l.halfHeight,-l.halfHeight,.1,240);
  c.position.set(p.position.x,p.position.y,p.position.z);c.lookAt(p.target.x,p.target.y,p.target.z);c.zoom=zoom;c.updateProjectionMatrix();c.updateMatrixWorld();return c;
 }
-test('mundo: ?mundo=voxel3d seleciona o voxel; troca preserva outros parâmetros',()=>{
- assert.equal(readWorldMode(''),'classico');assert.equal(readWorldMode('?mundo=voxel3d'),'voxel3d');assert.equal(readWorldMode('?mundo=outro'),'classico');
- assert.equal(worldModeSearch('?pixel=0','voxel3d'),'?pixel=0&mundo=voxel3d');assert.equal(worldModeSearch('?mundo=voxel3d&pixel=0','classico'),'?pixel=0');assert.equal(worldModeSearch('?mundo=voxel3d','classico'),'');
+test('mundo: voxel é o padrão; ?mundo=classico abre o legado; troca preserva outros parâmetros',()=>{
+ assert.equal(readWorldMode(''),'voxel3d');assert.equal(readWorldMode('?mundo=voxel3d'),'voxel3d');assert.equal(readWorldMode('?mundo=classico'),'classico');assert.equal(readWorldMode('?mundo=outro'),'voxel3d');
+ assert.equal(worldModeSearch('?pixel=0','classico'),'?pixel=0&mundo=classico');assert.equal(worldModeSearch('?mundo=classico&pixel=0','voxel3d'),'?pixel=0');assert.equal(worldModeSearch('?mundo=classico','voxel3d'),'');
 });
 test('isometria 2:1: topo do bloco vira losango 16×8 px e controles seguem a tela',()=>{
  assert.ok(Math.abs(Math.sin(ISO_PITCH)-.5)<1e-12);
@@ -85,12 +84,4 @@ test('física voxel: sobe um bloco, não atravessa tronco nem entra na água',()
  assert.ok(p.blocked&&p.x<=tree.x-.5-PLAYER_RADIUS+.002);
  let shore=null;for(let x=-24;x<24&&!shore;x++)for(let z=-24;z<24&&!shore;z++)if(!columnAt(x,z).water&&columnAt(x+1,z).water&&world.isFree(x+.5,z+.5,PLAYER_RADIUS,opts))shore={x,z};
  const s=world.move({x:shore.x+.5,z:shore.z+.5},2,0,PLAYER_RADIUS,opts);assert.ok(s.x<=shore.x+1-PLAYER_RADIUS+.002);
-});
-test('Iara voxel: cubos e paralelepípedos com cerca de 2 blocos e partes animáveis',()=>{
- assert.equal(modelHeight(IARA_VOXEL),2);
- const packed=packModel(IARA_VOXEL);assert.equal(Object.keys(packed.rects).length,IARA_VOXEL.parts.length*6);
- const model=buildVoxelModel(IARA_VOXEL,{silhouette:true});
- for(const name of ['cabeca','tronco','braco-esquerdo','braco-direito','perna-esquerda','perna-direita'])assert.ok(model.getObjectByName(name),name);
- const box=new THREE.Box3().setFromObject(model);assert.ok(Math.abs(box.max.y-2)<1e-9&&Math.abs(box.min.y)<1e-9);
- let ghosts=0;model.traverse(n=>{if(n.name==='silhueta'){ghosts++;assert.equal(n.material.depthFunc,THREE.GreaterDepth);}});assert.equal(ghosts,6);
 });

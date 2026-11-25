@@ -5,3 +5,19 @@
 
 #fullscreen-invite{position:absolute;left:50%;top:calc(66px + env(safe-area-inset-top));transform:translateX(-50%);display:flex;align-items:center;gap:4px;pointer-events:auto;z-index:5;border:1px solid #e4ce8b66;border-radius:10px;background:#173b32ed;padding:4px;box-shadow:0 5px 20px #102b2830}#fullscreen-invite .fullscreen-button{background:#c6d39d;color:#183e35;padding:0 14px;white-space:nowrap}#fullscreen-dismiss{width:44px;border:0;background:transparent;font-size:22px}#fullscreen-feedback{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:110;max-width:min(400px,90vw);background:#173b32f5;border:1px solid #e4ce8b66;border-radius:10px;padding:12px 16px;font-size:12px;line-height:1.6;text-align:center;pointer-events:none}#game-menu #fullscreen-help{font-size:11px;line-height:1.6}html:fullscreen,html:-webkit-full-screen{width:100%;height:100%;background:#142c32}
 .pixel-art canvas{image-rendering:pixelated}
+/* Mundo voxel: hotbar de 9 espaços e joystick de ação no lugar do botão CORRER (docs/voxel-controles.md). */
+.voxel-world #run{display:none}
+#hotbar{position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;gap:2px;padding:3px;background:#1b2a26d9;border:2px solid #0d1513;border-radius:4px;pointer-events:auto;z-index:4}
+.hotbar-slot{width:46px;height:46px;min-height:46px;padding:7px;border-radius:2px;border:2px solid #4d5b55;background:#2d3c37;display:grid;place-items:center}
+.hotbar-slot[aria-pressed="true"]{border-color:#fff1c8;background:#46584f;box-shadow:inset 0 0 0 2px #0d1513}
+.hotbar-slot svg,.hotbar-slot img{width:100%;height:100%;image-rendering:pixelated}
+.voxel-world footer{bottom:auto;top:calc(110px + env(safe-area-inset-top))}
+#action-stick{position:absolute;right:calc(20px + env(safe-area-inset-right));bottom:calc(28px + env(safe-area-inset-bottom));width:128px;height:128px;border:2px solid #ffe4a8b3;border-radius:50%;background:#173c3560;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;display:grid;place-items:center}
+#action-stick:before{content:'';position:absolute;inset:14px;border:1px dashed #ffe4a880;border-radius:50%}
+#action-thumb{width:52px;height:52px;padding:10px;border:2px solid #ffebaf;border-radius:50%;background:#dcc886d9;pointer-events:none;display:grid;place-items:center}
+#action-thumb svg{width:100%;height:100%}
+#action-stick.active #action-thumb{background:#f0dc98}
+.touch-device #hotbar{bottom:calc(10px + env(safe-area-inset-bottom))}
+.touch-device .hotbar-slot{width:40px;height:40px;min-height:40px;padding:6px}
+.voxel-world.touch-device .touch-hint{bottom:calc(64px + env(safe-area-inset-bottom))}
+@media(max-height:440px){.touch-device #action-stick{width:112px;height:112px;bottom:calc(24px + env(safe-area-inset-bottom))}}

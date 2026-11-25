@@ -1,5 +1,7 @@
 # Câmera top-down — referência Brawl Stars
 
+> Desde 2026-11-25 vale só para o mundo clássico (legado, `?mundo=classico`). O mundo padrão usa a [câmera isométrica do voxel](voxel-3d.md).
+
 Mudança de direção solicitada em 2026-11-01. Aplicada à câmera e ao mapeamento do movimento; preserva a direção artística low poly painted e os modelos Blockbench.
 
 ## Referência e interpretação

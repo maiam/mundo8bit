@@ -58,9 +58,9 @@ Experimentar uma atividade por entrega: acompanhar uma animação especial, segu
 
 Depois de validar o passeio: marcos e biomas, otimização de streaming, carregamento por região, refinamento de modelos/animações, instalação/offline quando fizer sentido e avaliação de suporte em mais aparelhos. A ordem depende do gargalo medido, não da disponibilidade de novas ferramentas.
 
-## Fora da sequência — mundo voxel 3D (protótipo)
+## Mudança de base — mundo voxel 8 px (padrão desde 2026-11-25)
 
-Implementado a pedido em 2026-11-25 como mundo separado (`?mundo=voxel3d`, [voxel 3D](voxel-3d.md)) para teste antes de decidir o padrão. Se aprovado: fauna em cubos (começando pela capivara da prioridade 0), fontes Blockbench estilo bloco/entidade, módulo comum de laço/controles com o clássico e medição em aparelho físico. Até lá, não altera as prioridades.
+O [mundo voxel](voxel-3d.md) foi validado e virou padrão. As prioridades abaixo continuam válidas, agora sobre a base voxel: capivara, tucano e tatu já existem como [mobs em box model](voxel-entidades.md) e o [joystick de ação](voxel-controles.md) substitui a proposta de botão "Oi!" (ação ainda sem efeito; a saudação da prioridade 0 vira a primeira ação da mão). Pendências diretas: [PNGs do usuário](voxel-artes-pendentes.md), identidade do NPC provisório, demais animais em box model, módulo comum de laço/controles (hoje duplicado com o clássico) e medição em aparelho físico.
 
 ## Fora da sequência — pixel art 32×32
 

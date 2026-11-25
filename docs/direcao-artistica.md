@@ -4,6 +4,8 @@
 
 > Registro por etapa: versões, contagens e verificações abaixo pertencem às entregas descritas. Consulte o [estado atual consolidado](estado-atual.md) e o [plano de evolução](roadmap.md) para o panorama vigente.
 
+> **Mudança validada em 2026-11-25:** o padrão passa a ser o [mundo voxel 3D](voxel-3d.md), **100% a 8 px por bloco**, com [entidades em box model](voxel-entidades.md) e artes PNG [pedidas ao usuário](voxel-artes-pendentes.md). O pixel art 32×32 e o low poly abaixo ficam como histórico do mundo clássico (`?mundo=classico`).
+
 > **Mudança aprovada em 2026-11-22:** o padrão visual passa a ser [pixel art 32×32](pixel-art.md), com [árvores pixel art](arvores-pixel-32.md) substituindo as árvores 3D no mundo. A direção low poly painted abaixo segue como base dos demais modelos e do modo desligado; seções a seguir são histórico.
 
 ## Direção oficial (até 2026-11-22)
