@@ -1,0 +1,103 @@
+{
+  "initial": {
+    "mode": "voxel3d",
+    "loadingHidden": true,
+    "error": "",
+    "badge": "MUNDO VOXEL 3D · TESTE",
+    "chunks": 81,
+    "collisionChunks": 81,
+    "triangles": 80928,
+    "counts": {
+      "trees": 231,
+      "rocks": 160,
+      "flowers": 633
+    },
+    "layout": {
+      "scale": 4,
+      "width": 362,
+      "height": 227,
+      "halfHeight": 9.943689110435825
+    },
+    "atlasFilter": 1003,
+    "player": [
+      -1.5,
+      1,
+      1.5
+    ],
+    "classicLoaded": false,
+    "canvases": 1
+  },
+  "move": {
+    "direita": {
+      "before": {
+        "x": -0.5,
+        "y": 1,
+        "z": 0.5
+      },
+      "after": {
+        "x": 0.20710678118654754,
+        "y": 1,
+        "z": -0.20710678118654752
+      },
+      "screen": [
+        0.0625,
+        1.3877787807814457e-17
+      ]
+    },
+    "cima": {
+      "before": {
+        "x": -0.5,
+        "y": 1,
+        "z": 0.5
+      },
+      "after": {
+        "x": -1.2071067811865483,
+        "y": 1,
+        "z": -0.20710678118654754
+      },
+      "screen": [
+        -3.469446951953614e-17,
+        0.05000000000000006
+      ]
+    }
+  },
+  "moveStart": {
+    "x": -0.5,
+    "z": 0.5
+  },
+  "physics": {
+    "tree": {
+      "invalid": 0,
+      "x": -48.24001,
+      "limit": -48.24
+    },
+    "water": {
+      "x": -21.260000000000005,
+      "limit": -21.24
+    },
+    "step": {
+      "x": -8,
+      "z": 0,
+      "from": -1,
+      "to": 0,
+      "endX": -6.379999999999999,
+      "endY": -0.0018429273877731567
+    }
+  },
+  "mobile": {
+    "layout": {
+      "scale": 2,
+      "width": 424,
+      "height": 197,
+      "halfHeight": 8.617863895711048
+    },
+    "touch": true,
+    "error": ""
+  },
+  "back": {
+    "search": "",
+    "voxel": false,
+    "button": "Abrir mundo voxel 3D (teste)",
+    "stats": "SEMENTE 808 / CHUNK 0,0 / 25 ATIVOS / X 0 Z 0"
+  }
+}

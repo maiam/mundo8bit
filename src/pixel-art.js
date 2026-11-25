@@ -12,12 +12,12 @@ export const PIXEL_STORAGE_KEY='mundo8bit:pixel-art';
 
 // Integer scale (CSS px per game pixel) closest to the requested framing; the visible world is then
 // derived from the fixed density, never exceeding maxHalfHeight (loaded-terrain safety from cameraLayout).
-export function pixelArtLayout(width,height,{halfHeight,zoom=1,maxHalfHeight=Infinity}={}){
- width=Math.max(1,width);height=Math.max(1,height);halfHeight=halfHeight??height/(2*2*PIXELS_PER_UNIT);
- const ideal=height*zoom/(2*halfHeight*PIXELS_PER_UNIT);
- const minimum=Math.max(1,Math.ceil(height/(2*PIXELS_PER_UNIT*maxHalfHeight)-1e-9));
+export function pixelArtLayout(width,height,{halfHeight,zoom=1,maxHalfHeight=Infinity,pixelsPerUnit=PIXELS_PER_UNIT}={}){
+ width=Math.max(1,width);height=Math.max(1,height);halfHeight=halfHeight??height/(2*2*pixelsPerUnit);
+ const ideal=height*zoom/(2*halfHeight*pixelsPerUnit);
+ const minimum=Math.max(1,Math.ceil(height/(2*pixelsPerUnit*maxHalfHeight)-1e-9));
  const scale=Math.max(minimum,Math.round(ideal));
- return {scale,width:Math.ceil(width/scale)+PIXEL_MARGIN*2,height:Math.ceil(height/scale)+PIXEL_MARGIN*2,halfHeight:height/(2*scale*PIXELS_PER_UNIT)};
+ return {scale,width:Math.ceil(width/scale)+PIXEL_MARGIN*2,height:Math.ceil(height/scale)+PIXEL_MARGIN*2,halfHeight:height/(2*scale*pixelsPerUnit)};
 }
 
 // Snap a coordinate (along a camera axis) to the texel grid; fraction is in texels, [0,1).
@@ -57,12 +57,13 @@ void main(){
  gl_FragColor=vec4(clamp(color,0.,1.),1.);
 }`;
 
-export function createPixelArt(renderer,{enabled=true}={}){
+// pixelsPerUnit: 12 in the classic world (32×32 trees); the voxel world uses 16/√2 (16×8 px block tops).
+export function createPixelArt(renderer,{enabled=true,pixelsPerUnit=PIXELS_PER_UNIT,dither=PIXEL_DITHER}={}){
  const target=new THREE.WebGLRenderTarget(1,1,{minFilter:THREE.NearestFilter,magFilter:THREE.NearestFilter,generateMipmaps:false,depthBuffer:true});
  target.texture.colorSpace=THREE.SRGBColorSpace;target.depthTexture=new THREE.DepthTexture(1,1);
  const material=new THREE.ShaderMaterial({vertexShader,fragmentShader,depthTest:false,depthWrite:false,uniforms:{
   tColor:{value:target.texture},tDepth:{value:target.depthTexture},targetSize:{value:new THREE.Vector2(1,1)},viewSize:{value:new THREE.Vector2(1,1)},
-  scale:{value:2},offset:{value:new THREE.Vector2()},depthRange:{value:180},outlineDepth:{value:PIXEL_OUTLINE_DEPTH},levels:{value:PIXEL_COLOR_LEVELS},dither:{value:PIXEL_DITHER}}});
+  scale:{value:2},offset:{value:new THREE.Vector2()},depthRange:{value:180},outlineDepth:{value:PIXEL_OUTLINE_DEPTH},levels:{value:PIXEL_COLOR_LEVELS},dither:{value:dither}}});
  const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),material);quad.frustumCulled=false;
  const quadScene=new THREE.Scene();quadScene.add(quad);const quadCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
  const right=new THREE.Vector3(),up=new THREE.Vector3(),saved=new THREE.Vector3();
@@ -76,8 +77,8 @@ export function createPixelArt(renderer,{enabled=true}={}){
  // Zoom steps through integer scales, so sprites always stay one texel per game pixel.
  state.render=(scene,camera)=>{
   const {width,height,maxHalfHeight}=state.view;
-  applyLayout(pixelArtLayout(width,height,{halfHeight:camera.top,zoom:camera.zoom,maxHalfHeight}));
-  const {width:tw,height:th}=state.layout,texel=1/PIXELS_PER_UNIT;
+  applyLayout(pixelArtLayout(width,height,{halfHeight:camera.top,zoom:camera.zoom,maxHalfHeight,pixelsPerUnit}));
+  const {width:tw,height:th}=state.layout,texel=1/pixelsPerUnit;
   const frustum=[camera.left,camera.right,camera.top,camera.bottom],zoom=camera.zoom;
   camera.zoom=1;camera.left=-tw*texel/2;camera.right=tw*texel/2;camera.top=th*texel/2;camera.bottom=-th*texel/2;
   camera.updateProjectionMatrix();camera.updateMatrixWorld();

@@ -30,13 +30,14 @@ export function penetration(x,z,radius,shape){
  if(d>=total-EPS)return null;
  const amount=total-d+EPS;return {x:(d>EPS?dx/d:1)*amount,z:(d>EPS?dz/d:0)*amount};
 }
-export function walkableGround(x,z,radius,minHeight=MIN_WALK_HEIGHT){
- if(heightAt(x,z)<minHeight)return false;
- for(let i=0;i<8;i++){const a=i*Math.PI/4;if(heightAt(x+Math.cos(a)*radius,z+Math.sin(a)*radius)<minHeight)return false;}
+export function walkableGround(x,z,radius,minHeight=MIN_WALK_HEIGHT,height=heightAt){
+ if(height(x,z)<minHeight)return false;
+ for(let i=0;i<8;i++){const a=i*Math.PI/4;if(height(x+Math.cos(a)*radius,z+Math.sin(a)*radius)<minHeight)return false;}
  return true;
 }
 export class CollisionWorld {
- constructor(){this.chunks=new Map();this.buckets=new Map();this.dynamic=new Map();}
+ // `height` is pluggable: the classic world uses the smooth heightAt, the voxel world its block columns.
+ constructor({height=heightAt}={}){this.height=height;this.chunks=new Map();this.buckets=new Map();this.dynamic=new Map();}
  addChunk(cx,cz,shapes){
   this.removeChunk(cx,cz);const entries=shapes.map(shape=>({shape,keys:cells(bounds(shape))}));
   this.chunks.set(`${cx},${cz}`,entries);
@@ -50,7 +51,7 @@ export class CollisionWorld {
   for(const [id,shape] of this.dynamic)if(id!==ignoreId){const b=bounds(shape);if(x+radius>=b[0]&&x-radius<=b[2]&&z+radius>=b[1]&&z-radius<=b[3])found.add(shape);}
   return [...found];
  }
- isFree(x,z,radius,{ignoreId,minGround=MIN_WALK_HEIGHT}={}){return walkableGround(x,z,radius,minGround)&&!this.query(x,z,radius,ignoreId).some(s=>penetration(x,z,radius,s));}
+ isFree(x,z,radius,{ignoreId,minGround=MIN_WALK_HEIGHT}={}){return walkableGround(x,z,radius,minGround,this.height)&&!this.query(x,z,radius,ignoreId).some(s=>penetration(x,z,radius,s));}
  project(x,z,radius,ignoreId){
   for(let pass=0;pass<8;pass++){
    let hit=false;for(const shape of this.query(x,z,radius,ignoreId)){const correction=penetration(x,z,radius,shape);if(correction){x+=correction.x;z+=correction.z;hit=true;}}
@@ -60,11 +61,11 @@ export class CollisionWorld {
  move(start,dx,dz,radius,{ignoreId,minGround=MIN_WALK_HEIGHT,maxStepHeight=.35}={}){
   let x=start.x,z=start.z;const steps=Math.max(1,Math.ceil(Math.hypot(dx,dz)/.08)),sx=dx/steps,sz=dz/steps;
   for(let i=0;i<steps;i++){
-   const oldX=x,oldZ=z,oldHeight=heightAt(x,z);
+   const oldX=x,oldZ=z,oldHeight=this.height(x,z),height=this.height;
    const candidates=[[x+sx,z+sz]];
    // Project inward movement onto the shoreline tangent before trying axis slides.
-   if(!walkableGround(x+sx,z+sz,radius,minGround)){
-    const h=.05,gx=(heightAt(x+h,z)-heightAt(x-h,z))/(2*h),gz=(heightAt(x,z+h)-heightAt(x,z-h))/(2*h),dot=sx*gx+sz*gz,norm=gx*gx+gz*gz;
+   if(!walkableGround(x+sx,z+sz,radius,minGround,height)){
+    const h=.05,gx=(height(x+h,z)-height(x-h,z))/(2*h),gz=(height(x,z+h)-height(x,z-h))/(2*h),dot=sx*gx+sz*gz,norm=gx*gx+gz*gz;
     if(dot<0&&norm>EPS)candidates.push([x+sx-gx*dot/norm,z+sz-gz*dot/norm]);
    }
    candidates.push([x+sx,z],[x,z+sz]);
@@ -72,7 +73,7 @@ export class CollisionWorld {
    for(const [tx,tz] of candidates){
     const p=this.project(tx,tz,radius,ignoreId);
     if(Math.hypot(p.x-oldX,p.z-oldZ)>Math.hypot(sx,sz)+radius*2)continue;
-    if(Math.abs(heightAt(p.x,p.z)-oldHeight)>maxStepHeight||!this.isFree(p.x,p.z,radius,{ignoreId,minGround}))continue;
+    if(Math.abs(height(p.x,p.z)-oldHeight)>maxStepHeight||!this.isFree(p.x,p.z,radius,{ignoreId,minGround}))continue;
     const progress=(p.x-oldX)*sx+(p.z-oldZ)*sz;
     if(progress>bestProgress){best=p;bestProgress=progress;}
    }

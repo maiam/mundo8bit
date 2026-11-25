@@ -8,7 +8,7 @@ async function tap(id){const p=await point(id);await c.send('Input.dispatchTouch
 try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});
  await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:3,mobile:true});await settle();
- await c.evaluate(`(async()=>{window.qa=await import(document.querySelector('script[src*="/src/main.js"]').src);qa.player.position.set(0,0,0);qa.touch.setZoom(1);})()`);
+ await c.evaluate(`(async()=>{window.qa=await import('/src/main.js');qa.player.position.set(0,0,0);qa.touch.setZoom(1);})()`);
  const layout=await c.evaluate(`(()=>{const ids=['#joystick','#run','#zoom-controls','#menu-button'];return {paused:qa.touch.paused,mobile:qa.touch.mobile,halfHeight:qa.camera.top,rects:ids.map(id=>{const r=document.querySelector(id).getBoundingClientRect();return {id,x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom};})};})()`);
  assert.ok(layout.mobile&&!layout.paused);assert.ok(layout.halfHeight<=7.001);
  for(const r of layout.rects){assert.ok(r.x>=0&&r.y>=0&&r.right<=844&&r.bottom<=390);assert.ok(r.width>=44&&r.height>=44);}

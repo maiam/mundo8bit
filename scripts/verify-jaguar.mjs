@@ -5,7 +5,7 @@ const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
 try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:true});
  const initial=await c.evaluate(`(async()=>{
- window.qa=await import(document.querySelector('script[src*="/src/main.js"]').src);const fauna=await import('/src/fauna.js');window.jaguar=[...fauna.activeAnimals.values()].find(a=>a.data.species===0);if(!jaguar)throw Error('Onça não encontrada na região inicial');
+ window.qa=await import('/src/main.js');const fauna=await import('/src/fauna.js');window.jaguar=[...fauna.activeAnimals.values()].find(a=>a.data.species===0);if(!jaguar)throw Error('Onça não encontrada na região inicial');
  qa.player.position.x=jaguar.data.x-1.7;qa.player.position.z=jaguar.data.z+1.4;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
  const template=qa.gameAssets.cloneAsset(jaguar.data.id),other=[...fauna.activeAnimals.values()].filter(a=>a.data.species!==0);
  return {species:jaguar.data.species,sprite:jaguar.sprite?.isSprite,textureShared:jaguar.sprite.material.map===template.getObjectByName('animal-sprite').material.map,rotation:jaguar.model.rotation.y,other3D:other.every(a=>!a.sprite),count:fauna.activeAnimals.size,error:document.querySelector('#error').textContent,badPrograms:qa.renderer.info.programs.filter(p=>p.diagnostics?.runnable===false).length};})()`);

@@ -8,7 +8,7 @@ try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:2,mobile:true});
  await c.send('Page.reload',{ignoreCache:true});
  for(let i=0;i<40;i++){await new Promise(r=>setTimeout(r,100));try{if(await c.evaluate("document.querySelector('#loading')?.hidden===true"))break;}catch{}}
- await c.evaluate(`(async()=>{window.qa=await import(document.querySelector('script[src*="/src/main.js"]').src);qa.player.position.set(0,0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
+ await c.evaluate(`(async()=>{window.qa=await import('/src/main.js');qa.player.position.set(0,0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
  assert.equal(await c.evaluate('qa.touch.fullscreen.supported'),true);assert.equal(await c.evaluate("document.querySelector('#fullscreen-invite').hidden"),false);
  await tap('#fullscreen-invite .fullscreen-button');const nativeAttempt=await wait();
  const simulated=!nativeAttempt.active;

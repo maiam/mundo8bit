@@ -5,7 +5,7 @@ const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
 try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:true});
  const result=await c.evaluate(`(async()=>{
- const game=await import(document.querySelector('script[src*="/src/main.js"]').src),assets=game.gameAssets;window.qa=game;game.player.position.set(0,0,0);game.touch.setZoom(1);
+ const game=await import('/src/main.js'),assets=game.gameAssets;window.qa=game;game.player.position.set(0,0,0);game.touch.setZoom(1);
  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
  const badPrograms=game.renderer.info.programs.filter(p=>p.diagnostics?.runnable===false).map(p=>p.diagnostics);
  const image=assets.atlas.image,canvas=document.createElement('canvas');canvas.width=canvas.height=1024;const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);

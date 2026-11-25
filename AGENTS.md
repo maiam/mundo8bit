@@ -42,6 +42,10 @@ Base anterior, ainda usada pelos demais modelos e pelo modo desligado: Low poly 
 
 - `src/pixel-art.js` ligado por padrão; menu/tecla P/`?pixel=0` desligam. Preservar o modo desligado funcional. Novos assets pixel art devem respeitar 12 px/unidade e 1 texel = 1 pixel de jogo.
 
+## Mundo voxel 3D (protótipo em teste)
+
+- `?mundo=voxel3d` abre o protótipo em `src/voxel/`; consultar `docs/voxel-3d.md`. Não é o padrão: o mundo clássico continua padrão até aprovação explícita. 1 bloco = 1 unidade, texturas 8×8, isometria 2:1 (yaw 45°, pitch 30°, `VOXEL_PIXELS_PER_UNIT = 16/√2`), Iara em cubos com 2 blocos. Reaproveitar geração (`world.js`, `natureAt`, `trees.js`), `CollisionWorld` e `pixel-art.js`; não criar segunda fonte de verdade de terreno. A câmera isométrica vale só para o voxel.
+
 ## Exceção aprovada — onça 2D
 
 - A01/onça-pintada usa ilustração 2D fantasia RPG/anime aprovada, em sprite voltado à câmera; consultar `docs/onca-2d.md`. Preservar PNG aprovado, conceito e fonte 3D histórica. Esta exceção foi autorizada explicitamente pelo usuário e não altera os demais animais/ambiente. Não converter a arte aprovada em aproximação low poly.

@@ -7,7 +7,7 @@ try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:false,maxTouchPoints:1});
  await c.send('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
  const initial=await c.evaluate(`(async()=>{
-   window.qa=await import(document.querySelector('script[src*=\"/src/main.js\"]').src);qa.setPixelArt(false);qa.player.position.set(0,0,0);
+   window.qa=await import('/src/main.js');qa.setPixelArt(false);qa.player.position.set(0,0,0);
    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
    const assets=qa.gameAssets;
    const assetErrors=[...assets.natureManifest.assets,...assets.faunaManifest.assets].filter(a=>{
