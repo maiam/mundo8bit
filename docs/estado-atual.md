@@ -18,7 +18,7 @@ Revisão em 2026-10-31. Código auditado: `775a182` (última entrega funcional a
 
 > Protótipo em teste em 2026-11-25: [mundo voxel 3D](voxel-3d.md) em `?mundo=voxel3d` — blocos 8×8, isometria 2:1, Iara em cubos (2 blocos), mesma geração do clássico; sem fauna. O mundo clássico segue padrão. 38 testes atuais.
 
-Jogo publicado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site
+Jogo publicado: **https://mundo8bit.vercel.app** (domínio oficial desde 2026-11-25; mundo voxel na raiz, clássico em `?mundo=classico`). Endereço anterior, não mais atualizado: https://mundo8bit-maiam.pedrosergiomaia.chatgpt.site
 
 ## Diagnóstico
 

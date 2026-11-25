@@ -27,6 +27,10 @@ Base anterior, ainda usada pelos demais modelos e pelo modo desligado: Low poly 
 
 - Fauna A01–A11: referência `docs/art/animais-v01-aprovada.png`, fontes `animal-*-v01.bbmodel`, atlas `fauna-painted-v01.png`. Preservar nomes e pivôs das partes usados pelas animações de `src/fauna.js`. Refinamentos devem abrir v02.
 
+## Publicação
+
+- Domínio oficial: **https://mundo8bit.vercel.app** (Vercel, integração com o repositório). O endereço antigo `mundo8bit-maiam.pedrosergiomaia.chatgpt.site` não é mais atualizado. Não citar outro domínio como oficial.
+
 ## Público e planejamento
 
 - Considerar o público de aproximadamente 5 anos: convites compreensíveis sem leitura, controles tolerantes e respostas claras às ações. Validar essas hipóteses em uso.

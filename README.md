@@ -2,6 +2,8 @@
 
 Protótipo de exploração em mundo aberto **2,5D**, com câmera ortográfica top-down inclinada, inspirada no enquadramento de Brawl Stars, e direção de arte **low poly painted — Painted using Blockbench with flat textures**.
 
+**Jogo publicado:** https://mundo8bit.vercel.app — mundo voxel (padrão) na raiz; mundo clássico em https://mundo8bit.vercel.app/?mundo=classico.
+
 ## Estado e próximo passo
 
 Hoje é um protótipo de exploração: mundo, fauna, colisões e controles estão implementados; objetivos, interação com animais, áudio, recompensas e progresso salvo ainda não. Para uma criança de aproximadamente 5 anos, a proposta é começar com um encontro guiado com a capivara e uma figurinha, depois ampliar para três amigos. Essa brincadeira ainda precisa ser implementada e observada em uso.
