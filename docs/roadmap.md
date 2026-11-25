@@ -58,6 +58,10 @@ Experimentar uma atividade por entrega: acompanhar uma animação especial, segu
 
 Depois de validar o passeio: marcos e biomas, otimização de streaming, carregamento por região, refinamento de modelos/animações, instalação/offline quando fizer sentido e avaliação de suporte em mais aparelhos. A ordem depende do gargalo medido, não da disponibilidade de novas ferramentas.
 
+## Fora da sequência — mundo voxel 3D (protótipo)
+
+Implementado a pedido em 2026-11-25 como mundo separado (`?mundo=voxel3d`, [voxel 3D](voxel-3d.md)) para teste antes de decidir o padrão. Se aprovado: fauna em cubos (começando pela capivara da prioridade 0), fontes Blockbench estilo bloco/entidade, módulo comum de laço/controles com o clássico e medição em aparelho físico. Até lá, não altera as prioridades.
+
 ## Fora da sequência — pixel art 32×32
 
 Aprovado como padrão visual em 2026-11-22 ([pixel art](pixel-art.md), [árvores](arvores-pixel-32.md)). Não altera as prioridades acima, mas novos assets da brincadeira (capivara, figurinha, marcos) devem nascer em 32×32 a 12 px/unidade. Pendências: sprites para fauna, Iara, pedras, flores e terreno; leitura da Iara (~11 px) com a criança; desempenho em aparelho físico.

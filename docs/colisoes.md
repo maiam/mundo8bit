@@ -27,3 +27,7 @@ A água está em Y = -1,55. O limite de solo caminhável é -1,70, permitindo 0,
 `npm run qa:collisions`: com Vite no endereço local 5173 e Chromium no CDP 9334, usa o mesmo `movePlayer` do jogo contra tronco, pedra e animal reais. O teste confirmou parada antes dos volumes, nenhuma posição final penetrando os obstáculos e nenhuma fauna em posição inválida após uma simulação de 20 segundos. Mantiveram-se 25 chunks de colisões e 17 atores dinâmicos (16 animais e personagem), sem registros de animais descarregados.
 
 `npm run qa:browser`: verifica ainda carregamento, recursos após viagens repetidas, renderização e joystick/corrida mobile emulados. Capturas desta etapa ficam em `docs/art/validation/mundo-colisoes-v01-*`. Desempenho e sensação do contato em aparelhos físicos ainda precisam ser avaliados.
+
+## Altura plugável (2026-11-25)
+
+`CollisionWorld` aceita `new CollisionWorld({height})`. O mundo clássico continua com `heightAt` (padrão, comportamento inalterado). O [mundo voxel 3D](voxel-3d.md) usa `voxelGround`: topo da coluna de blocos, água = −10, degraus de 1 bloco com `maxStepHeight` 1,01.

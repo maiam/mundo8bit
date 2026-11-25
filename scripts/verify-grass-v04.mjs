@@ -5,7 +5,7 @@ const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
 try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:true});
  const result=await c.evaluate(`(async()=>{
- const game=await import(document.querySelector('script[src*="/src/main.js"]').src),a=game.gameAssets,THREE=await import('/node_modules/.vite/deps/three.js'),{createPaintedMaterial}=await import('/src/painted-materials.js');window.qa=game;
+ const game=await import('/src/main.js'),a=game.gameAssets,THREE=await import('/node_modules/.vite/deps/three.js'),{createPaintedMaterial}=await import('/src/painted-materials.js');window.qa=game;
  game.player.position.set(0,0,0);game.touch.setZoom(1);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
  const image=a.grassClearTexture.image,reference=new Image();reference.src='/docs/art/texturas-v01-aprovada.png';await reference.decode();
  const board=document.createElement('canvas');board.width=1600;board.height=1150;const ctx=board.getContext('2d');ctx.fillStyle='#f5efd9';ctx.fillRect(0,0,1600,1150);ctx.fillStyle='#414f30';ctx.font='bold 29px monospace';ctx.fillText('MUNDO8BIT / GRAMA CLARA / REVISÃO v04',35,48);ctx.font='17px monospace';ctx.fillText('COMPARAÇÃO VISUAL · v04 EM REVISÃO · DEMAIS MATERIAIS MANTIDOS',35,80);

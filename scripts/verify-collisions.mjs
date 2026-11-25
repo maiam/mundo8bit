@@ -3,7 +3,7 @@ import {connectCDP} from './cdp.mjs';
 const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
 try{
  const result=await c.evaluate(`(async()=>{
-  const game=await import(document.querySelector('script[src*=\"/src/main.js\"]').src),physics=await import('/src/collisions.js'),fauna=await import('/src/fauna.js');
+  const game=await import('/src/main.js'),physics=await import('/src/collisions.js'),fauna=await import('/src/fauna.js');
   const {collisionWorld:world,PLAYER_RADIUS:r,walkableGround}=physics;
   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
   const shapes=[...world.chunks.values()].flatMap(entries=>entries.map(e=>e.shape)),result={};

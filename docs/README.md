@@ -23,6 +23,7 @@
 
 ## Comportamento e dispositivos
 
+- [Mundo voxel 3D](voxel-3d.md): protótipo `?mundo=voxel3d`, isometria 2:1, blocos 8×8, Iara em cubos.
 - [Pixel art 32×32](pixel-art.md): direção visual padrão, densidade, escala inteira e menu.
 - [Árvores pixel art 32×32](arvores-pixel-32.md): originais do Drive, recorte, redução e runtime.
 - [Câmera top-down](camera-topdown.md): referência Brawl Stars, parâmetros, comparação e limites.

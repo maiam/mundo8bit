@@ -6,7 +6,7 @@ try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});
  await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:2,mobile:true});
  const result=await c.evaluate(`(async()=>{
- const game=await import(document.querySelector('script[src*="/src/main.js"]').src),THREE=await import('/node_modules/.vite/deps/three.js');window.qa=game;game.player.position.set(0,0,0);game.touch.setZoom(1);
+ const game=await import('/src/main.js'),THREE=await import('/node_modules/.vite/deps/three.js');window.qa=game;game.player.position.set(0,0,0);game.touch.setZoom(1);
  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
  const canvas=document.createElement('canvas');canvas.width=1688;canvas.height=440;const ctx=canvas.getContext('2d');ctx.fillStyle='#f5efd9';ctx.fillRect(0,0,1688,440);ctx.fillStyle='#414f30';ctx.font='bold 22px monospace';ctx.fillText('ANTES / DIAGONAL 45°',25,32);ctx.fillText('AGORA / TOP-DOWN ALINHADO',869,32);
  const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setSize(844,390);renderer.setPixelRatio(1);

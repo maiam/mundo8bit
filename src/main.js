@@ -8,6 +8,7 @@ import './style.css';
 import {loadAssets,cloneAsset,worldMaterial,waterMaterial,terrainMaterial,appendTileUV,createAssetInstances,assetFootprint} from './assets.js';
 import {createTouchControls} from './touch-controls.js';
 import {createPixelArt,readPixelArtPreference,storePixelArtPreference} from './pixel-art.js';
+import {worldModeSearch} from './world-mode.js';
 export const touch = createTouchControls();
 import {CHUNK_SIZE, SEED, hash, heightAt, chunkAt, wantedChunks} from './world.js';
 
@@ -73,6 +74,7 @@ document.querySelector('#grid').onclick=toggleGrid;
 function updatePixelArtUI(){const button=document.querySelector('#pixel-art');button.textContent=pixelArt.enabled?'P · Desligar pixel art':'P · Ligar pixel art';button.setAttribute('aria-pressed',String(pixelArt.enabled));document.body.classList.toggle('pixel-art',pixelArt.enabled);}
 export function setPixelArt(enabled){pixelArt.enabled=Boolean(enabled);storePixelArtPreference(pixelArt.enabled,viewerStorage());updatePixelArtUI();resize();}
 document.querySelector('#pixel-art').onclick=()=>setPixelArt(!pixelArt.enabled);
+document.querySelector('#world-switch').onclick=()=>{location.search=worldModeSearch(location.search,'voxel3d');};
 document.querySelector('#home').onclick=()=>{player.position.set(0,0,0);collisionWorld.setDynamic('player',{type:'circle',x:0,z:0,radius:PLAYER_RADIUS,kind:'player'});lastChunk='';};
 function resize(){
  const layout=cameraLayout(innerWidth,innerHeight,touch.mobile);

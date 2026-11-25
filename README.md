@@ -28,6 +28,7 @@ Veja a [mudança de câmera e comparação visual](docs/camera-topdown.md).
 - Celular/tablet: jogue na horizontal; em retrato o jogo pausa e pede para girar. Arraste o joystick esquerdo e segure CORRER com o outro dedo.
 - Zoom: pinça sobre o mundo, botões +/−, roda do mouse ou teclas +/−. Toque na porcentagem para restaurar.
 - G: mostrar limites dos chunks.
+- `?mundo=voxel3d` ou Menu → Mundo: abre o [mundo voxel 3D](docs/voxel-3d.md) em teste (blocos 8×8, isometria 2:1); o mesmo botão volta ao clássico.
 - P ou Menu → Visual: ligar/desligar o [pixel art 32×32](docs/pixel-art.md), padrão visual (`?pixel=0` força o low poly).
 - Tela cheia: use a faixa no celular ou a opção do menu quando o navegador permitir. O menu também permite sair.
 - Menu: voltar à origem e ver chunks.

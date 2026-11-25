@@ -23,6 +23,8 @@ O pipeline da v01 foi mantido:
 
 Os modelos 3D restantes (terreno, pedras, flores, fauna e Iara) continuam sendo os mesmos assets Blockbench, só que desenhados nessa densidade. As árvores são sprites com filtro *nearest*, sem mipmaps, alfa binário e escrita de profundidade.
 
+O mesmo filtro atende o [mundo voxel 3D](voxel-3d.md) com `pixelsPerUnit = 16/√2` e sem pontilhado (`createPixelArt(renderer,{pixelsPerUnit,dither})`); o clássico mantém 12 px/unidade.
+
 ## Preferência e menu
 
 - Menu → **VISUAL** → “P · Desligar pixel art” / “P · Ligar pixel art”, ou a tecla **P**.

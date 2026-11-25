@@ -8,7 +8,7 @@ const shot=async name=>{await c.evaluate(frames);const s=await c.send('Page.capt
 try{
  await c.send('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
  const result={};
- result.initial=await c.evaluate(`(async()=>{const game=await import(document.querySelector('script[src*="/src/main.js"]').src);window.qa=game;
+ result.initial=await c.evaluate(`(async()=>{const game=await import('/src/main.js');window.qa=game;
   game.setPixelArt(false);game.player.position.set(6,0,4);game.touch.setZoom(1);await ${frames};
   return {enabled:game.pixelArt.enabled,pressed:document.querySelector('#pixel-art').getAttribute('aria-pressed'),label:document.querySelector('#pixel-art').textContent,width:game.renderer.domElement.width,css:getComputedStyle(game.renderer.domElement).imageRendering};})()`);
  assert.equal(result.initial.enabled,false);assert.equal(result.initial.css,'auto');assert.equal(result.initial.pressed,'false');
@@ -31,7 +31,7 @@ try{
  await c.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});
  await c.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:2,mobile:true});
  await c.send('Page.reload',{});await new Promise(r=>setTimeout(r,8000));
- result.mobile=await c.evaluate(`(async()=>{const game=await import(document.querySelector('script[src*="/src/main.js"]').src);window.qa=game;game.player.position.set(6,0,4);await ${frames};
+ result.mobile=await c.evaluate(`(async()=>{const game=await import('/src/main.js');window.qa=game;game.player.position.set(6,0,4);await ${frames};
   const trees=[];game.scene.traverse(n=>{if(n.name==='pixel-sprite')trees.push({filter:n.material.map.magFilter,mips:n.material.map.generateMipmaps,w:n.scale.x,h:n.scale.y});});
   return {trees:{count:trees.length,nearest:trees.every(t=>t.filter===1003&&!t.mips),size:[...new Set(trees.map(t=>t.w.toFixed(4)+'×'+t.h.toFixed(4)))]},enabled:game.pixelArt.enabled,layout:game.pixelArt.layout,canvas:{width:game.renderer.domElement.width,height:game.renderer.domElement.height},error:document.querySelector('#error').textContent};})()`);
  assert.equal(result.mobile.enabled,true);assert.ok(result.mobile.trees.count>0);assert.ok(result.mobile.trees.nearest);assert.deepEqual(result.mobile.trees.size,['2.6667×2.6667']);assert.equal(result.mobile.layout.scale,3);assert.equal(result.mobile.error,'');
