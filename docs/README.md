@@ -5,6 +5,7 @@
 - [Entidades geométricas](voxel-entidades.md)
 - [Fichas atuais das entidades](entidades-atuais.md)
 - [Controles](voxel-controles.md)
+- [Catálogo de texturas e lacunas](texturas/README.md)
 - [Refinamentos de arte](voxel-artes-pendentes.md)
 - [Processo para regras de mundo](regras-de-mundo.md)
 - [RG-01: criação de entidades — aprovada](regras-criacao-entidades.md)
