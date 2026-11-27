@@ -6,23 +6,19 @@
   <header><span class="badge">EXPLORAÇÃO LIVRE</span><h1>MUNDO<span>8</span>BIT</h1><p>Terras de Origem</p></header>
   <nav id="zoom-controls" aria-label="Zoom da câmera"><button id="zoom-out" aria-label="Afastar câmera">−</button><button id="zoom-reset" aria-label="Restaurar zoom padrão">100%</button><button id="zoom-in" aria-label="Aproximar câmera">+</button></nav>
   <button id="menu-button" aria-expanded="false" aria-controls="game-menu">☰ <span>MENU</span></button>
-  <section id="game-menu" aria-label="Opções do jogo" hidden><small>EXPLORAÇÃO</small><button id="home">Voltar à origem</button><button id="grid">G · Ver chunks</button><small>VISUAL</small><button id="pixel-art" aria-pressed="false">P · Ligar pixel art</button><small>MUNDO</small><button id="world-switch">Voltar ao mundo voxel (padrão)</button><button class="fullscreen-button">Entrar em tela cheia</button><p id="fullscreen-help" hidden></p><p>Pinça para zoom · Arraste para andar</p></section>
+  <section id="game-menu" aria-label="Opções do jogo" hidden><small>EXPLORAÇÃO</small><button id="home">Voltar à origem</button><button id="grid">G · Ver chunks</button><small>VISUAL</small><button id="pixel-art" aria-pressed="false">P · Ligar pixel art</button><button class="fullscreen-button">Entrar em tela cheia</button><p id="fullscreen-help" hidden></p><p>Pinça para zoom · Arraste para andar</p></section>
   <div id="fullscreen-invite" hidden><button class="fullscreen-button">⛶ Jogar em tela cheia</button><button id="fullscreen-dismiss" aria-label="Agora não">×</button></div>
   <footer><span><b>WASD / SETAS</b> mover</span><span><b>SHIFT</b> correr</span><span><b>SCROLL / + −</b> zoom</span></footer>
   <div id="touch-controls">
     <div id="joystick" role="group" aria-label="Joystick: arraste para mover"><span id="joystick-thumb"></span></div>
-    <button id="run" aria-label="Segure para correr" aria-pressed="false"><span class="run-symbol" aria-hidden="true">»</span><span>CORRER</span></button>
     <span class="touch-hint">ARRASTE PARA ANDAR · SEGURE PARA CORRER · PINÇA PARA ZOOM</span>
   </div>
   <output id="stats" aria-live="off"></output>
-  <div id="loading" role="status">Carregando o mundo pintado…</div><div id="error" hidden></div>
+  <div id="loading" role="status">Carregando o mundo voxel…</div><div id="error" hidden></div>
 </main>
 <section id="rotate-screen" role="dialog" aria-modal="true" aria-labelledby="rotate-title" aria-describedby="rotate-description" hidden>
  <div class="rotate-card"><span class="badge">MUNDO8BIT</span><svg class="rotate-icon" viewBox="0 0 120 100" aria-hidden="true"><rect x="40" y="15" width="40" height="70" rx="7"/><path d="M52 23h16M56 77h8M22 58a39 39 0 0 1 57-42M79 6v11H68M98 42a39 39 0 0 1-57 42M41 94V83h11"/></svg><h2 id="rotate-title" tabindex="-1">Jogue na horizontal</h2><p id="rotate-description">Gire o celular para explorar o mundo<br>com mais espaço e melhores controles.</p><button class="fullscreen-button">Tentar tela cheia</button><small>O jogo fica pausado até você girar.</small></div>
 </section>
 <div id="fullscreen-feedback" role="status" aria-live="polite" hidden></div>
-<script type="module">
-// Mundo voxel por padrão (docs/voxel-3d.md); ?mundo=classico carrega o mundo clássico legado.
-if(new URLSearchParams(location.search).get('mundo')==='classico')import('/src/main.js');else import('/src/voxel/voxel-main.js');
-</script>
+<script type="module" src="/src/voxel/voxel-main.js"></script>
 </body></html>

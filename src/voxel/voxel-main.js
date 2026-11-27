@@ -1,4 +1,4 @@
-// Mundo voxel 3D — mundo padrão desde 2026-11-25 (docs/voxel-3d.md); o clássico fica em ?mundo=classico.
+// Mundo voxel 8 px: único mundo do jogo.
 // Reaproveita geração (world.js/nature.js/trees.js), CollisionWorld, filtro pixel art e controles de toque.
 // Entidades em box model (docs/voxel-entidades.md); controles e hotbar (docs/voxel-controles.md).
 import * as THREE from 'three';
@@ -7,7 +7,6 @@ import {CHUNK_SIZE,SEED,chunkAt,wantedChunks} from '../world.js';
 import {CollisionWorld,PLAYER_RADIUS} from '../collisions.js';
 import {createTouchControls} from '../touch-controls.js';
 import {createPixelArt,readPixelArtPreference,storePixelArtPreference} from '../pixel-art.js';
-import {worldModeSearch} from '../world-mode.js';
 import {VOXEL_PIXELS_PER_UNIT,VOXEL_CHUNK_RADIUS,voxelCameraLayout,voxelCameraPose,voxelScreenMovement} from './voxel-settings.js';
 import {buildVoxelAtlas,ATLAS_SIZE} from './voxel-atlas.js';
 import {buildChunkData,voxelGround,voxelStart} from './voxel-terrain.js';
@@ -21,10 +20,8 @@ import {createHotbar,createActionStick} from './hud.js';
 export const worldMode='voxel3d';
 document.body.classList.add('voxel-world');
 document.querySelector('header .badge').textContent='MUNDO VOXEL 3D';
-document.querySelector('#world-switch').textContent='Abrir mundo clássico (legado)';
 document.querySelector('.touch-hint').textContent='ARRASTE PARA ANDAR · 3 s PARA CIMA CORRE · GIRE A MÃO PARA ESCOLHER · TOQUE PARA AGIR';
 document.querySelector('footer').innerHTML='<span><b>WASD / SETAS</b> mover · <b>W 3 s</b> ou <b>SHIFT</b> correr</span><span><b>Q / E</b> girar parada · <b>F</b> ação</span><span><b>1–9</b> hotbar</span>';
-document.querySelector('#world-switch').onclick=()=>{location.search=worldModeSearch(location.search,'classico');};
 document.querySelector('#loading').textContent='Montando o mundo de blocos…';
 
 export const touch=createTouchControls();

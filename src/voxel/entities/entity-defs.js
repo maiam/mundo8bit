@@ -1,6 +1,6 @@
 // Definições de jogadora, NPCs e mobs em box model a 8 px por bloco (docs/voxel-entidades.md).
 // Proporções humanoides = Minecraft ÷ 2 (cabeça 4³, tronco 4×6×2, membros 2×6×2 → 16 px = 2 blocos).
-// `skin`: PNG enviado pelo usuário (box UV). Enquanto null, usa a pintura provisória `paint` no mesmo layout.
+// `skin`: textura PNG opcional (box UV). Enquanto null, usa `paint` gerado por código no mesmo layout.
 // Partes: pivot (px, relativo ao pai), offset da malha em relação ao pivô, size [w,h,d], uv [u,v].
 
 const HUMANOID=(paint)=>[

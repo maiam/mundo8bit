@@ -1,5 +1,5 @@
 // Exporta, para cada entidade voxel, a skin provisória e um guia de UV (box UV, 8 px por bloco) em PNG,
-// para o usuário pintar as skins definitivas no mesmo layout. Uso: node scripts/export-voxel-skin-templates.mjs
+// para inspeção e refinamentos opcionais no mesmo layout. Uso: node scripts/export-voxel-skin-templates.mjs
 import {writeFileSync,mkdirSync} from 'node:fs';
 import {deflateSync} from 'node:zlib';
 import {ENTITY_DEFS} from '../src/voxel/entities/entity-defs.js';

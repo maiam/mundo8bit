@@ -1,11 +1,11 @@
-// Browser QA do mundo voxel 3D (padrão na URL raiz; clássico em ?mundo=classico). Requer `npm run dev` (127.0.0.1:5173) e Chromium com --remote-debugging-port=9334.
+// QA do único mundo voxel. Requer Vite em 5173 e Chromium com CDP em 9334.
 import assert from 'node:assert/strict';
 import {writeFileSync} from 'node:fs';
 import {connectCDP} from './cdp.mjs';
 const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
 const frames='new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(r))))';
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
-const shot=async name=>{await c.evaluate(frames);const s=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(`docs/art/validation/voxel-3d-v02-${name}.png`,Buffer.from(s.data,'base64'));};
+const shot=async name=>{await c.evaluate(frames);const s=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(`docs/art/validation/voxel-unico-v01-${name}.png`,Buffer.from(s.data,'base64'));};
 const key=async(k,code,vk,ms)=>{await c.send('Input.dispatchKeyEvent',{type:'keyDown',key:k,code,windowsVirtualKeyCode:vk});await wait(ms);await c.send('Input.dispatchKeyEvent',{type:'keyUp',key:k,code,windowsVirtualKeyCode:vk});};
 const load=async search=>{await c.send('Page.navigate',{url:`http://127.0.0.1:5173/${search}`});await wait(9000);};
 try{
@@ -63,8 +63,8 @@ try{
  // HUD: hotbar de 9 espaços (mão no 1), sem botão CORRER; teclas 1–9 trocam o espaço.
  result.hud=await c.evaluate(`(async()=>{const slots=[...document.querySelectorAll('#hotbar .hotbar-slot')];
   const before=slots.findIndex(s=>s.getAttribute('aria-pressed')==='true');window.dispatchEvent(new KeyboardEvent('keydown',{key:'3'}));const after=qa.hotbar.selected;qa.hotbar.select(0);
-  return {slots:slots.length,before,after,first:slots[0].getAttribute('aria-label'),run:getComputedStyle(document.querySelector('#run')).display,actionStick:Boolean(document.querySelector('#action-stick'))};})()`);
- assert.equal(result.hud.slots,9);assert.equal(result.hud.before,0);assert.equal(result.hud.after,2);assert.match(result.hud.first,/Mão/);assert.equal(result.hud.run,'none');assert.ok(result.hud.actionStick);
+  return {slots:slots.length,before,after,first:slots[0].getAttribute('aria-label'),run:Boolean(document.querySelector('#run')),actionStick:Boolean(document.querySelector('#action-stick'))};})()`);
+ assert.equal(result.hud.slots,9);assert.equal(result.hud.before,0);assert.equal(result.hud.after,2);assert.match(result.hud.first,/Mão/);assert.equal(result.hud.run,false);assert.ok(result.hud.actionStick);
  // Corrida: segurar W por 3 s ativa; soltar desliga.
  await c.send('Input.dispatchKeyEvent',{type:'keyDown',key:'w',code:'KeyW',windowsVirtualKeyCode:87});
  await wait(1500);const early=await c.evaluate('qa.runRule.running');await wait(1900);const late=await c.evaluate('qa.runRule.running');
@@ -106,11 +106,9 @@ try{
  result.mobile.stick={aimed,actions:await c.evaluate('qa.actionState.count')-count0};
  assert.ok(Math.abs(aimed-(-Math.PI/4))<1e-9,'girar para a esquerda da tela');assert.equal(result.mobile.stick.actions,1,'toque curto age');
  await shot('mobile');
- // Botão do menu volta ao mundo clássico.
- await c.send('Emulation.setTouchEmulationEnabled',{enabled:false,maxTouchPoints:1});
- await c.send('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
- await c.evaluate(`document.querySelector('#world-switch').click()`);await wait(9000);
- result.back=await c.evaluate(`({search:location.search,voxel:document.body.classList.contains('voxel-world'),button:document.querySelector('#world-switch').textContent,stats:document.querySelector('#stats').textContent})`);
- assert.equal(result.back.search,'?mundo=classico');assert.equal(result.back.voxel,false);assert.match(result.back.button,/voxel/i);
- writeFileSync('docs/art/validation/voxel-3d-v02-result.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,1));
+ // URLs antigas também devem abrir somente o voxel.
+ await c.send('Page.navigate',{url:'http://127.0.0.1:5173/?mundo=classico'});await wait(1500);
+ result.onlyVoxel=await c.evaluate(`({voxel:document.body.classList.contains('voxel-world'),switchPresent:Boolean(document.querySelector('#world-switch'))})`);
+ assert.equal(result.onlyVoxel.voxel,true);assert.equal(result.onlyVoxel.switchPresent,false);
+ writeFileSync('docs/art/validation/voxel-unico-v01-result.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,1));
 }finally{c.close();}
