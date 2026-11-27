@@ -93,8 +93,101 @@
   ]
  },
  {
-  "id": "npc-guia-voxel-v01",
-  "name": "Guia (provisório)",
+  "id": "npc-aldeao-homem-v01",
+  "name": "Aldeão",
+  "size": "32×32",
+  "parts": [
+   {
+    "name": "perna-direita",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     0,
+     8
+    ]
+   },
+   {
+    "name": "perna-esquerda",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     8,
+     24
+    ]
+   },
+   {
+    "name": "tronco",
+    "size": [
+     4,
+     6,
+     2
+    ],
+    "uv": [
+     8,
+     8
+    ]
+   },
+   {
+    "name": "braco-direito",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     20,
+     8
+    ]
+   },
+   {
+    "name": "braco-esquerdo",
+    "size": [
+     2,
+     6,
+     2
+    ],
+    "uv": [
+     16,
+     24
+    ]
+   },
+   {
+    "name": "cabeca",
+    "size": [
+     4,
+     4,
+     4
+    ],
+    "uv": [
+     0,
+     0
+    ]
+   },
+   {
+    "name": "cabeca-externa",
+    "size": [
+     4,
+     4,
+     4
+    ],
+    "uv": [
+     16,
+     0
+    ],
+    "overlay": "cabeca",
+    "inflate": 0.25
+   }
+  ]
+ },
+ {
+  "id": "npc-aldeao-mulher-v01",
+  "name": "Aldeã",
   "size": "32×32",
   "parts": [
    {

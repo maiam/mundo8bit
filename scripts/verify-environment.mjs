@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {writeFileSync} from 'node:fs';
 import {connectCDP} from './cdp.mjs';
-const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
+const c=await connectCDP(Number(process.env.CDP_PORT??9334),t=>t.url.startsWith('http://127.0.0.1:5173'));
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 const frames=()=>c.evaluate(`(async()=>{for(let i=0;i<3;i++)await new Promise(r=>requestAnimationFrame(r));})()`);
 const shot=async name=>{await c.evaluate(`(async()=>{for(let i=0;i<5;i++)await new Promise(r=>requestAnimationFrame(r));qa.renderer.getContext().finish();})()`);const s=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(`docs/art/validation/ambiente-v01-${name}.png`,Buffer.from(s.data,'base64'));};

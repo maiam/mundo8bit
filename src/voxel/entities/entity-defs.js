@@ -28,7 +28,7 @@ export const IARA={
  }),
 };
 
-// NPC provisório (identidade, nome e skin a definir com o usuário).
+// Referência histórica do Guia; fora de ENTITY_DEFS e sem spawn no runtime.
 export const GUIA={
  id:'npc-guia-voxel-v01',name:'Guia (provisório)',kind:'npc',rig:'humanoid',texture:[32,32],skin:null,colliderRadius:.3,speed:1.1,
  palette:{C:'#d9b76a',D:'#b8954a',S:'#c08a5c',E:'#16100c',A:'#3f6fa8',W:'#e8e2d0',N:'#3b3b46',K:'#3d281c'},
@@ -41,6 +41,30 @@ export const GUIA={
  }),
  goals:{stroll:{radius:4,pause:[4,9]},look:{range:6}},
 };
+
+// Aldeões v01 aprovados em 2026-11-27 (docs/aldeoes-v01.md).
+function villager(id,name,palette,head,outer,shirt,pants){
+ const parts=HUMANOID({});
+ for(const p of parts){
+  if(p.name==='cabeca')p.paint={pz:head,fill:'S',py:'H',nz:'H'};
+  if(p.name==='cabeca-externa')p.paint={...outer,py:'H'};
+  if(p.name==='tronco')p.paint={pz:shirt,fill:'A',py:'A',ny:'N'};
+  if(p.name.startsWith('braco'))p.paint={all:['AA','AA','WW','SS','SS','SS'],py:'A',ny:'S'};
+  if(p.name.startsWith('perna'))p.paint={all:pants,py:'N',ny:'K'};
+ }
+ return {id,name,kind:'npc',rig:'humanoid',texture:[32,32],skin:null,palette,parts,colliderRadius:.3,speed:1.1,goals:{stroll:{radius:4,pause:[4,9]},look:{range:6}}};
+}
+export const ALDEAO=villager('npc-aldeao-homem-v01','Aldeão',
+ {S:'#ac754f',E:'#241e1b',H:'#38291f',A:'#698046',W:'#e9dfba',N:'#75533d',K:'#372b24'},
+ ['HHHH','ESSE','SSSS','SHHS'],
+ {pz:['HHHH','....','....','....'],nz:['HHHH','HHHH','....','....'],px:['HHHH','H...','....','....'],nx:['HHHH','...H','....','....']},
+ ['WWWW','WAAW','AAAA','AAAA','KKKK','NNNN'],['NN','NN','NN','NN','NN','KK']);
+export const ALDEA=villager('npc-aldeao-mulher-v01','Aldeã',
+ {S:'#b87c58',E:'#241e1b',H:'#463023',A:'#a45343',W:'#f0dfba',N:'#49686c',K:'#372b24'},
+ ['HHHH','ESSE','SSSS','SSSS'],
+ {pz:['HHHH','H..H','....','....'],nz:['HHHH','HHHH','HHHH','.HH.'],px:['HHHH','HHHH','...H','...H'],nx:['HHHH','HHHH','H...','H...']},
+ ['WWWW','WAAW','AAAA','AAAA','KKKK','NNNN'],['NN','NN','NN','NN','NN','KK']);
+export const ALDEOES=[ALDEAO,ALDEA];
 
 const QUAD_LEGS=(uv,size,[fx,fz],[bx,bz],y,paint)=>[
  {name:'perna-frente-esquerda',pivot:[fx,y,fz],offset:[-size[0]/2,-size[1],-size[2]/2],size,uv,paint},
@@ -89,4 +113,4 @@ export const TUCANO={
 };
 
 export const MOBS=[CAPIVARA,TATU,TUCANO];
-export const ENTITY_DEFS=[IARA,GUIA,...MOBS];
+export const ENTITY_DEFS=[IARA,...ALDEOES,...MOBS];

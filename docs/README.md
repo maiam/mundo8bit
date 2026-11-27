@@ -15,3 +15,5 @@
 - [Hipóteses de experiência infantil](design-crianca-5-anos.md)
 
 [Documentação e fontes do clássico](../archive/classico/README.md) são históricas e não definem o produto atual. Evidências em `docs/art/` registram suas respectivas versões; não são prova de validação do estado atual.
+
+- [Aldeão e Aldeã v01 — aprovados e integrados](aldeoes-v01.md)

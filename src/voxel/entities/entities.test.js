@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {boxUV,uvRegion,paintSkin,buildBoxModel,modelHeight,partsOf,PX} from './box-model.js';
-import {ENTITY_DEFS,IARA,GUIA,MOBS,CAPIVARA} from './entity-defs.js';
+import {ENTITY_DEFS,IARA,ALDEAO,ALDEA,MOBS,CAPIVARA} from './entity-defs.js';
 import {animateEntity,walkAngle} from './animation.js';
 import {GoalSelector,RandomStrollGoal,LookAtPlayerGoal} from './goals.js';
 import {findPath,cellBlocked} from './pathfinding.js';
@@ -23,7 +23,7 @@ test('todas as entidades a 8 px por bloco: UV dentro da skin, sem sobreposição
   assert.equal(paintSkin(def).length,def.texture[0]*def.texture[1]*4);assert.equal(def.skin,null,'texturas atuais geradas por código');
   assert.ok(['player','npc','mob'].includes(def.kind)&&def.colliderRadius>0);
  }
- assert.equal(modelHeight(IARA),2);assert.equal(modelHeight(GUIA),2);assert.ok(MOBS.every(m=>modelHeight(m)<1));
+ assert.equal(modelHeight(IARA),2);assert.equal(modelHeight(ALDEAO),2);assert.ok(MOBS.every(m=>modelHeight(m)<1));
  assert.deepEqual(IARA.texture,[32,32]); // 64×64 do Minecraft ÷ 2 (8 px por bloco).
 });
 test('pivôs nas articulações: braço gira no ombro sem se separar do corpo',()=>{
@@ -61,7 +61,7 @@ test('mobs: spawn determinístico por pedaço, em células livres, e passeio sem
  const scene=new THREE.Scene(),collision=new CollisionWorld({height:voxelGround});
  for(let cx=-2;cx<=2;cx++)for(let cz=-2;cz<=2;cz++)collision.addChunk(cx,cz,buildChunkData(cx,cz).colliders);
  const manager=createEntityManager({scene,collision});for(let cx=-1;cx<=1;cx++)for(let cz=-1;cz<=1;cz++)manager.spawnChunk(cx,cz);
- const npc=manager.spawnNpc({x:.5,z:.5});assert.ok(npc&&npc.def===GUIA);
+ const villagers=manager.spawnVillagers({x:.5,z:.5});assert.equal(villagers.length,2);assert.deepEqual(villagers.map(e=>e.def),[ALDEAO,ALDEA]);
  const count=manager.entities.size;assert.ok(count>1);
  for(let i=0;i<300;i++)manager.update(.05,i*.05,{x:100,y:0,z:100});
  for(const e of manager.entities.values()){assert.ok(collision.isFree(e.position.x,e.position.z,e.def.colliderRadius*.98,{ignoreId:e.id,minGround:-5}),`${e.def.id} preso em obstáculo`);assert.ok(Math.hypot(e.position.x-e.home.x,e.position.z-e.home.z)<16);}
@@ -72,4 +72,23 @@ test('skin: PNG do usuário substitui a provisória quando informado',async()=>{
  const {createSkinTexture}=await import('./box-model.js');
  const provisoria=createSkinTexture(IARA);assert.ok(provisoria.isDataTexture);assert.equal(provisoria.magFilter,THREE.NearestFilter);assert.equal(provisoria.flipY,false);
  const fake={width:32,height:32};const png=createSkinTexture(IARA,fake);assert.ok(!png.isDataTexture&&png.image===fake&&png.flipY===false&&png.generateMipmaps===false);
+});
+test('aldeões aprovados: par único, sem sobreposição, suspende fora dos chunks e retoma sem recriar',()=>{
+ const scene=new THREE.Scene(),collision=new CollisionWorld({height:voxelGround});
+ const data=buildChunkData(0,0);collision.addChunk(0,0,data.colliders);
+ // Carrega também os quadrantes negativos onde o início pode localizar o par.
+ for(let cx=-1;cx<=0;cx++)for(let cz=-1;cz<=0;cz++)collision.addChunk(cx,cz,buildChunkData(cx,cz).colliders);
+ const manager=createEntityManager({scene,collision}),pair=manager.spawnVillagers({x:.5,z:.5});
+ assert.equal(pair.length,2);assert.deepEqual(pair.map(e=>e.def.id),[ALDEAO.id,ALDEA.id]);
+ assert.notDeepEqual([...paintSkin(ALDEAO)],[...paintSkin(ALDEA)]);
+ for(const e of pair){assert.equal(e.speed,1.1);assert.ok(collision.isFree(e.position.x,e.position.z,.3,{ignoreId:e.id,minGround:-5}));}
+ assert.equal(manager.spawnVillagers({x:100,z:100}),pair);assert.equal(manager.entities.size,2);
+ const before=pair.map(e=>({id:e.id,position:e.position.clone(),wait:e.wait}));
+ for(const key of [...collision.chunks.keys()]){const [x,z]=key.split(',').map(Number);collision.removeChunk(x,z);manager.removeChunk(x,z);}
+ manager.update(.5,1,{x:0,y:0,z:0});
+ for(let i=0;i<pair.length;i++){const e=pair[i];assert.equal(e.id,before[i].id);assert.ok(e.position.equals(before[i].position));assert.equal(e.wait,before[i].wait);assert.equal(e.model.visible,false);assert.equal(collision.dynamic.has(e.id),false);}
+ for(let cx=-1;cx<=0;cx++)for(let cz=-1;cz<=0;cz++)collision.addChunk(cx,cz,buildChunkData(cx,cz).colliders);
+ manager.update(.05,2,{x:0,y:0,z:0});for(const e of pair){assert.equal(e.model.visible,true);assert.ok(collision.dynamic.has(e.id));}
+ assert.equal(manager.entities.size,2);manager.dispose();
+ const empty=createEntityManager({scene:new THREE.Scene(),collision:new CollisionWorld({height:()=>-10})});assert.deepEqual(empty.spawnVillagers({x:0,z:0}),[]);assert.equal(empty.entities.size,0);empty.dispose();
 });

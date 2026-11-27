@@ -7,7 +7,7 @@ Direção vigente em 2026-11-27, definida pelo usuário.
 - O jogo tem somente o mundo voxel. O mundo clássico foi retirado; não restaurar rota, seletor ou runtime clássico.
 - Arte em **8 pixels por bloco**: 1 bloco = 1 unidade, texturas 8×8 por face e 1 pixel de skin = 1/8 de bloco. Isso não limita a imagem inteira da skin a 8×8.
 - Personagens, mobs e NPCs são **criações geométricas**, com hierarquia de paralelepípedos, pivôs nas articulações e animação procedural. Usar `src/voxel/entities/`; não usar sprites de personagens ou a exceção histórica da onça 2D.
-- Iara continua como personagem jogável. O código atual inclui NPC Guia, capivara, tatu e tucano.
+- Iara continua como personagem jogável. O código atual inclui Aldeão, Aldeã, capivara, tatu e tucano.
 - Skins atuais são geradas por código sobre box UV. PNGs podem texturizar a geometria, mas não substituí-la. Não tratar envio de PNG pelo usuário como bloqueio para criar entidades geométricas.
 - Câmera ortográfica isométrica 2:1: yaw 45°, pitch 30°, densidade projetada `16/√2` px/unidade. Manter `src/voxel/voxel-settings.js` como fonte desses parâmetros.
 
@@ -27,7 +27,13 @@ Direção vigente em 2026-11-27, definida pelo usuário.
 
 - A1–A7 de `docs/regras-movimento-comportamento.md` aprovados em 2026-11-27. Velocidades nominais aprovadas: andar 4,317 e correr 5,612 blocos/s; implementadas em `controls.js` e `voxel-main.js`.
 - Manter adaptações aprovadas: corrida por 3 s/Shift, resposta direta sem inércia, orientação relativa à câmera, subida/descida automática de 1 bloco, água bloqueada e colisão circular de raio 0,24. Não atribuir essas adaptações ao Minecraft.
-- Aprovação restrita à Iara; movimento e comportamento dos NPCs/mobs, spawn, persistência, natação, física 3D e correções de relógio permanecem pendentes.
+- Aprovação restrita à Iara; regras específicas dos demais NPCs/mobs, spawn geral, persistência, natação, física 3D e correções de relógio permanecem pendentes. A exceção aprovada do par de aldeões está descrita abaixo.
+
+## Aldeões v01 — integração aprovada
+
+- `docs/aldeoes-v01.md`: aparência de homem/mulher e integração inicial aprovadas em 2026-11-27. Substituem o Guia; um par por sessão em posições secas/livres a 3–6 células da origem, sem forçar posições inválidas.
+- Mesmo comportamento para ambos: 1,1 bloco/s; destinos ±4 células X/Z, pausas 4–9 s, olhar a menos de 6 blocos, colisão circular raio 0,3. Suspender fora da região carregada e retomar instâncias; sem salvamento.
+- Não extrapolar essa aprovação para outros NPCs/mobs, trabalho, comércio, sono, reprodução ou resposta ao clima. Preservar a aparência v01; novas revisões abrem versão nova.
 
 ## Antes de implementar regras de mundo
 

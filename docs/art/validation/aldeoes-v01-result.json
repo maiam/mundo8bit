@@ -1,0 +1,153 @@
+{
+  "initial": {
+    "mode": "voxel3d",
+    "loadingHidden": true,
+    "error": "",
+    "badge": "MUNDO VOXEL 3D",
+    "chunks": 81,
+    "collisionChunks": 81,
+    "triangles": 80928,
+    "counts": {
+      "trees": 231,
+      "rocks": 160,
+      "flowers": 633
+    },
+    "layout": {
+      "scale": 4,
+      "width": 362,
+      "height": 227,
+      "halfHeight": 9.943689110435825
+    },
+    "atlasFilter": 1003,
+    "player": [
+      -1.5,
+      1,
+      1.5
+    ],
+    "classicLoaded": false,
+    "canvases": 1
+  },
+  "move": {
+    "direita": {
+      "before": {
+        "x": -0.5,
+        "y": 1,
+        "z": 0.5
+      },
+      "after": {
+        "x": -0.19474200256176732,
+        "y": 1,
+        "z": 0.19474200256176738
+      },
+      "screen": [
+        0.026981250000000005,
+        1.3877787807814457e-17
+      ]
+    },
+    "cima": {
+      "before": {
+        "x": -0.5,
+        "y": 1,
+        "z": 0.5
+      },
+      "after": {
+        "x": -0.85593082501298,
+        "y": 1,
+        "z": 0.1440691749870196
+      },
+      "screen": [
+        1.3877787807814457e-17,
+        0.025168110000000105
+      ]
+    }
+  },
+  "moveStart": {
+    "x": -0.5,
+    "z": 0.5
+  },
+  "physics": {
+    "tree": {
+      "invalid": 0,
+      "x": -49.24001,
+      "limit": -49.24
+    },
+    "water": {
+      "x": -21.260000000000005,
+      "limit": -21.24
+    },
+    "step": {
+      "x": -8,
+      "z": 1,
+      "from": -1,
+      "to": 0,
+      "endX": -6.379999999999999,
+      "endY": -0.02732372244729256
+    }
+  },
+  "hud": {
+    "slots": 9,
+    "before": 0,
+    "after": 2,
+    "first": "1: Mão",
+    "run": false,
+    "actionStick": true
+  },
+  "run": {
+    "early": false,
+    "late": true,
+    "after": false
+  },
+  "action": {
+    "yaw": 2.356194490192345,
+    "yawE": 1.5707963267948966,
+    "target": {
+      "x": -10,
+      "z": -2,
+      "y": -1,
+      "kind": "pedra"
+    },
+    "last": {
+      "item": "mao",
+      "target": {
+        "x": -10,
+        "z": -2,
+        "y": -1,
+        "kind": "pedra"
+      }
+    },
+    "count": 1,
+    "moved": 1.5765988514715445e-10,
+    "objectsBefore": 1125,
+    "objectsAfter": 1125
+  },
+  "entities": {
+    "count": 55,
+    "kinds": [
+      "mob-capivara-voxel-v01",
+      "mob-tucano-voxel-v01",
+      "mob-tatu-voxel-v01",
+      "npc-aldeao-homem-v01",
+      "npc-aldeao-mulher-v01"
+    ],
+    "moved": 46,
+    "npc": true
+  },
+  "mobile": {
+    "layout": {
+      "scale": 2,
+      "width": 424,
+      "height": 197,
+      "halfHeight": 8.617863895711048
+    },
+    "touch": true,
+    "error": "",
+    "stick": {
+      "aimed": -0.7853981633974484,
+      "actions": 1
+    }
+  },
+  "onlyVoxel": {
+    "voxel": true,
+    "switchPresent": false
+  }
+}

@@ -8,11 +8,11 @@ rows=[]
 for base in ['assets','archive/classico/assets','archive/classico/public/assets']:
  for p in sorted((ROOT/base).rglob('*.png')):
   with Image.open(p) as im:w,h=im.size
-  role='histórico — fora do runtime' if base.startswith('archive') else ('guia UV — não é textura final' if 'guia-uv' in p.name else 'referência exportada — runtime procedural')
+  role='histórico — fora do runtime' if base.startswith('archive') or '/historico/' in p.as_posix() or '/catalogo-v01/' in p.as_posix() else ('guia UV — não é textura final' if 'guia-uv' in p.name else 'referência exportada — runtime procedural')
   rows.append(dict(path=p.relative_to(ROOT).as_posix(),width=w,height=h,sha256=hashlib.sha256(p.read_bytes()).hexdigest(),status=role))
 (OUT/'inventario.json').write_text(json.dumps(rows,indent=2,ensure_ascii=False)+'\n')
 with (OUT/'inventario.csv').open('w') as f:
- writer=csv.DictWriter(f,fieldnames=['path','width','height','sha256','status']);writer.writeheader();writer.writerows(rows)
+ writer=csv.DictWriter(f,fieldnames=['path','width','height','sha256','status'],lineterminator='\n');writer.writeheader();writer.writerows(rows)
 font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',15)
 small=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',12)
 def board(items,name,title,cols=4,cellw=240,cellh=190):
@@ -27,10 +27,10 @@ def board(items,name,title,cols=4,cellw=240,cellh=190):
   canvas.paste(im,(x+16+(128-im.width)//2,y+(128-im.height)//2),im)
   d.text((x+16,y+136),label,font=small,fill='#fff2cc')
  canvas.save(OUT/name)
-cat=ROOT/'assets/voxel/texturas/catalogo-v01'
-board([(p,p.stem) for p in sorted((cat/'blocos').glob('*.png'))],'blocos-atuais-v01.png','Mundo8bit • 16 texturas de blocos em uso (8×8)')
-board([(p,p.stem.replace('-voxel','')) for p in sorted((cat/'skins').glob('*.png'))],'skins-atuais-v01.png','Mundo8bit • 5 skins atuais sobre modelos geométricos',cols=3,cellw=300)
-board([(p,p.stem) for p in sorted((ROOT/'archive/classico/assets/textures').glob('*.png'))],'atlas-historicos-v01.png','Acervo clássico • referências históricas, fora do runtime',cols=3,cellw=320)
+cat=ROOT/'assets/voxel/texturas/catalogo-v02'
+board([(p,p.stem) for p in sorted((cat/'blocos').glob('*.png'))],'blocos-atuais-v02.png','Mundo8bit • 16 texturas de blocos em uso (8×8)')
+board([(p,p.stem.replace('-voxel','')) for p in sorted((cat/'skins').glob('*.png'))],'skins-atuais-v02.png','Mundo8bit • 6 skins atuais sobre modelos geométricos',cols=3,cellw=300)
+board([(p,p.stem) for p in sorted((ROOT/'archive/classico/assets/textures').glob('*.png'))],'atlas-historicos-v02.png','Acervo clássico • referências históricas, fora do runtime',cols=3,cellw=320)
 print(f'{len(rows)} PNGs inventariados; 3 pranchas geradas.')
 # Fontes editáveis podem conter texturas sem um PNG externo correspondente.
 import base64,collections

@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import {writeFileSync} from 'node:fs';
 import {connectCDP} from './cdp.mjs';
-const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
+const c=await connectCDP(Number(process.env.CDP_PORT??9334),t=>t.url.startsWith('http://127.0.0.1:5173'));
 const frames='new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(r))))';
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 const shot=async name=>{await c.evaluate(frames);const s=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(`docs/art/validation/${process.env.QA_OUTPUT_PREFIX??'voxel-unico-v01'}-${name}.png`,Buffer.from(s.data,'base64'));};
@@ -82,9 +82,9 @@ try{
  await wait(5000);
  result.entities=await c.evaluate(`(()=>{const now=[...qa.entities.entities.values()].map(e=>({id:e.id,def:e.def.id,x:e.position.x,z:e.position.z,goals:e.selector.activeNames()}));
   const before=${JSON.stringify(ent0)};const moved=now.filter(n=>{const b=before.find(x=>x.id===n.id);return b&&Math.hypot(n.x-b.x,n.z-b.z)>.3;}).length;
-  return {count:now.length,kinds:[...new Set(now.map(n=>n.def))],moved,npc:Boolean(qa.npc)};})()`);
- assert.ok(result.entities.count>5&&result.entities.npc&&result.entities.moved>0);assert.ok(result.entities.kinds.includes('npc-guia-voxel-v01'));
- await c.evaluate(`(async()=>{const n=qa.npc;qa.player.position.set(n.position.x+1.6,n.position.y,n.position.z+1.2);qa.collision.setDynamic('player',{type:'circle',x:n.position.x+1.6,z:n.position.z+1.2,radius:.24,kind:'player'});await new Promise(r=>setTimeout(r,800));})()`);
+  return {count:now.length,kinds:[...new Set(now.map(n=>n.def))],moved,npc:qa.villagers.length===2};})()`);
+ assert.ok(result.entities.count>5&&result.entities.npc&&result.entities.moved>0);assert.ok(result.entities.kinds.includes('npc-aldeao-homem-v01'));assert.ok(result.entities.kinds.includes('npc-aldeao-mulher-v01'));
+ await c.evaluate(`(async()=>{const n=qa.villagers[0];qa.player.position.set(n.position.x+1.6,n.position.y,n.position.z+1.2);qa.collision.setDynamic('player',{type:'circle',x:n.position.x+1.6,z:n.position.z+1.2,radius:.24,kind:'player'});await new Promise(r=>setTimeout(r,800));})()`);
  await shot('npc');
  // Silhueta através das copas: posiciona a Iara atrás de uma árvore (do ponto de vista da câmera).
  await c.evaluate(`(async()=>{const shapes=[...qa.collision.chunks.values()].flat().map(e=>e.shape);const t=shapes.find(s=>s.kind==='tree');qa.player.position.set(t.x-1.2,qa.player.position.y,t.z-1.2);

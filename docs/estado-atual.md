@@ -6,7 +6,7 @@ O único mundo é voxel com arte em 8 px por bloco. A aplicação clássica e se
 | --- | --- | --- |
 | Mundo | Geração determinística, semente 808, chunks 12×12, janela 9×9 | Medir streaming síncrono em aparelho físico |
 | Arte | Texturas 8×8 por face, atlas gerado por código, câmera isométrica 2:1 | Refinamento visual sem trocar a densidade |
-| Entidades | Iara, NPC Guia, capivara, tatu e tucano geométricos; box UV e animação procedural | Identidade do Guia e novos mobs |
+| Entidades | Iara, Aldeão e Aldeã, capivara, tatu e tucano geométricos; box UV e animação procedural | Identidade do Guia e novos mobs |
 | Navegação | A* e metas de passeio/olhar; colisões com jogador, troncos, pedras e água | Ciclo de vida dos animais entre chunks e do NPC inicial precisa de proposta |
 | Controles | Joysticks, corrida, orientação, ação, hotbar, zoom, teclado, pausa em retrato | Validar compreensão com criança e aparelho real |
 | Ação | Anima o braço, calcula alvo e emite evento `voxel-acao` | Sem efeito em blocos, saudação ou reação dos animais |

@@ -1,12 +1,12 @@
 // Gerencia NPCs e mobs do mundo voxel: spawn determinístico por pedaço (mesma semente), IA por metas,
 // animação procedural e colisão pelo mesmo CollisionWorld da jogadora.
-import {CHUNK_SIZE,hash} from '../../world.js';
+import {CHUNK_SIZE,hash,chunkAt} from '../../world.js';
 import {voxelGround} from '../voxel-terrain.js';
 import {buildBoxModel,createSkinTexture,modelHeight,partsOf} from './box-model.js';
 import {animateEntity} from './animation.js';
 import {GoalSelector,RandomStrollGoal,LookAtPlayerGoal} from './goals.js';
 import {cellBlocked} from './pathfinding.js';
-import {MOBS,GUIA} from './entity-defs.js';
+import {MOBS,ALDEOES} from './entity-defs.js';
 
 const MOVE={maxStepHeight:1.01,minGround:-5};
 function mulberry(seed){let a=seed>>>0;return()=>{a=(a+0x6d2b79f5)>>>0;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};}
@@ -23,7 +23,7 @@ export function chunkSpawns(cx,cz){
 }
 
 export function createEntityManager({scene,collision}){
- const templates=new Map(),entities=new Map();let serial=0;
+ const templates=new Map(),entities=new Map();let serial=0,villagersCreated=false;const villagers=[];
  function template(def){
   if(!templates.has(def.id))templates.set(def.id,buildBoxModel(def,{texture:createSkinTexture(def)}));
   return templates.get(def.id);
@@ -46,15 +46,30 @@ export function createEntityManager({scene,collision}){
   entities,
   spawnChunk(cx,cz){for(const s of chunkSpawns(cx,cz))spawn(s.def,s.x,s.z,{seed:s.seed,chunk:`${cx},${cz}`});},
   removeChunk(cx,cz){const key=`${cx},${cz}`;for(const e of [...entities.values()])if(e.chunk===key)remove(e);},
-  // NPC provisório perto do início: primeira célula livre num anel de 3–5 blocos.
-  spawnNpc(start){
-   for(let r=3;r<=6;r++)for(let dx=-r;dx<=r;dx++)for(const dz of [-r,r]){const x=Math.floor(start.x)+dx,z=Math.floor(start.z)+dz;
-    if(!cellBlocked(x,z)&&collision.isFree(x+.5,z+.5,GUIA.colliderRadius,MOVE))return spawn(GUIA,x,z,{seed:7});}
-   return null;
+  // Par único por sessão; cada posição é validada contra chão, cenário e entidades.
+  spawnVillagers(start){
+   if(villagersCreated)return villagers;
+   villagersCreated=true;
+   for(const [i,def] of ALDEOES.entries()){
+    let found=null;
+    for(let r=3;r<=6&&!found;r++)for(let dx=-r;dx<=r&&!found;dx++)for(let dz=-r;dz<=r&&!found;dz++){
+     if(Math.max(Math.abs(dx),Math.abs(dz))!==r)continue;
+     const x=Math.floor(start.x)+dx,z=Math.floor(start.z)+dz;
+     if(collision.chunks.has(chunkAt(x,z).join(','))&&!cellBlocked(x,z)&&collision.isFree(x+.5,z+.5,def.colliderRadius,MOVE))found={x,z};
+    }
+    if(found)villagers.push(spawn(def,found.x,found.z,{seed:7+i}));
+   }
+   return villagers;
   },
   update(dt,time,player){
    ctx.player.x=player.x;ctx.player.y=player.y;ctx.player.z=player.z;
    for(const e of entities.values()){
+    if(e.def.kind==='npc'){
+     const loaded=collision.chunks.has(chunkAt(e.position.x,e.position.z).join(','));
+     e.model.visible=loaded;
+     if(!loaded){collision.removeDynamic(e.id);continue;}
+     collision.setDynamic(e.id,{type:'circle',x:e.position.x,z:e.position.z,radius:e.def.colliderRadius,kind:e.def.kind});
+    }
     e.wait-=dt;e.walk=0;e.selector.tick(e,ctx,dt);
     const speed=e.walk/Math.max(dt,1e-3);e.amount+=(Math.min(1,speed/Math.max(e.speed,.1))-e.amount)*Math.min(1,dt*10);e.limbSwing+=e.walk*6;
     e.model.rotation.y+=Math.atan2(Math.sin(e.yaw-e.model.rotation.y),Math.cos(e.yaw-e.model.rotation.y))*Math.min(1,dt*8);

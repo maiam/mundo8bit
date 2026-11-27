@@ -34,7 +34,7 @@ A ação atual anima o braço e registra o alvo; ainda não altera blocos nem in
 
 ## Base atual
 
-Texturas de bloco 8×8; skins com 1 px por 1/8 de bloco. Iara e NPC Guia usam geometria articulada humanoide; capivara, tatu e tucano também são geométricos. As texturas atuais são geradas por código. A câmera usa isometria 2:1 (yaw 45°, pitch 30°).
+Texturas de bloco 8×8; skins com 1 px por 1/8 de bloco. Iara e Aldeão e Aldeã usam geometria articulada humanoide; capivara, tatu e tucano também são geométricos. As texturas atuais são geradas por código. A câmera usa isometria 2:1 (yaw 45°, pitch 30°).
 
 Geração determinística, semente 808, chunks 12×12 e janela voxel 9×9. Colisões, navegação A*, metas de IA e animação procedural já existem. Áudio, missões, recompensas e progresso salvo ainda não.
 

@@ -6,7 +6,7 @@ Contrato de criação aprovado: [RG-01](regras-criacao-entidades.md). Toda nova 
 
 ## Implementação atual
 
-`src/voxel/entities/entity-defs.js` define Iara, NPC Guia, capivara, tatu e tucano. `box-model.js` constrói hierarquias de paralelepípedos, pivôs de articulação e UVs. `animation.js` anima proceduralmente. `entities.js` gerencia as instâncias; `goals.js` seleciona metas de passeio e olhar; `pathfinding.js` calcula caminhos A*.
+`src/voxel/entities/entity-defs.js` define Iara, Aldeão e Aldeã, capivara, tatu e tucano. `box-model.js` constrói hierarquias de paralelepípedos, pivôs de articulação e UVs. `animation.js` anima proceduralmente. `entities.js` gerencia as instâncias; `goals.js` seleciona metas de passeio e olhar; `pathfinding.js` calcula caminhos A*.
 
 A unidade de arte é 1/8 de bloco por pixel. Humanoides têm 2 blocos de altura e skin 32×32 com box UV. O tamanho total da skin acomoda as faces e não altera a densidade de 8 px por bloco. A camada externa usa inflação de 0,25 px.
 
