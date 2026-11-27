@@ -11,7 +11,8 @@
     "test": "node --test src/*.test.js src/voxel/*.test.js src/voxel/entities/*.test.js",
     "qa:voxel": "node scripts/verify-voxel.mjs",
     "assets:voxel-skins": "node scripts/export-voxel-skin-templates.mjs",
-    "qa:environment": "node scripts/verify-environment.mjs"
+    "qa:environment": "node scripts/verify-environment.mjs",
+    "assets:catalog": "node scripts/export-texture-catalog.mjs"
   },
   "dependencies": {
     "three": "^0.182.0"

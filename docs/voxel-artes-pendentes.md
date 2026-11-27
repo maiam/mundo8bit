@@ -7,3 +7,5 @@ As skins, o atlas de blocos e o ícone da mão atuais são gerados por código. 
 Pendências de direção: identidade do NPC Guia, acabamento de Iara e dos três mobs, ícones da hotbar e variedade de texturas 8×8. Isso não significa que novas entidades ou funcionalidades já estejam implementadas.
 
 Guias exportáveis: `npm run assets:voxel-skins`. Fontes voxel: `assets/voxel/`. A arte clássica está arquivada em `archive/classico/` e não integra o jogo publicado.
+
+Inventário visual, arquivos disponíveis e lacunas: [catálogo de texturas](texturas/README.md). Este catálogo distingue texturas existentes geradas por código de artes ainda não definidas.

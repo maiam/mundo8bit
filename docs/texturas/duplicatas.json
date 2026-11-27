@@ -1,0 +1,121 @@
+[
+  {
+    "sha256": "1b8f8269d462101a2d1bca6034968169dac761c1391758ea1fc954e59c7e29d5",
+    "paths": [
+      "assets/voxel/skins/modelos/iara-voxel-v02-guia-uv.png",
+      "assets/voxel/skins/modelos/npc-guia-voxel-v01-guia-uv.png"
+    ]
+  },
+  {
+    "sha256": "375d18238a06e9f94be39033652dece3e7e6f68f2d88ec5b955e942fc4c3e75a",
+    "paths": [
+      "assets/voxel/skins/modelos/iara-voxel-v02-provisoria.png",
+      "assets/voxel/texturas/catalogo-v01/skins/iara-voxel-v02.png"
+    ]
+  },
+  {
+    "sha256": "2c6076a0717e382e65c43ef2c5178d23f5cf119c1ec9ae76feb1cf0952d5c6bb",
+    "paths": [
+      "assets/voxel/skins/modelos/mob-capivara-voxel-v01-provisoria.png",
+      "assets/voxel/texturas/catalogo-v01/skins/mob-capivara-voxel-v01.png"
+    ]
+  },
+  {
+    "sha256": "ea696d2bd2b9b86641115d43f4f86161fa61ddf3223bfa30df3296cc989cc529",
+    "paths": [
+      "assets/voxel/skins/modelos/mob-tatu-voxel-v01-provisoria.png",
+      "assets/voxel/texturas/catalogo-v01/skins/mob-tatu-voxel-v01.png"
+    ]
+  },
+  {
+    "sha256": "62003b569426e598f2bb4d8f5be45381a509eafbe3decf6b380db3fa5fa3fccd",
+    "paths": [
+      "assets/voxel/skins/modelos/mob-tucano-voxel-v01-provisoria.png",
+      "assets/voxel/texturas/catalogo-v01/skins/mob-tucano-voxel-v01.png"
+    ]
+  },
+  {
+    "sha256": "86343a8c9b7c0419efa0076a6e83a88d006df67885e91697cb077a704780828e",
+    "paths": [
+      "assets/voxel/skins/modelos/npc-guia-voxel-v01-provisoria.png",
+      "assets/voxel/texturas/catalogo-v01/skins/npc-guia-voxel-v01.png"
+    ]
+  },
+  {
+    "sha256": "4860c1c2cab9a62a775983814547a42005529c9a11089b9cf0d58be4832b78f1",
+    "paths": [
+      "archive/classico/assets/sprites/arvores-pixel-v01/arvore-betula-pixel-32-v01.png",
+      "archive/classico/public/assets/sprites/arvore-betula-pixel-32-v01.png"
+    ]
+  },
+  {
+    "sha256": "f815aaffb41499f066331e6752674b53c5f595f328d49751b7a356cf9dce0cc4",
+    "paths": [
+      "archive/classico/assets/sprites/arvores-pixel-v01/arvore-carvalho-pixel-32-v01.png",
+      "archive/classico/public/assets/sprites/arvore-carvalho-pixel-32-v01.png"
+    ]
+  },
+  {
+    "sha256": "1f7be7afd2447f77186f199b2d78fd680abd573b0b8972b5f16b9ba3b6f24116",
+    "paths": [
+      "archive/classico/assets/sprites/arvores-pixel-v01/arvore-cerejeira-pixel-32-v01.png",
+      "archive/classico/public/assets/sprites/arvore-cerejeira-pixel-32-v01.png"
+    ]
+  },
+  {
+    "sha256": "9f9bea70d1c13ba077a3b8185a40135fceadfc07fa436c1d2f32e3476249447a",
+    "paths": [
+      "archive/classico/assets/sprites/arvores-pixel-v01/arvore-macieira-pixel-32-v01.png",
+      "archive/classico/public/assets/sprites/arvore-macieira-pixel-32-v01.png"
+    ]
+  },
+  {
+    "sha256": "77a7fe71ca2556e1fe2f85e04b51908af904d498bf7078c6bacb16663fd59d8f",
+    "paths": [
+      "archive/classico/assets/sprites/onca-fantasia-v01.png",
+      "archive/classico/public/assets/sprites/onca-fantasia-v01.png"
+    ]
+  },
+  {
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "paths": [
+      "archive/classico/assets/textures/fauna-painted-v01.png",
+      "archive/classico/public/assets/fauna-painted-v01.png"
+    ]
+  },
+  {
+    "sha256": "31b2a4601a7f9eb3ba06b71dd14a67ffd12d4abfd78046ad9fe003a4bce354e4",
+    "paths": [
+      "archive/classico/assets/textures/grama-clara-painted-v04.png",
+      "archive/classico/public/assets/grama-clara-painted-v04.png"
+    ]
+  },
+  {
+    "sha256": "a4762a1175b5fa5067983b653068123468e2e01eaf3788950e0fe5df1fef63cb",
+    "paths": [
+      "archive/classico/assets/textures/iara-painted-v01.png",
+      "archive/classico/public/assets/iara-painted-v01.png"
+    ]
+  },
+  {
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "paths": [
+      "archive/classico/assets/textures/mundo8bit-painted-v02.png",
+      "archive/classico/public/assets/mundo8bit-painted-v02.png"
+    ]
+  },
+  {
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "paths": [
+      "archive/classico/assets/textures/mundo8bit-painted-v03.png",
+      "archive/classico/public/assets/mundo8bit-painted-v03.png"
+    ]
+  },
+  {
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "paths": [
+      "archive/classico/assets/textures/natureza-painted-v01.png",
+      "archive/classico/public/assets/natureza-painted-v01.png"
+    ]
+  }
+]

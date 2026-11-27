@@ -1,0 +1,982 @@
+[
+  {
+    "model": "archive/classico/assets/blockbench/animal-anta-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-capivara-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-coruja-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-macaco-prego-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-onca-pintada-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-preguica-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-quati-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-tamandua-mirim-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-tatu-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-tucano-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/animal-veado-v01.bbmodel",
+    "texture_index": 0,
+    "name": "fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-acacia-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-acacia-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-araucaria-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-araucaria-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-baoba-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-baoba-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-betula-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-betula-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-carvalho-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-carvalho-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-cipreste-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-cipreste-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-mangue-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-mangue-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-palmeira-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-palmeira-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-pinheiro-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-pinheiro-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-salgueiro-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-salgueiro-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-seca-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/arvore-seca-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/explorador-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-allium-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-brinco-de-princesa-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-campanula-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-copo-de-leite-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-cosmos-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-dalia-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-dente-de-leao-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-estrelitzia-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-flor-de-cacto-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-girassol-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-hibisco-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-hortensia-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-iris-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-lavanda-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-lirio-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-lotus-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-lupino-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-margarida-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-narciso-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-orquidea-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-papoula-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-tulipa-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/flor-violeta-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/iara-v01.bbmodel",
+    "texture_index": 0,
+    "name": "iara-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "a4762a1175b5fa5067983b653068123468e2e01eaf3788950e0fe5df1fef63cb",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-agulha-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-agulha-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-arco-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-arco-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-bloco-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-bloco-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-cristal-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-cristal-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-dorso-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-dorso-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-estratos-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-estratos-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-fendida-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-fendida-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-furada-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-furada-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-laje-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-laje-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-musgosa-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-musgosa-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-seixo-v01.bbmodel",
+    "texture_index": 0,
+    "name": "natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-seixo-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/pedra-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-agua-funda-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-agua-rasa-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-agua-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-areia-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-areia-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-casca-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-folhagem-clara-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-folhagem-escura-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-grama-clara-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-grama-clara-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-grama-clara-v04.bbmodel",
+    "texture_index": 0,
+    "name": "grama-clara-painted-v04.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "31b2a4601a7f9eb3ba06b71dd14a67ffd12d4abfd78046ad9fe003a4bce354e4",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-grama-escura-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-grama-v02.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "embedded": true,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-madeira-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-pedra-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-terra-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  },
+  {
+    "model": "archive/classico/assets/blockbench/superficie-trilha-v03.bbmodel",
+    "texture_index": 0,
+    "name": "mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "embedded": true,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — textura de fonte Blockbench; fora do runtime"
+  }
+]

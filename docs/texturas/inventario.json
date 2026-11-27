@@ -1,0 +1,415 @@
+[
+  {
+    "path": "assets/voxel/skins/modelos/iara-voxel-v02-guia-uv.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "1b8f8269d462101a2d1bca6034968169dac761c1391758ea1fc954e59c7e29d5",
+    "status": "guia UV — não é textura final"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/iara-voxel-v02-provisoria.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "375d18238a06e9f94be39033652dece3e7e6f68f2d88ec5b955e942fc4c3e75a",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/mob-capivara-voxel-v01-guia-uv.png",
+    "width": 64,
+    "height": 32,
+    "sha256": "8754c26897a3934265b35b34af458ede3e3ffc694c1b7071d63c23ffaa268f10",
+    "status": "guia UV — não é textura final"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/mob-capivara-voxel-v01-provisoria.png",
+    "width": 64,
+    "height": 32,
+    "sha256": "2c6076a0717e382e65c43ef2c5178d23f5cf119c1ec9ae76feb1cf0952d5c6bb",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/mob-tatu-voxel-v01-guia-uv.png",
+    "width": 32,
+    "height": 16,
+    "sha256": "f8a3fb53ebec1a9d57b20b6ce3ab8a63af2dabef79627384fc83540f2d9f21f9",
+    "status": "guia UV — não é textura final"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/mob-tatu-voxel-v01-provisoria.png",
+    "width": 32,
+    "height": 16,
+    "sha256": "ea696d2bd2b9b86641115d43f4f86161fa61ddf3223bfa30df3296cc989cc529",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/mob-tucano-voxel-v01-guia-uv.png",
+    "width": 32,
+    "height": 16,
+    "sha256": "48e83a92477c51cb2f476dafed022b2373b5b9c6f0fa6fd1f09acc2f1b615c5b",
+    "status": "guia UV — não é textura final"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/mob-tucano-voxel-v01-provisoria.png",
+    "width": 32,
+    "height": 16,
+    "sha256": "62003b569426e598f2bb4d8f5be45381a509eafbe3decf6b380db3fa5fa3fccd",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/npc-guia-voxel-v01-guia-uv.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "1b8f8269d462101a2d1bca6034968169dac761c1391758ea1fc954e59c7e29d5",
+    "status": "guia UV — não é textura final"
+  },
+  {
+    "path": "assets/voxel/skins/modelos/npc-guia-voxel-v01-provisoria.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "86343a8c9b7c0419efa0076a6e83a88d006df67885e91697cb077a704780828e",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/atlas-blocos-32.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "25f2e1312bac9c966e9fdd95388373b69c6b0e4d20d4cf4935a40ca3a5147ef4",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/00-grassTop.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "0d1e39805ba91532dbd574d2d4940e9ab6ad4125992ee429b11e3465b1c77cb8",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/01-grassSide.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "679d2aa66bdfa6de7e6e1f4b1bc3b8f222d3712a958cf486b6751d1e775be4c5",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/02-dirt.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "35b4b3199f2e2db00bd9887c6c5e8f38e3921dce380d2fd4980f75ac9db1495c",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/03-stone.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "c86d7c65b8c7b0b51027b375965bfb74104f3e3ada4f82eb9c7db7930d5bb589",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/04-sand.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "879741899c2de4957fcbc754043ea293ed444aa09e58ac77422acb38e184b02a",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/05-water.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "7602779c2b343145eda6c28f0697e463d4034bfedfbbbbbf1d4040c5de7302cf",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/06-logSide.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "7bed0afbf5b71defba92797afca108b18a51661bf0d9986f7071bb26ed5d1093",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/07-logTop.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "401caec7c594a6d375b7b0c7255491510d36757b5519bc9537480446f2c59463",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/08-birchSide.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "cc3a45fce0d91776224a7adb237bc599192301f98122ff05831d7ae99914b459",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/09-leaves.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "7d9ec902b7f6968b6f92fb0a4ace1de5ebe0810a532e4ee40ce19a4a4dd9f8ae",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/10-leavesPink.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "d59abc48d42aef7bf542ea04a3c949b82fb4f9b281d8ac510ef9889d55b93999",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/11-leavesApple.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "385413d024201f636e9cee49662380d1aef2950489e36625d989ee8fc5ca5d65",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/12-grassLightTop.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "ebfe029f801ea4abcd5b5380be8653b911b6b8ce7eef291da9b79f16628ed766",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/13-grassLightSide.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "55fe01aeb8ad7c4625f774e03de00402ce486436ce149c136cb1c05a6c6a3c90",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/14-cobble.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "5f249f9bc6be4493d5404c9d6ce73e913d1cdf62b12250b1da569cf637d31479",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/blocos/15-white.png",
+    "width": 8,
+    "height": 8,
+    "sha256": "ea2e756cfae73ae84195aab2e1de0c1dff8d5f517fd7e42c9a9ae610c0a14d70",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/skins/iara-voxel-v02.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "375d18238a06e9f94be39033652dece3e7e6f68f2d88ec5b955e942fc4c3e75a",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/skins/mob-capivara-voxel-v01.png",
+    "width": 64,
+    "height": 32,
+    "sha256": "2c6076a0717e382e65c43ef2c5178d23f5cf119c1ec9ae76feb1cf0952d5c6bb",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/skins/mob-tatu-voxel-v01.png",
+    "width": 32,
+    "height": 16,
+    "sha256": "ea696d2bd2b9b86641115d43f4f86161fa61ddf3223bfa30df3296cc989cc529",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/skins/mob-tucano-voxel-v01.png",
+    "width": 32,
+    "height": 16,
+    "sha256": "62003b569426e598f2bb4d8f5be45381a509eafbe3decf6b380db3fa5fa3fccd",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "assets/voxel/texturas/catalogo-v01/skins/npc-guia-voxel-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "86343a8c9b7c0419efa0076a6e83a88d006df67885e91697cb077a704780828e",
+    "status": "referência exportada — runtime procedural"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/arvore-betula-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "4860c1c2cab9a62a775983814547a42005529c9a11089b9cf0d58be4832b78f1",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/arvore-carvalho-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "f815aaffb41499f066331e6752674b53c5f595f328d49751b7a356cf9dce0cc4",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/arvore-cerejeira-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "1f7be7afd2447f77186f199b2d78fd680abd573b0b8972b5f16b9ba3b6f24116",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/arvore-macieira-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "9f9bea70d1c13ba077a3b8185a40135fceadfc07fa436c1d2f32e3476249447a",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Betula.png",
+    "width": 2816,
+    "height": 1536,
+    "sha256": "550d143eadcf2adc94c874ecafb8aea073b02fe6a9d6f37fa90cca9c9a148a82",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Carvalho.png",
+    "width": 2816,
+    "height": 1536,
+    "sha256": "185551266023bc5e9c05e9910aa97201c3a4f2499f186a03b4728b6a8128b7b7",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Cerejeira.png",
+    "width": 2816,
+    "height": 1536,
+    "sha256": "18e92aafc9a7b9db26983b659e793a3934e986ef86054141e586a82470a55119",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/arvores-pixel-v01/originais/Cópia de Arvore-Macieira.png",
+    "width": 2048,
+    "height": 2048,
+    "sha256": "dd7a78e0dc83fd6b8fe4bccf23b46deec0d48c77316f1738b6a1a7b116fe4c24",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/sprites/onca-fantasia-v01.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "77a7fe71ca2556e1fe2f85e04b51908af904d498bf7078c6bacb16663fd59d8f",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/textures/fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/textures/grama-clara-painted-v04.png",
+    "width": 1024,
+    "height": 1024,
+    "sha256": "31b2a4601a7f9eb3ba06b71dd14a67ffd12d4abfd78046ad9fe003a4bce354e4",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/textures/iara-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "a4762a1175b5fa5067983b653068123468e2e01eaf3788950e0fe5df1fef63cb",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/textures/mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/textures/mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/textures/natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/assets/textures/source/grama-clara-v04-gerada.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "64e8d92851e478f8d6f3c2c5790cc5f07eb7a55e4280b009512e05cf4603ea06",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/fauna-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "b161454bbe99493d111932f7e5fa0e4aedab10be4fde110236df37e31ab387a5",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/grama-clara-painted-v04.png",
+    "width": 1024,
+    "height": 1024,
+    "sha256": "31b2a4601a7f9eb3ba06b71dd14a67ffd12d4abfd78046ad9fe003a4bce354e4",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/iara-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "a4762a1175b5fa5067983b653068123468e2e01eaf3788950e0fe5df1fef63cb",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/mundo8bit-painted-v02.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "18b76b5219cb25e3cf7eac42453f84b3a795e576bc7b683b82bbf3065aa65b88",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/mundo8bit-painted-v03.png",
+    "width": 1024,
+    "height": 1024,
+    "sha256": "747b7359390e46a907b8c0473ef551d322edd796296ef17a2422a1063c28d3c2",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/natureza-painted-v01.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "409304023eaea98258a24a7154736409231de56f3addb1d13cef810d29b9c417",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/sprites/arvore-betula-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "4860c1c2cab9a62a775983814547a42005529c9a11089b9cf0d58be4832b78f1",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/sprites/arvore-carvalho-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "f815aaffb41499f066331e6752674b53c5f595f328d49751b7a356cf9dce0cc4",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/sprites/arvore-cerejeira-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "1f7be7afd2447f77186f199b2d78fd680abd573b0b8972b5f16b9ba3b6f24116",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/sprites/arvore-macieira-pixel-32-v01.png",
+    "width": 32,
+    "height": 32,
+    "sha256": "9f9bea70d1c13ba077a3b8185a40135fceadfc07fa436c1d2f32e3476249447a",
+    "status": "histórico — fora do runtime"
+  },
+  {
+    "path": "archive/classico/public/assets/sprites/onca-fantasia-v01.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "77a7fe71ca2556e1fe2f85e04b51908af904d498bf7078c6bacb16663fd59d8f",
+    "status": "histórico — fora do runtime"
+  }
+]
