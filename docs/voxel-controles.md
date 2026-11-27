@@ -1,3 +1,5 @@
+> Direção vigente em 2026-11-27: único mundo voxel, arte 8 px e entidades geométricas. Controles abaixo descrevem o comportamento existente; alterações exigem [proposta e aprovação](regras-de-mundo.md).
+
 # Controles do mundo voxel — hotbar, corrida e joystick de ação (v01)
 
 Regras pedidas pelo usuário em 2026-11-25. Implementadas em `src/voxel/controls.js` (regras puras, testadas), `src/voxel/hud.js` (interface) e `src/voxel/voxel-main.js` (integração).
@@ -10,7 +12,7 @@ Regras pedidas pelo usuário em 2026-11-25. Implementadas em `src/voxel/controls
   - Soltar, desviar ou reduzir o empurrão volta a andar e zera o tempo.
   - A contagem usa **tempo real**: aparelhos lentos não atrasam a corrida.
   - No teclado, segurar W/↑ segue a mesma regra; Shift continua como atalho imediato.
-- **Botão CORRER:** removido no mundo voxel. Continua no mundo clássico.
+- **Botão CORRER:** removido no mundo voxel. O mundo clássico foi retirado.
 
 ## Joystick de ação (substitui o CORRER, à direita)
 
@@ -31,7 +33,7 @@ Regras pedidas pelo usuário em 2026-11-25. Implementadas em `src/voxel/controls
 
 - **9 espaços** na parte de baixo da tela. O espaço 1 é a **mão**, selecionada por padrão; os outros estão vazios.
 - **Trocar de espaço:** tocar no espaço ou usar as teclas 1–9. Itens e ações virão com as próximas mecânicas.
-- **Ícone:** o da mão é um desenho provisório de 8×8 em SVG. O definitivo é um PNG pendente ([artes pendentes](voxel-artes-pendentes.md)).
+- **Ícone:** o da mão é um desenho provisório de 8×8 em SVG. Pode ser refinado mantendo a arte em 8 px ([artes pendentes](voxel-artes-pendentes.md)).
 
 ## Verificação
 
@@ -41,7 +43,7 @@ Regras pedidas pelo usuário em 2026-11-25. Implementadas em `src/voxel/controls
   - alvo correto: chão, parede e tronco.
 - `npm run qa:voxel`:
   - hotbar com 9 espaços, mão no 1 e tecla 3;
-  - botão CORRER oculto;
+  - botão CORRER ausente;
   - W segurado: aos 1,5 s ainda não corre, aos 3,4 s corre, ao soltar para;
   - mira à direita da tela gira sem sair do lugar, F age no cubo da frente, sem objetos novos na cena;
   - no toque: arrastar o joystick de ação gira a personagem, toque curto age.

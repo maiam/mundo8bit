@@ -4,17 +4,12 @@ import * as THREE from 'three';
 import {voxelCameraLayout,voxelCameraPose,voxelScreenMovement,VOXEL_PIXELS_PER_UNIT,VOXEL_CHUNK_RADIUS,ISO_PITCH} from './voxel-settings.js';
 import {buildVoxelAtlas,ATLAS_SIZE,TILE,tileUV} from './voxel-atlas.js';
 import {columnAt,voxelGround,buildChunkData,treeAt,treeBlocks,voxelStart,treeHidesPoint,BLOCKED_GROUND,WATER_TOP} from './voxel-terrain.js';
-import {readWorldMode,worldModeSearch} from '../world-mode.js';
 import {CollisionWorld,PLAYER_RADIUS} from '../collisions.js';
 
 function cameraAt(w,h,mobile,zoom=1,x=0,z=0,ground=0){
  const l=voxelCameraLayout(w,h,mobile),p=voxelCameraPose(x,ground,z),c=new THREE.OrthographicCamera(-l.halfHeight*l.aspect,l.halfHeight*l.aspect,l.halfHeight,-l.halfHeight,.1,240);
  c.position.set(p.position.x,p.position.y,p.position.z);c.lookAt(p.target.x,p.target.y,p.target.z);c.zoom=zoom;c.updateProjectionMatrix();c.updateMatrixWorld();return c;
 }
-test('mundo: voxel é o padrão; ?mundo=classico abre o legado; troca preserva outros parâmetros',()=>{
- assert.equal(readWorldMode(''),'voxel3d');assert.equal(readWorldMode('?mundo=voxel3d'),'voxel3d');assert.equal(readWorldMode('?mundo=classico'),'classico');assert.equal(readWorldMode('?mundo=outro'),'voxel3d');
- assert.equal(worldModeSearch('?pixel=0','classico'),'?pixel=0&mundo=classico');assert.equal(worldModeSearch('?mundo=classico&pixel=0','voxel3d'),'?pixel=0');assert.equal(worldModeSearch('?mundo=classico','voxel3d'),'');
-});
 test('isometria 2:1: topo do bloco vira losango 16×8 px e controles seguem a tela',()=>{
  assert.ok(Math.abs(Math.sin(ISO_PITCH)-.5)<1e-12);
  const c=cameraAt(1440,900,false),toPx=v=>{const p=v.clone().project(c);return [p.x*c.right*VOXEL_PIXELS_PER_UNIT,p.y*c.top*VOXEL_PIXELS_PER_UNIT];};

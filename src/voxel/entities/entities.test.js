@@ -20,7 +20,7 @@ test('todas as entidades a 8 px por bloco: UV dentro da skin, sem sobreposição
   const list=[...regions.values()];
   for(const [u,v,w,h] of list)assert.ok(u+w<=def.texture[0]&&v+h<=def.texture[1],`${def.id} fora da skin`);
   for(let i=0;i<list.length;i++)for(let j=i+1;j<list.length;j++){const a=list[i],b=list[j];assert.ok(!(a[0]<b[0]+b[2]&&b[0]<a[0]+a[2]&&a[1]<b[1]+b[3]&&b[1]<a[1]+a[3]),`${def.id}: UV sobrepostas`);}
-  assert.equal(paintSkin(def).length,def.texture[0]*def.texture[1]*4);assert.equal(def.skin,null,'PNG pendente: aguardando o usuário');
+  assert.equal(paintSkin(def).length,def.texture[0]*def.texture[1]*4);assert.equal(def.skin,null,'texturas atuais geradas por código');
   assert.ok(['player','npc','mob'].includes(def.kind)&&def.colliderRadius>0);
  }
  assert.equal(modelHeight(IARA),2);assert.equal(modelHeight(GUIA),2);assert.ok(MOBS.every(m=>modelHeight(m)<1));

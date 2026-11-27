@@ -1,4 +1,4 @@
-import {heightAt,CHUNK_SIZE} from './world.js';
+import {heightAt} from './world.js';
 export const PLAYER_RADIUS=.24;
 export const MIN_WALK_HEIGHT=-1.7; // Water is at -1.55: up to 15 cm of wading.
 const CELL=4,EPS=.00001;
@@ -81,26 +81,4 @@ export class CollisionWorld {
   }
   return {x,z,distance:Math.hypot(x-start.x,z-start.z),blocked:Math.hypot((x-start.x)-dx,(z-start.z)-dz)>.001};
  }
-}
-export const collisionWorld=new CollisionWorld();
-// Conservative trunk/root proxies; crowns stay traversable overhead.
-export function treeColliders(type,x,z,scale,angle){
- // Trunk circles for the pixel art 32×32 trees (same order as TREE_IDS in trees.js).
- const radii=[.34,.32,.36,.2];
- if(!(type in radii))throw new RangeError('Espécie inválida');
- return [{type:'circle',x,z,radius:radii[type]*scale,kind:'tree'}];
-}
-export function rockCollider(placement,box){
- const c=Math.cos(placement.angle),s=Math.sin(placement.angle),scale=placement.scale,cx=(box.minX+box.maxX)*.5*scale,cz=(box.minZ+box.maxZ)*.5*scale;
- return {type:'box',x:placement.x+c*cx+s*cz,z:placement.z-s*cx+c*cz,hx:(box.maxX-box.minX)*.5*scale,hz:(box.maxZ-box.minZ)*.5*scale,angle:placement.angle,kind:'rock'};
-}
-export const ANIMAL_RADII=[.55,.61,.39,.52,.34,.48,.4,.36,.46,.3,.32];
-export function animalRadius(data){return ANIMAL_RADII[data.species]*data.scale;}
-export function findAnimalSpawn(data,world){
- const radius=animalRadius(data),id=`animal:${data.cx},${data.cz}`;
- for(let ring=0;ring<5;ring++)for(let i=0;i<(ring?12:1);i++){
-  const angle=i*Math.PI/6,x=data.x+Math.cos(angle)*ring*.22,z=data.z+Math.sin(angle)*ring*.22;
-  if(x-radius<data.cx*CHUNK_SIZE||x+radius>(data.cx+1)*CHUNK_SIZE||z-radius<data.cz*CHUNK_SIZE||z+radius>(data.cz+1)*CHUNK_SIZE)continue;
-  if(world.isFree(x,z,radius,{ignoreId:id,minGround:-.65}))return {x,z};
- }return null;
 }

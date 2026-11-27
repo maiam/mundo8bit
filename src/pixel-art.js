@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-// Pixel art presentation — default visual since 2026-11-22 (docs/pixel-art.md); can be turned off.
-// Fixed density: one 32×32 tree sprite texel = one game pixel = 1/12 world unit.
+// Apresentação pixel art; o runtime fornece a densidade projetada da câmera voxel.
+// O valor padrão abaixo é do utilitário; não determina a resolução 8×8 das texturas.
 export const PIXELS_PER_UNIT=12;
 export const PIXEL_MARGIN=1; // Extra texel on each side for sub-pixel scroll compensation.
 export const PIXEL_COLOR_LEVELS=20; // Per channel, in sRGB space, with light ordered dithering.

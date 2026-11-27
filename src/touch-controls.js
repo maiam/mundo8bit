@@ -1,11 +1,11 @@
 import {createFullscreenController} from './fullscreen.js';
-import {MAX_ZOOM} from './camera-settings.js';
+import {VOXEL_MAX_ZOOM} from './voxel/voxel-settings.js';
 export function createTouchControls(){
- const state={x:0,z:0,running:false,mobile:false,paused:false,zoom:1,minZoom:.72,maxZoom:MAX_ZOOM};
- const pad=document.querySelector('#joystick'),thumb=document.querySelector('#joystick-thumb'),run=document.querySelector('#run');
+ const state={x:0,z:0,mobile:false,paused:false,zoom:1,minZoom:.72,maxZoom:VOXEL_MAX_ZOOM};
+ const pad=document.querySelector('#joystick'),thumb=document.querySelector('#joystick-thumb');
  const menu=document.querySelector('#game-menu'),menuButton=document.querySelector('#menu-button'),overlay=document.querySelector('#rotate-screen');
  const media=matchMedia('(any-pointer:coarse)');
- let padPointer=null,runPointer=null,origin=null,lastWidth=innerWidth,canvas;
+ let padPointer=null,origin=null,lastWidth=innerWidth,canvas;
  const pointers=new Map();let pinch=null;
  const zoomOut=document.querySelector('#zoom-out'),zoomIn=document.querySelector('#zoom-in'),zoomReset=document.querySelector('#zoom-reset');
  function updateZoomUI(){zoomOut.disabled=state.zoom<=state.minZoom+.001;zoomIn.disabled=state.zoom>=state.maxZoom-.001;zoomReset.textContent=`${Math.round(state.zoom*100)}%`;}
@@ -14,8 +14,7 @@ export function createTouchControls(){
  zoomOut.onclick=()=>state.setZoom(state.zoom/1.15);zoomIn.onclick=()=>state.setZoom(state.zoom*1.15);zoomReset.onclick=()=>state.setZoom(1);
  function release(element,id){if(id!==null&&element.hasPointerCapture(id))element.releasePointerCapture(id);}
  function resetPad(){const id=padPointer;padPointer=null;origin=null;state.x=state.z=0;thumb.style.transform='translate(0px, 0px)';pad.classList.remove('active');release(pad,id);}
- function resetRun(){const id=runPointer;runPointer=null;state.running=false;run.classList.remove('pressed');run.setAttribute('aria-pressed','false');release(run,id);}
- state.reset=()=>{resetPad();resetRun();const ids=[...pointers.keys()];pointers.clear();pinch=null;if(canvas)ids.forEach(id=>release(canvas,id));};
+ state.reset=()=>{resetPad();const ids=[...pointers.keys()];pointers.clear();pinch=null;if(canvas)ids.forEach(id=>release(canvas,id));};
  function closeMenu(){menu.hidden=true;menuButton.setAttribute('aria-expanded','false');}
  menuButton.onclick=()=>{const open=menu.hidden;menu.hidden=!open;menuButton.setAttribute('aria-expanded',String(open));state.reset();};
  menu.addEventListener('click',event=>{if(event.target.closest('button'))closeMenu();});
@@ -28,10 +27,8 @@ export function createTouchControls(){
  }
  pad.addEventListener('pointerdown',event=>{if(state.paused||padPointer!==null||event.button!==0)return;event.preventDefault();closeMenu();padPointer=event.pointerId;origin={x:event.clientX,y:event.clientY};pad.setPointerCapture(padPointer);pad.classList.add('active');});
  pad.addEventListener('pointermove',event=>{if(event.pointerId===padPointer&&origin)movePad(event);});
- run.addEventListener('pointerdown',event=>{if(state.paused||runPointer!==null||event.button!==0)return;event.preventDefault();closeMenu();runPointer=event.pointerId;run.setPointerCapture(runPointer);state.running=true;run.classList.add('pressed');run.setAttribute('aria-pressed','true');});
  for(const type of ['pointerup','pointercancel','lostpointercapture']){
   pad.addEventListener(type,event=>{if(event.pointerId===padPointer)resetPad();});
-  run.addEventListener(type,event=>{if(event.pointerId===runPointer)resetRun();});
  }
  state.attachCanvas=element=>{
   canvas=element;canvas.style.touchAction='none';
@@ -41,7 +38,7 @@ export function createTouchControls(){
   canvas.addEventListener('wheel',event=>{if(state.paused)return;event.preventDefault();state.setZoom(state.zoom*Math.exp(-event.deltaY*.001));},{passive:false});
   canvas.addEventListener('contextmenu',event=>event.preventDefault());
  };
- for(const element of [pad,run])element.addEventListener('contextmenu',event=>event.preventDefault());
+ for(const element of [pad])element.addEventListener('contextmenu',event=>event.preventDefault());
  function updateLayout(){
   const mobile=media.matches,paused=mobile&&innerHeight>innerWidth,changed=mobile!==state.mobile||paused!==state.paused||innerWidth!==lastWidth;
   state.mobile=mobile;state.paused=paused;lastWidth=innerWidth;

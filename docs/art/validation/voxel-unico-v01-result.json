@@ -1,0 +1,152 @@
+{
+  "initial": {
+    "mode": "voxel3d",
+    "loadingHidden": true,
+    "error": "",
+    "badge": "MUNDO VOXEL 3D",
+    "chunks": 81,
+    "collisionChunks": 81,
+    "triangles": 80928,
+    "counts": {
+      "trees": 231,
+      "rocks": 160,
+      "flowers": 633
+    },
+    "layout": {
+      "scale": 4,
+      "width": 362,
+      "height": 227,
+      "halfHeight": 9.943689110435825
+    },
+    "atlasFilter": 1003,
+    "player": [
+      -1.5,
+      1,
+      1.5
+    ],
+    "classicLoaded": false,
+    "canvases": 1
+  },
+  "move": {
+    "direita": {
+      "before": {
+        "x": -0.5,
+        "y": 1,
+        "z": 0.5
+      },
+      "after": {
+        "x": -0.07573593128807149,
+        "y": 1,
+        "z": 0.07573593128807149
+      },
+      "screen": [
+        0.03749999999999999,
+        1.3877787807814457e-17
+      ]
+    },
+    "cima": {
+      "before": {
+        "x": -0.5,
+        "y": 1,
+        "z": 0.5
+      },
+      "after": {
+        "x": -0.8300774454578776,
+        "y": 1,
+        "z": 0.16992255454212268
+      },
+      "screen": [
+        -1.3877787807814457e-17,
+        0.023339999999999805
+      ]
+    }
+  },
+  "moveStart": {
+    "x": -0.5,
+    "z": 0.5
+  },
+  "physics": {
+    "tree": {
+      "invalid": 0,
+      "x": -49.24001,
+      "limit": -49.24
+    },
+    "water": {
+      "x": -21.260000000000005,
+      "limit": -21.24
+    },
+    "step": {
+      "x": -8,
+      "z": 0,
+      "from": -1,
+      "to": 0,
+      "endX": -6.379999999999999,
+      "endY": -0.02737294943869884
+    }
+  },
+  "hud": {
+    "slots": 9,
+    "before": 0,
+    "after": 2,
+    "first": "1: Mão",
+    "run": false,
+    "actionStick": true
+  },
+  "run": {
+    "early": false,
+    "late": true,
+    "after": false
+  },
+  "action": {
+    "yaw": 2.356194490192345,
+    "yawE": 1.5707963267948966,
+    "target": {
+      "x": -11,
+      "z": -7,
+      "y": -3,
+      "kind": "agua"
+    },
+    "last": {
+      "item": "mao",
+      "target": {
+        "x": -11,
+        "z": -7,
+        "y": -3,
+        "kind": "agua"
+      }
+    },
+    "count": 1,
+    "moved": 7.771561172376096e-16,
+    "objectsBefore": 1110,
+    "objectsAfter": 1110
+  },
+  "entities": {
+    "count": 54,
+    "kinds": [
+      "mob-capivara-voxel-v01",
+      "mob-tucano-voxel-v01",
+      "mob-tatu-voxel-v01",
+      "npc-guia-voxel-v01"
+    ],
+    "moved": 50,
+    "npc": true
+  },
+  "mobile": {
+    "layout": {
+      "scale": 2,
+      "width": 424,
+      "height": 197,
+      "halfHeight": 8.617863895711048
+    },
+    "touch": true,
+    "error": "",
+    "stick": {
+      "aimed": -0.7853981633974484,
+      "actions": 1
+    }
+  },
+  "onlyVoxel": {
+    "voxel": true,
+    "switchPresent": false
+  }
+}

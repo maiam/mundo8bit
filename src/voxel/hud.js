@@ -1,7 +1,7 @@
 // HUD do mundo voxel: hotbar de 9 espaços e joystick de ação (substitui o botão CORRER à direita).
-// Ícones definitivos em PNG ficam pendentes (docs/voxel-artes-pendentes.md); até lá, ícone provisório em SVG 8×8.
+// Ícone da mão gerado em SVG 8×8; refinamentos em docs/voxel-artes-pendentes.md.
 export const HOTBAR_SLOTS=9;
-export const HOTBAR_ITEMS=[{id:'mao',name:'Mão',icon:null}]; // icon: PNG enviado pelo usuário.
+export const HOTBAR_ITEMS=[{id:'mao',name:'Mão',icon:null}]; // icon: textura opcional.
 const HAND_8PX=['..XX.X..','.XXXXXX.','.XXXXXX.','XXXXXXX.','XXXXXXX.','.XXXXXX.','..XXXX..','..XXXX..'];
 function pixelIcon(rows,color){
  const rects=rows.flatMap((r,y)=>[...r].map((c,x)=>c==='X'?`<rect x="${x}" y="${y}" width="1" height="1"/>`:'')).join('');

@@ -17,7 +17,7 @@ export function boxUV([u,v],[w,h,d]){
 }
 export function uvRegion([u,v],[w,h,d]){return [u,v,2*(w+d),d+h];}
 
-// Pinta a skin provisória (até chegar o PNG) direto no layout box UV.
+// Gera a textura da entidade geométrica direto no layout box UV.
 // face: letra única (cor sólida) ou linhas de letras de cima para baixo, vistas de fora; '.' = transparente.
 export function paintSkin(def){
  const [W,H]=def.texture,data=new Uint8Array(W*H*4),rgb=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));
@@ -48,7 +48,7 @@ function boxGeometry(part,texture){
 }
 
 export function createSkinTexture(def,image=null){
- // PNG do usuário (def.skin) tem prioridade; enquanto for null, usa a skin provisória pintada por regra.
+ // PNG opcional (def.skin) tem prioridade; enquanto for null, usa a textura gerada por código.
  const texture=image?new THREE.Texture(image):def.skin?new THREE.TextureLoader().load(def.skin):new THREE.DataTexture(paintSkin(def),def.texture[0],def.texture[1]);
  texture.colorSpace=THREE.SRGBColorSpace;texture.magFilter=texture.minFilter=THREE.NearestFilter;texture.generateMipmaps=false;texture.flipY=false;texture.needsUpdate=true;
  return texture;
