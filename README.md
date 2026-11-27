@@ -49,3 +49,9 @@ Antes de implementar ou alterar regras de mundo: **consultar a [Minecraft Wiki](
 - [Controles](docs/voxel-controles.md)
 - [Processo para regras de mundo](docs/regras-de-mundo.md)
 - [Roadmap](docs/roadmap.md)
+
+Clima e dia/noite: [RG-02](docs/regras-clima-dia-noite.md), implementada inicialmente com ciclo de 20 min e chuva leve independente. `npm run qa:environment` valida estados acelerados, cobertura e pausa, com os mesmos requisitos de Chromium/Vite do QA voxel. Velocidades da Iara: 4,317/5,612 blocos/s, conforme RG-03 bloco A. Aparelho físico e aprovação visual final permanecem pendentes.
+
+## Integração contínua
+
+GitHub Actions executa `npm ci`, `npm test` e `npm run build` em Node.js 22 nos PRs para `main`, nos pushes em `main` e por execução manual. Check: **Tests and build (Node 22)**. Execuções anteriores da mesma referência são canceladas quando substituídas. Os QAs de navegador continuam manuais, pois exigem Vite e Chromium/CDP; suas evidências estão em `docs/art/validation/`.
