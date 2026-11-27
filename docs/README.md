@@ -3,9 +3,13 @@
 - [Estado atual](estado-atual.md)
 - [Mundo voxel e arte 8 px](voxel-3d.md)
 - [Entidades geométricas](voxel-entidades.md)
+- [Fichas atuais das entidades](entidades-atuais.md)
 - [Controles](voxel-controles.md)
 - [Refinamentos de arte](voxel-artes-pendentes.md)
 - [Processo para regras de mundo](regras-de-mundo.md)
+- [RG-01: criação de entidades — aprovada](regras-criacao-entidades.md)
+- [RG-02: clima e dia/noite — aprovada, implementação inicial](regras-clima-dia-noite.md)
+- [RG-03: movimento — bloco A aprovado; NPCs/mobs pendentes](regras-movimento-comportamento.md)
 - [Roadmap](roadmap.md)
 - [Hipóteses de experiência infantil](design-crianca-5-anos.md)
 

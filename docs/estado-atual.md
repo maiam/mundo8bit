@@ -11,6 +11,7 @@ O único mundo é voxel com arte em 8 px por bloco. A aplicação clássica e se
 | Controles | Joysticks, corrida, orientação, ação, hotbar, zoom, teclado, pausa em retrato | Validar compreensão com criança e aparelho real |
 | Ação | Anima o braço, calcula alvo e emite evento `voxel-acao` | Sem efeito em blocos, saudação ou reação dos animais |
 | Interface | Menu, pixel art, origem, limites dos chunks e tela cheia condicional | Convites visuais/sonoros compreensíveis sem leitura |
+| Ambiente | Ciclo de 20 min e clima independente (limpo/nublado/chuva leve), pausa/visibilidade, transições e chuva limitada por cobertura | Revisão visual do usuário e desempenho em aparelho físico; sem efeitos nas entidades |
 | Áudio e progresso | Sem áudio, missões, figurinhas ou progresso salvo | Ainda propostas |
 
 A alternância de pixel art muda a apresentação; não existe modo clássico. Skins são texturas aplicadas à geometria e não sprites substituindo personagens.
@@ -18,3 +19,5 @@ A alternância de pixel art muda a apresentação; não existe modo clássico. S
 Testes automatizados cobrem geração, colisões, apresentação, controles, terreno e entidades. QA de navegador existe em `scripts/verify-voxel.mjs`; resultados históricos não comprovam o estado atual nem desempenho em dispositivo físico. Não há validação infantil concluída.
 
 Antes de mudar regras de mundo, seguir [consulta à wiki, proposta e aprovação](regras-de-mundo.md).
+
+RG-03 bloco A: Iara anda a 4,317 e corre a 5,612 blocos/s. RG-01: fichas atuais em [entidades](entidades-atuais.md); detalhes de movimento/IA de NPCs/mobs permanecem pendentes.

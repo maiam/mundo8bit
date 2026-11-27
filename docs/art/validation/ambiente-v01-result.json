@@ -1,0 +1,68 @@
+{
+  "initial": {
+    "state": {
+      "time": 2.7665,
+      "phase": "dia",
+      "day": 1,
+      "hour": 6.05533,
+      "seconds": 2.7665,
+      "weather": "limpo",
+      "weatherAge": 2.7665,
+      "weatherDuration": 414.2039620690048,
+      "cloud": 0,
+      "rain": 0
+    },
+    "walk": 4.317,
+    "run": 5.612,
+    "error": "",
+    "chunks": 81
+  },
+  "night": {
+    "state": {
+      "time": 800.3000000000001,
+      "phase": "noite",
+      "day": 1,
+      "hour": 22.006,
+      "seconds": 800.3000000000001,
+      "weather": "limpo",
+      "weatherAge": 212.34743507318206,
+      "weatherDuration": 439.37583865597844,
+      "cloud": 0,
+      "rain": 0
+    },
+    "sky": "657d9c",
+    "geometries": 66
+  },
+  "rain": {
+    "state": {
+      "time": 1061.6,
+      "phase": "noite",
+      "day": 1,
+      "hour": 3.2319999999999993,
+      "seconds": 1061.6,
+      "weather": "chuva",
+      "weatherAge": 4.271596417203455,
+      "weatherDuration": 79.97812549117953,
+      "cloud": 1,
+      "rain": 1
+    },
+    "visible": true,
+    "count": 640,
+    "finite": true,
+    "sky": "7388a0"
+  },
+  "hidden": {
+    "before": 1062.6120999999994,
+    "after": 1062.6120999999994
+  },
+  "portrait": {
+    "paused": true,
+    "before": 1062.7792999999992,
+    "after": 1062.7792999999992
+  },
+  "resumed": {
+    "paused": false,
+    "time": 1063.7124999999996,
+    "error": ""
+  }
+}

@@ -2,6 +2,9 @@
 import {columnAt,treeAt} from './voxel-terrain.js';
 import {natureAt} from '../nature.js';
 
+export const PLAYER_WALK_SPEED=4.317;
+export const PLAYER_RUN_SPEED=5.612;
+
 // Corrida: manter o joystick (ou W/↑) para cima/frente por 3 s, sem soltar nem desviar mais de 45°.
 export const RUN_HOLD_SECONDS=3;
 export function createRunRule({hold=RUN_HOLD_SECONDS,minMagnitude=.6,maxAngle=Math.PI/4}={}){

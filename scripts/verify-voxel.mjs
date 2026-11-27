@@ -5,7 +5,7 @@ import {connectCDP} from './cdp.mjs';
 const c=await connectCDP(9334,t=>t.url.startsWith('http://127.0.0.1:5173'));
 const frames='new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(r))))';
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
-const shot=async name=>{await c.evaluate(frames);const s=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(`docs/art/validation/voxel-unico-v01-${name}.png`,Buffer.from(s.data,'base64'));};
+const shot=async name=>{await c.evaluate(frames);const s=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(`docs/art/validation/${process.env.QA_OUTPUT_PREFIX??'voxel-unico-v01'}-${name}.png`,Buffer.from(s.data,'base64'));};
 const key=async(k,code,vk,ms)=>{await c.send('Input.dispatchKeyEvent',{type:'keyDown',key:k,code,windowsVirtualKeyCode:vk});await wait(ms);await c.send('Input.dispatchKeyEvent',{type:'keyUp',key:k,code,windowsVirtualKeyCode:vk});};
 const load=async search=>{await c.send('Page.navigate',{url:`http://127.0.0.1:5173/${search}`});await wait(9000);};
 try{
@@ -13,7 +13,7 @@ try{
  await c.send('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
  await load('');
  const result={};
- result.initial=await c.evaluate(`(async()=>{const v=await import('/src/voxel/voxel-main.js');window.qa=v;v.setPixelArt(true);await ${frames};
+ result.initial=await c.evaluate(`(async()=>{const v=await import(document.querySelector('script[src*="voxel-main.js"]').src);window.qa=v;v.setPixelArt(true);await ${frames};
   let triangles=0;for(const ch of v.chunks.values())triangles+=ch.solid.geometry.index.count/3;
   const counts=[...v.chunks.values()].reduce((a,ch)=>({trees:a.trees+ch.counts.trees,rocks:a.rocks+ch.counts.rocks,flowers:a.flowers+ch.counts.flowers}),{trees:0,rocks:0,flowers:0});
   return {mode:v.worldMode,loadingHidden:document.querySelector('#loading').hidden,error:document.querySelector('#error').textContent,badge:document.querySelector('header .badge').textContent,
@@ -110,5 +110,5 @@ try{
  await c.send('Page.navigate',{url:'http://127.0.0.1:5173/?mundo=classico'});await wait(1500);
  result.onlyVoxel=await c.evaluate(`({voxel:document.body.classList.contains('voxel-world'),switchPresent:Boolean(document.querySelector('#world-switch'))})`);
  assert.equal(result.onlyVoxel.voxel,true);assert.equal(result.onlyVoxel.switchPresent,false);
- writeFileSync('docs/art/validation/voxel-unico-v01-result.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,1));
+ writeFileSync(`docs/art/validation/${process.env.QA_OUTPUT_PREFIX??'voxel-unico-v01'}-result.json`,JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,1));
 }finally{c.close();}

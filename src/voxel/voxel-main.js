@@ -14,8 +14,10 @@ import {buildBoxModel} from './entities/box-model.js';
 import {animateEntity} from './entities/animation.js';
 import {IARA} from './entities/entity-defs.js';
 import {createEntityManager} from './entities/entities.js';
-import {createRunRule,actionTarget} from './controls.js';
+import {createRunRule,actionTarget,PLAYER_WALK_SPEED,PLAYER_RUN_SPEED} from './controls.js';
 import {createHotbar,createActionStick} from './hud.js';
+import {createEnvironment,createActiveClock} from './environment.js';
+import {createEnvironmentView} from './environment-view.js';
 
 export const worldMode='voxel3d';
 document.body.classList.add('voxel-world');
@@ -49,6 +51,8 @@ function geometryFrom(buffers){
  g.setAttribute('position',new THREE.Float32BufferAttribute(buffers.position,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(buffers.uv,2));
  g.setAttribute('color',new THREE.Float32BufferAttribute(buffers.color,3));g.setIndex(buffers.index);g.computeBoundingSphere();return g;
 }
+export const environment=createEnvironment(SEED);
+export const environmentView=createEnvironmentView(scene);
 export const chunks=new Map();let showGrid=false;
 function makeChunk(cx,cz){
  const data=buildChunkData(cx,cz),group=new THREE.Group();group.name=`chunk ${cx},${cz}`;
@@ -65,6 +69,7 @@ function stream(){
  const wanted=new Set();
  for(const [x,z] of wantedChunks(player.position.x,player.position.z,VOXEL_CHUNK_RADIUS)){const key=`${x},${z}`;wanted.add(key);if(!chunks.has(key))chunks.set(key,makeChunk(x,z));}
  for(const [key,c] of chunks)if(!wanted.has(key)){disposeChunk(c);chunks.delete(key);}
+ environmentView.refreshMaterials();
 }
 
 export const player=new THREE.Group();player.name='Iara voxel';scene.add(player);
@@ -118,8 +123,14 @@ function resize(){
 }
 window.addEventListener('resize',resize);matchMedia('(any-pointer:coarse)').addEventListener('change',resize);document.addEventListener('fullscreenchange',resize);document.addEventListener('webkitfullscreenchange',resize);
 updatePixelArtUI();resize();stream();export const npc=entities.spawnNpc(START);document.querySelector('#loading').hidden=true;
+environmentView.refreshMaterials();
+const environmentClock=createActiveClock(performance.now(),touch.paused||document.hidden);
+function sampleEnvironment(now){return environment.advance(environmentClock.sample(now,touch.paused||document.hidden));}
+document.addEventListener('visibilitychange',()=>sampleEnvironment(performance.now()));
+window.addEventListener('resize',()=>sampleEnvironment(performance.now()));
 
 function frame(now){
+ const environmentState=sampleEnvironment(now);
  // dt limitado para a física; a regra dos 3 s conta tempo real (aparelhos lentos não atrasam a corrida).
  const realDt=Math.min((now-time)/1000,.25),dt=Math.min(realDt,.05);time=now;if(touch.paused){keys.clear();requestAnimationFrame(frame);return;}
  if(Math.abs(camera.zoom-touch.zoom)>.0001){camera.zoom+=(touch.zoom-camera.zoom)*(1-Math.exp(-12*dt));camera.updateProjectionMatrix();}
@@ -130,7 +141,7 @@ function frame(now){
  // Corrida: 3 s com o joystick/W para cima (Shift continua como atalho no teclado).
  const running=runRule.update(x,down,realDt)||keys.has('shift');
  facing.moving=length>.05;
- if(facing.moving){const l=Math.max(1,length);x/=l;down/=l;const speed=running?8:4,d=voxelScreenMovement(x,down);walked=movePlayer(d.x*speed*dt,d.z*speed*dt).distance;facing.yaw=Math.atan2(d.x,d.z);}
+ if(facing.moving){const l=Math.max(1,length);x/=l;down/=l;const speed=running?PLAYER_RUN_SPEED:PLAYER_WALK_SPEED,d=voxelScreenMovement(x,down);walked=movePlayer(d.x*speed*dt,d.z*speed*dt).distance;facing.yaw=Math.atan2(d.x,d.z);}
  player.rotation.y+=Math.atan2(Math.sin(facing.yaw-player.rotation.y),Math.cos(facing.yaw-player.rotation.y))*Math.min(1,dt*16);
  limbSwing+=walked*6;swingAmount+=(Math.min(1,walked/Math.max(dt,.001)/4)-swingAmount)*Math.min(1,dt*12);
  actionState.swing=Math.max(0,actionState.swing-dt/.3);
@@ -144,6 +155,7 @@ function frame(now){
  camera.position.set(pose.position.x,pose.position.y,pose.position.z);camera.lookAt(pose.target.x,pose.target.y,pose.target.z);lastCamera={x:player.position.x,z:player.position.z};
  entities.update(dt,elapsed,player.position);
  document.querySelector('#stats').textContent=`VOXEL 3D / SEMENTE ${SEED} / CHUNK ${chunk} / ${chunks.size} ATIVOS / X ${player.position.x.toFixed(0)} Z ${player.position.z.toFixed(0)}`;
+ environmentView.update(environmentState,player.position);
  if(pixelArt.enabled)pixelArt.render(scene,camera);else renderer.render(scene,camera);requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
