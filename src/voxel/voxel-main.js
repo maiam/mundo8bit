@@ -122,7 +122,7 @@ function resize(){
  renderer.setSize(innerWidth,innerHeight,false);renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
 }
 window.addEventListener('resize',resize);matchMedia('(any-pointer:coarse)').addEventListener('change',resize);document.addEventListener('fullscreenchange',resize);document.addEventListener('webkitfullscreenchange',resize);
-updatePixelArtUI();resize();stream();export const npc=entities.spawnNpc(START);document.querySelector('#loading').hidden=true;
+updatePixelArtUI();resize();stream();export const villagers=entities.spawnVillagers(START);document.querySelector('#loading').hidden=true;
 environmentView.refreshMaterials();
 const environmentClock=createActiveClock(performance.now(),touch.paused||document.hidden);
 function sampleEnvironment(now){return environment.advance(environmentClock.sample(now,touch.paused||document.hidden));}

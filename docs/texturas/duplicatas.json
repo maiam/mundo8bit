@@ -2,43 +2,182 @@
   {
     "sha256": "1b8f8269d462101a2d1bca6034968169dac761c1391758ea1fc954e59c7e29d5",
     "paths": [
+      "assets/voxel/skins/historico/npc-guia-voxel-v01-guia-uv.png",
       "assets/voxel/skins/modelos/iara-voxel-v02-guia-uv.png",
-      "assets/voxel/skins/modelos/npc-guia-voxel-v01-guia-uv.png"
+      "assets/voxel/skins/modelos/npc-aldeao-homem-v01-guia-uv.png",
+      "assets/voxel/skins/modelos/npc-aldeao-mulher-v01-guia-uv.png"
+    ]
+  },
+  {
+    "sha256": "86343a8c9b7c0419efa0076a6e83a88d006df67885e91697cb077a704780828e",
+    "paths": [
+      "assets/voxel/skins/historico/npc-guia-voxel-v01-provisoria.png",
+      "assets/voxel/texturas/catalogo-v01/skins/npc-guia-voxel-v01.png"
     ]
   },
   {
     "sha256": "375d18238a06e9f94be39033652dece3e7e6f68f2d88ec5b955e942fc4c3e75a",
     "paths": [
       "assets/voxel/skins/modelos/iara-voxel-v02-provisoria.png",
-      "assets/voxel/texturas/catalogo-v01/skins/iara-voxel-v02.png"
+      "assets/voxel/texturas/catalogo-v01/skins/iara-voxel-v02.png",
+      "assets/voxel/texturas/catalogo-v02/skins/iara-voxel-v02.png"
     ]
   },
   {
     "sha256": "2c6076a0717e382e65c43ef2c5178d23f5cf119c1ec9ae76feb1cf0952d5c6bb",
     "paths": [
       "assets/voxel/skins/modelos/mob-capivara-voxel-v01-provisoria.png",
-      "assets/voxel/texturas/catalogo-v01/skins/mob-capivara-voxel-v01.png"
+      "assets/voxel/texturas/catalogo-v01/skins/mob-capivara-voxel-v01.png",
+      "assets/voxel/texturas/catalogo-v02/skins/mob-capivara-voxel-v01.png"
     ]
   },
   {
     "sha256": "ea696d2bd2b9b86641115d43f4f86161fa61ddf3223bfa30df3296cc989cc529",
     "paths": [
       "assets/voxel/skins/modelos/mob-tatu-voxel-v01-provisoria.png",
-      "assets/voxel/texturas/catalogo-v01/skins/mob-tatu-voxel-v01.png"
+      "assets/voxel/texturas/catalogo-v01/skins/mob-tatu-voxel-v01.png",
+      "assets/voxel/texturas/catalogo-v02/skins/mob-tatu-voxel-v01.png"
     ]
   },
   {
     "sha256": "62003b569426e598f2bb4d8f5be45381a509eafbe3decf6b380db3fa5fa3fccd",
     "paths": [
       "assets/voxel/skins/modelos/mob-tucano-voxel-v01-provisoria.png",
-      "assets/voxel/texturas/catalogo-v01/skins/mob-tucano-voxel-v01.png"
+      "assets/voxel/texturas/catalogo-v01/skins/mob-tucano-voxel-v01.png",
+      "assets/voxel/texturas/catalogo-v02/skins/mob-tucano-voxel-v01.png"
     ]
   },
   {
-    "sha256": "86343a8c9b7c0419efa0076a6e83a88d006df67885e91697cb077a704780828e",
+    "sha256": "bd628f078d7b1f86d017327df979d0ca5454da85a339dedba69f7f232e40880a",
     "paths": [
-      "assets/voxel/skins/modelos/npc-guia-voxel-v01-provisoria.png",
-      "assets/voxel/texturas/catalogo-v01/skins/npc-guia-voxel-v01.png"
+      "assets/voxel/skins/modelos/npc-aldeao-homem-v01-provisoria.png",
+      "assets/voxel/texturas/catalogo-v02/skins/npc-aldeao-homem-v01.png"
+    ]
+  },
+  {
+    "sha256": "12c186e2c1129f9efc6880486c51144d2761448b01b5ac6007e6e41a73394cf8",
+    "paths": [
+      "assets/voxel/skins/modelos/npc-aldeao-mulher-v01-provisoria.png",
+      "assets/voxel/texturas/catalogo-v02/skins/npc-aldeao-mulher-v01.png"
+    ]
+  },
+  {
+    "sha256": "25f2e1312bac9c966e9fdd95388373b69c6b0e4d20d4cf4935a40ca3a5147ef4",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/atlas-blocos-32.png",
+      "assets/voxel/texturas/catalogo-v02/atlas-blocos-32.png"
+    ]
+  },
+  {
+    "sha256": "0d1e39805ba91532dbd574d2d4940e9ab6ad4125992ee429b11e3465b1c77cb8",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/00-grassTop.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/00-grassTop.png"
+    ]
+  },
+  {
+    "sha256": "679d2aa66bdfa6de7e6e1f4b1bc3b8f222d3712a958cf486b6751d1e775be4c5",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/01-grassSide.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/01-grassSide.png"
+    ]
+  },
+  {
+    "sha256": "35b4b3199f2e2db00bd9887c6c5e8f38e3921dce380d2fd4980f75ac9db1495c",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/02-dirt.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/02-dirt.png"
+    ]
+  },
+  {
+    "sha256": "c86d7c65b8c7b0b51027b375965bfb74104f3e3ada4f82eb9c7db7930d5bb589",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/03-stone.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/03-stone.png"
+    ]
+  },
+  {
+    "sha256": "879741899c2de4957fcbc754043ea293ed444aa09e58ac77422acb38e184b02a",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/04-sand.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/04-sand.png"
+    ]
+  },
+  {
+    "sha256": "7602779c2b343145eda6c28f0697e463d4034bfedfbbbbbf1d4040c5de7302cf",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/05-water.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/05-water.png"
+    ]
+  },
+  {
+    "sha256": "7bed0afbf5b71defba92797afca108b18a51661bf0d9986f7071bb26ed5d1093",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/06-logSide.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/06-logSide.png"
+    ]
+  },
+  {
+    "sha256": "401caec7c594a6d375b7b0c7255491510d36757b5519bc9537480446f2c59463",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/07-logTop.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/07-logTop.png"
+    ]
+  },
+  {
+    "sha256": "cc3a45fce0d91776224a7adb237bc599192301f98122ff05831d7ae99914b459",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/08-birchSide.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/08-birchSide.png"
+    ]
+  },
+  {
+    "sha256": "7d9ec902b7f6968b6f92fb0a4ace1de5ebe0810a532e4ee40ce19a4a4dd9f8ae",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/09-leaves.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/09-leaves.png"
+    ]
+  },
+  {
+    "sha256": "d59abc48d42aef7bf542ea04a3c949b82fb4f9b281d8ac510ef9889d55b93999",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/10-leavesPink.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/10-leavesPink.png"
+    ]
+  },
+  {
+    "sha256": "385413d024201f636e9cee49662380d1aef2950489e36625d989ee8fc5ca5d65",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/11-leavesApple.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/11-leavesApple.png"
+    ]
+  },
+  {
+    "sha256": "ebfe029f801ea4abcd5b5380be8653b911b6b8ce7eef291da9b79f16628ed766",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/12-grassLightTop.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/12-grassLightTop.png"
+    ]
+  },
+  {
+    "sha256": "55fe01aeb8ad7c4625f774e03de00402ce486436ce149c136cb1c05a6c6a3c90",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/13-grassLightSide.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/13-grassLightSide.png"
+    ]
+  },
+  {
+    "sha256": "5f249f9bc6be4493d5404c9d6ce73e913d1cdf62b12250b1da569cf637d31479",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/14-cobble.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/14-cobble.png"
+    ]
+  },
+  {
+    "sha256": "ea2e756cfae73ae84195aab2e1de0c1dff8d5f517fd7e42c9a9ae610c0a14d70",
+    "paths": [
+      "assets/voxel/texturas/catalogo-v01/blocos/15-white.png",
+      "assets/voxel/texturas/catalogo-v02/blocos/15-white.png"
     ]
   },
   {

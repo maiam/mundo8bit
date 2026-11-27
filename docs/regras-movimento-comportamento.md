@@ -52,7 +52,9 @@ Decisão de todos os itens A1–A7: **aprovados pelo usuário em 2026-11-27**, c
 - `src/collisions.js`: `PLAYER_RADIUS`, `move`, `walkableGround`, `project` e contatos dinâmicos.
 - `src/voxel/voxel-terrain.js`: `voxelGround`, `WATER_TOP`, `BLOCKED_GROUND`.
 
-## Bloco B — NPCs e mobs: inventário, ainda sem proposta completa
+## Bloco B — inventário anterior à integração dos aldeões
+
+Atualização: o Guia foi substituído pelo par de [aldeões v01](aldeoes-v01.md), com aparência e integração inicial aprovadas em 2026-11-27. A tabela abaixo preserva a comparação anterior; não descreve o NPC atual. As regras dos mobs continuam pendentes.
 
 Não aplicar a eles automaticamente as velocidades de jogador.
 

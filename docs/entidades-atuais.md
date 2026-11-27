@@ -23,15 +23,36 @@ Inventário técnico em 2026-11-27. Documenta o código existente; não aprova a
 | cabeca | 4×4×4 | 0, 12, 0 | raiz | 0, 0 |
 | cabeca-externa | 4×4×4 | 0, 12, 0 | camada de cabeca | 16, 0 |
 
-## Guia (provisório)
+## Aldeão
 
-- Tipo/versão: `npc-guia-voxel-v01`; papel: `npc`.
+- Tipo/versão: `npc-aldeao-homem-v01`; papel: `npc`.
 - Rig: `humanoid`; altura base: 2 blocos. Partes e pivôs em pixels de 1/8 de bloco.
 - Skin: 32×32 pixels, gerada por código, filtro nearest e box UV. Paleta por letras em `palette`; camadas e cores por face em `parts[].paint`.
-- Colisão atual: círculo X/Z, raio 0.3; parâmetro específico ainda pendente de auditoria/aprovação.
-- Controle/capacidades: IA atual de passeio e olhar; parâmetros específicos ainda pendentes de auditoria/aprovação.
+- Colisão atual: círculo X/Z, raio 0.3; aprovada para aldeões v01.
+- Controle/capacidades: passeio 1,1 bloco/s, destinos ±4 células X/Z, pausas 4–9 s, olhar a menos de 6 blocos; aprovado em aldeoes-v01.md.
 - Animações atuais: procedural pelo rig, sincronizada ao deslocamento; cabeça pode orientar separadamente. Sem aprovação implícita de novas ações.
-- Criação/ciclo atual: NPC Guia perto do início ou mobs gerados por chunk; migração/persistência e regras de spawn ainda pendentes.
+- Criação/ciclo atual: uma instância de cada aldeão por sessão a 3–6 células da origem, em posição válida. Suspensão fora da área carregada e retomada da mesma instância; sem salvar entre sessões.
+- Variações: sem catálogo adicional de variantes; não duplicar regra por trocar a textura.
+
+| Parte | Dimensões px | Pivô px | Pai/camada | UV inicial |
+| --- | --- | --- | --- | --- |
+| perna-direita | 2×6×2 | -1, 6, 0 | raiz | 0, 8 |
+| perna-esquerda | 2×6×2 | 1, 6, 0 | raiz | 8, 24 |
+| tronco | 4×6×2 | 0, 12, 0 | raiz | 8, 8 |
+| braco-direito | 2×6×2 | -3, 11, 0 | raiz | 20, 8 |
+| braco-esquerdo | 2×6×2 | 3, 11, 0 | raiz | 16, 24 |
+| cabeca | 4×4×4 | 0, 12, 0 | raiz | 0, 0 |
+| cabeca-externa | 4×4×4 | 0, 12, 0 | camada de cabeca | 16, 0 |
+
+## Aldeã
+
+- Tipo/versão: `npc-aldeao-mulher-v01`; papel: `npc`.
+- Rig: `humanoid`; altura base: 2 blocos. Partes e pivôs em pixels de 1/8 de bloco.
+- Skin: 32×32 pixels, gerada por código, filtro nearest e box UV. Paleta por letras em `palette`; camadas e cores por face em `parts[].paint`.
+- Colisão atual: círculo X/Z, raio 0.3; aprovada para aldeões v01.
+- Controle/capacidades: passeio 1,1 bloco/s, destinos ±4 células X/Z, pausas 4–9 s, olhar a menos de 6 blocos; aprovado em aldeoes-v01.md.
+- Animações atuais: procedural pelo rig, sincronizada ao deslocamento; cabeça pode orientar separadamente. Sem aprovação implícita de novas ações.
+- Criação/ciclo atual: uma instância de cada aldeão por sessão a 3–6 células da origem, em posição válida. Suspensão fora da área carregada e retomada da mesma instância; sem salvar entre sessões.
 - Variações: sem catálogo adicional de variantes; não duplicar regra por trocar a textura.
 
 | Parte | Dimensões px | Pivô px | Pai/camada | UV inicial |

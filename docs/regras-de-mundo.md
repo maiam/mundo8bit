@@ -31,6 +31,8 @@ A remoção do clássico e a atualização documental foram solicitadas. As regr
 
 ## Regras aprovadas
 
+- **Aldeões v01:** homem/mulher, aparência e integração inicial aprovadas em 2026-11-27. [Comparação e escopo](aldeoes-v01.md). Aprovação específica do par; não extensiva aos demais NPCs/mobs.
+
 - **RG-03, bloco A — locomoção da Iara:** A1–A7 aprovados em 2026-11-27. [Comparação e decisão](regras-movimento-comportamento.md). NPCs e mobs não incluídos.
 
 - **RG-01 — criação de personagens, NPCs e mobs:** aprovada pelo usuário em 2026-11-27. [Contrato e escopo](regras-criacao-entidades.md). Não inclui aprovação de novas regras de spawn, persistência, hostilidade ou parâmetros físicos.
